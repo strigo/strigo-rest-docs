@@ -1,0 +1,51 @@
+theme = "docuapi"
+# themesdir = "../.."
+languageCode = "en-us"
+baseurl = "/"
+title = "Strigo API Reference"
+
+# Code higlighting settings
+pygmentsCodefences = true
+pygmentsCodeFencesGuesSsyntax = false
+pygmentsOptions = ""
+pygmentsStyle = "monokai"
+# The monokai stylesheet is included in the base template.
+pygmentsUseClasses = true
+
+defaultContentLanguage = "en"
+
+[params]
+search = true
+googleAnalytics = "GTM-P8VJ87"
+
+# Configure the language example tabs.
+[[params.language_tabs]]
+key = "shell"
+name = "cURL"
+
+#Languages
+[languages]
+
+[languages.en]
+languageName = "English"
+weight = 2
+title = "Strigo API Reference"
+
+# Left sidebar footer items. Use HTMl or Markdown.
+toc_footers = [
+"[Strigo Docs](https://docs.strigo.io)"
+]
+[languages.en.blackfriday]
+angledQuotes = false
+hrefTargetBlank = true
+
+
+[[menu.shortcuts]]
+name = "<i class='fa fa-question-circle'></i> <label>Product</label>"
+url = "https://strigo.io/product"
+weight = 10
+
+[[menu.shortcuts]]
+name = "<i class='fa fa-address-card'></i> <label>About Us</label>"
+url = "https://strigo.io/about"
+weight = 40

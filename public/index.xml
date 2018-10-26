@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Strigo API Reference</title>
+    <link>/</link>
+    <description>Recent content on Strigo API Reference</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>/1-intro/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1-intro/</guid>
+      <description>Introduction Strigo&amp;rsquo;s v1 REST API allows you to perform most basic actions Strigo supports for non-live interaction with Strigo&amp;rsquo;s platform.
+Some actions, like changing billing settings, are only available via the web interface.
+This section describes various API features that apply to all resources  API Endpoint The default API endpoint for all v1 requests is:
+https://app.strigo.io/api/v1
+All paths shown here are relative to this path.
+Authentication  Basic usage</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/2-api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/events/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/events/</guid>
+      <description>Events Event Resource Attributes:    Attribute Type Description     id String The event&amp;rsquo;s unique identifier.   name String The event&amp;rsquo;s name.   event_link String The event&amp;rsquo;s link.   token String The event&amp;rsquo;s public access token.   class_id String The unique id of the class the event is based on.   availability String public/private   description String The event&amp;rsquo;s description.</description>
+    </item>
+    
+  </channel>
+</rss>
