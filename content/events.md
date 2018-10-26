@@ -1,6 +1,10 @@
+---
+weight: 110
+---
+
 # Events
 
-## Event Resource
+## The Event Resource
 
 ### Attributes:
 
