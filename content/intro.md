@@ -148,9 +148,12 @@ This can be used to verify server integrity and to validate your credentials.
 
 We currently limit requests to ~120/min. This will change in the future.
 
-Responses contain headers indicating the current limit status:
+All responses contain headers indicating the current limit status.
 
-```
+
+> Response Example
+
+```shell
 HTTP/1.1 201 Created
 connection: keep-alive
 content-length: 176
@@ -162,11 +165,13 @@ x-powered-by: Express
 x-ratelimit-limit: 60
 x-ratelimit-remaining: 59
 x-ratelimit-reset: 1540714538
+
+...
 ```
 
-Passing the limit, you will get the following:
+> Passed the limit
 
-```
+```shell
 HTTP/1.1 429 Too Many Requests
 connection: keep-alive
 content-length: 42
