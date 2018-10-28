@@ -142,3 +142,43 @@ $ curl -X GET \
 ### Usage
 
 This can be used to verify server integrity and to validate your credentials.
+
+
+## Rate Limiting
+
+We currently limit requests to ~120/min. This will change in the future.
+
+Responses contain headers indicating the current limit status:
+
+```
+HTTP/1.1 201 Created
+connection: keep-alive
+content-length: 176
+content-type: application/json; charset=utf-8
+date: Sun, 28 Oct 2018 08:14:55 GMT
+etag: W/"b0-oyLnTncCdwzOLaMEktxD6NJ1PL0"
+vary: Accept-Encoding
+x-powered-by: Express
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+x-ratelimit-reset: 1540714538
+```
+
+Passing the limit, you will get the following:
+
+```
+HTTP/1.1 429 Too Many Requests
+connection: keep-alive
+content-length: 42
+content-type: text/html; charset=utf-8
+date: Sun, 28 Oct 2018 08:37:49 GMT
+etag: W/"2a-UpTsLJ74nYuiLgNgEwlQMxGqwrE"
+retry-after: 60
+vary: Accept-Encoding
+x-powered-by: Express
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 0
+x-ratelimit-reset: 1540715901
+
+Too many requests, please try again later.
+```
