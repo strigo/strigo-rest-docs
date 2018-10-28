@@ -33,7 +33,7 @@ title = "Strigo API Reference"
 
 # Left sidebar footer items. Use HTMl or Markdown.
 toc_footers = [
-"[Strigo Docs](https://docs.strigo.io)"
+"[Strigo Help](https://help.strigo.io)"
 ]
 [languages.en.blackfriday]
 angledQuotes = false
