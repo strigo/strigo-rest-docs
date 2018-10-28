@@ -11,7 +11,7 @@ weight: 110
 Attribute | Type | Description
 --------- | ------- | -------
 `id` | String | The event's unique identifier.
-`owner` | String | The email or unique ID of the org member hosting the event.
+`owner` | Object | The `email` and `id` of the org member hosting the event.
 `name` | String | The event's name.
 `event_link` | String | The event's link.
 `token` | String | The event's public access token.
@@ -290,4 +290,3 @@ You can only delete events in `ready` state.
 Attribute  | Type    | Required | Description
 ---------  | ------- | -------  | -------
 `event_id` | String  | Yes      | The event's unique identifier.
-
