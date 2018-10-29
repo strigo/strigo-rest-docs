@@ -75,7 +75,7 @@ We'll be adding additional authentication methods in the future.
 {
   "result": "failure",
   "error": {
-    "type": "classNotFound",
+    "type": "ClassNotFound",
     "message": "Class hd3ALTaLAbhfzmBbf could not be found."
   }
 }
@@ -83,9 +83,13 @@ We'll be adding additional authentication methods in the future.
 
 Each response, (except for `/health`) contains at the very least one high-level key (`result`) and two optional ones (`data` and `error`).
 
+<aside class="notice">
+`DELETE` responses only contain a `result` key.
+</aside>
+
 ### The `result` Key
 
-The `result` key is supposed to help you identify, before proceeding any further in your code, whether the request was successful or not. This is merely a convenience.
+The `result` key is supposed to help you identify, before proceeding any further in your code, whether the request was successful or not. This is merely a convenience. The values can either be `success` or `failure`.
 
 ### The `data` Key
 
@@ -96,7 +100,7 @@ don't return data.
 
 The `error` key is only included when an error occurs, and has two fields (`type` and `message`).
 
-* `type` -> The Strigo-specific type of error (e.g. `classNotFound`). While you can operate on HTTP status codes, this provides a more elaborate mechanism for acting on errors. For example, a request can return `400` for two completely different types of errors.
+* `type` -> The Strigo-specific type of error (e.g. `ClassNotFound`). While you can operate on HTTP status codes, this provides a more elaborate mechanism for acting on errors. For example, a request can return `400` for two completely different types of errors.
 * `message` -> A more elaborate, human-readable message describing the error.
 
 <aside class="notice">
@@ -146,7 +150,7 @@ This can be used to verify server integrity and to validate your credentials.
 
 ## Rate Limiting
 
-We currently limit requests to ~120/min. This will change in the future.
+We currently allow ~1xx-~2xx RPM. This will change in the future.
 
 All responses contain headers indicating the current limit status.
 
