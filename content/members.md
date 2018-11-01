@@ -33,12 +33,12 @@ $ curl -X GET \
   {
     "email": "me@strigo.io",
     "id": "rMWNrMT2PCySh2PGo",
-    "level": "owner"
+    "role": "owner"
   },
   {
     "email": "me2@strigo.io",
     "id": "AsEM3RtnbuudJBZD5",
-    "level": "member"
+    "role": "member"
   }
 ]
 ```
