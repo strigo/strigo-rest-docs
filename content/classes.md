@@ -15,9 +15,9 @@ Attribute               | Type     | Description
 `name`                  | String   | The class's name.
 `owner`                 | String   | The email or unique ID of the org member who created the class.
 `description`           | String   | The class's description.
-`resources`             | Datetime | The lab resources chosen for the class.
-`presentation_notes`    | Datetime | The presentation notes added to the class's presentation.
-`presentation_filename` | List     | The name of the presentation file.
+`resources`             | List     | The lab resources chosen for the class.
+`presentation_notes`    | List     | The presentation notes added to the class's presentation.
+`presentation_filename` | String   | The name of the presentation file.
 
 
 ## Retrieve all classes

@@ -8,24 +8,24 @@ weight: 110
 
 ### Attributes:
 
-Attribute | Type | Description
---------- | ------- | -------
-`id` | String | The event's unique identifier.
-`owner` | Object | The `email` and `id` of the org member hosting the event.
-`name` | String | The event's name.
-`event_link` | String | The event's link.
-`token` | String | The event's public access token.
-`class_id` | String | The unique id of the class the event is based on.
-`availability` | String | public/private
-`description` | String | The event's description.
-`date_start` | Datetime | The date when the event starts.
-`date_end` | Datetime | The date when the event ends.
-`include_chat` | Boolean | Whether the event should include chat.
-`include_video` | Boolean | Whether the event should include video.
-`tas` | List | A list of training assistant emails.
-`trainees` | List | A list of student emails (for private only).
-`use_new_console` | Boolean | Whether to use the new console or not (Beta).
-`status` | String | The status of the event.
+Attribute         | Type     | Description
+---------         | -------  | -------
+`id`              | String   | The event's unique identifier.
+`owner`           | Object   | The `email` and `id` of the org member hosting the event.
+`name`            | String   | The event's name.
+`event_link`      | String   | The event's link.
+`token`           | String   | The event's public access token.
+`class_id`        | String   | The unique id of the class the event is based on.
+`availability`    | String   | public/private
+`description`     | String   | The event's description.
+`date_start`      | Datetime | The date when the event starts.
+`date_end`        | Datetime | The date when the event ends.
+`include_chat`    | Boolean  | Whether the event should include chat.
+`include_video`   | Boolean  | Whether the event should include video.
+`tas`             | List     | A list of training assistant emails.
+`trainees`        | List     | A list of student emails (for private only).
+`use_new_console` | Boolean  | Whether to use the new console or not (Beta).
+`status`          | String   | The status of the event.
 
 ## Retrieve all events
 

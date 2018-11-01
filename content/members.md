@@ -12,7 +12,7 @@ Attribute | Type | Description
 --------- | ------- | -------
 `id`      | String  | The member's unique identifier.
 `email`   | String  | The member's email.
-`role`    | String  | The member's role.
+`level`    | String  | The member's role.
 
 ## Retrieve all members
 
