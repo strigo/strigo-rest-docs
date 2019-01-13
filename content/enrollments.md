@@ -153,9 +153,9 @@ Attribute   | Type    | Required | Description
 
 ### BODY Parameters
 
-Attribute        | Type     | Description
----------        | -------  | -------
-`email`          | String   | The email of the student.
+Attribute        | Type     | Required | Description
+---------        | -------  | -------- | -------
+`email`          | String   | Yes      | The email of the student to invite.
 
 
 ## Modify an enrollment
