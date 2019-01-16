@@ -26,6 +26,7 @@ Attribute         | Type     | Description
 `trainees`        | List     | A list of student emails (for private only).
 `use_new_console` | Boolean  | Whether to use the new console or not (Beta).
 `status`          | String   | The status of the event.
+`partner_id`      | String   | The unique ID of the partner entity to which this event belongs.
 
 ## Retrieve all events
 
