@@ -28,6 +28,7 @@ Attribute         | Type     | Description
 `status`          | String   | The status of the event.
 `partner_id`      | String   | The unique ID of the partner entity to which this event belongs.
 
+
 ## Retrieve all events
 
 > Request Example
@@ -178,10 +179,10 @@ Create a new event.
 
 Attribute           | Type     | Required | Description
 ---------           | -------  |  ------- | -------
-`name`              | String   | Yes      | The event's name.
+`name`              | String   | Yes      | The event's name (limited to 256 chars).
 `owner`             | String   | Yes      | The email or unique ID of the org member hosting the event.
 `class_id`          | String   | Yes      | The unique id of the class the event is based on.
-`description`       | String   | No       | The event's description.
+`description`       | String   | No       | The event's description (limited to 65536 chars).
 `date_start`        | Datetime | Yes      | The date when the event starts.
 `date_end`          | Datetime | Yes      | The date when the event ends.
 `include_chat`      | Boolean  | No       | Whether the event should include chat.
@@ -189,7 +190,6 @@ Attribute           | Type     | Required | Description
 `tas`               | List     | No       | A list of training assistant emails.
 `trainees`          | List     | No       | A list of student emails (adding trainees implicitly creates a private event).
 `use_new_console`   | Boolean  | No       | Whether to use the new console or not (Beta).
-
 
 ## Modify an event
 
@@ -231,7 +231,7 @@ $ curl -X PATCH \
 
 ### Usage
 
-Create a new event.
+Modify an existing event.
 
 `PATCH "/events/:event_id"`
 
@@ -245,14 +245,21 @@ Attribute           | Type     | Required | Description
 
 Attribute           | Type     | Required | Description
 ---------           | -------  | -------  | -------
-`name`              | String   | No       | The event's name.
+`name`              | String   | No       | The event's name (limited to 256 chars).
 `owner`             | String   | No       | The email or unique ID of the org member hosting the event.
-`description`       | String   | No       | The event's description.
-`date_start`        | Datetime | No       | The date when the event starts (only for events that haven't started).
-`date_end`          | Datetime | No       | The date when the event ends (only for events that haven't started).
-`tas`               | List     | No       | A list of training assistant emails (only for events that haven't started).
+`description`       | String   | No       | The event's description (limited to 65536 chars).
+`date_start`        | Datetime | No       | The date when the event starts.
+`date_end`          | Datetime | No       | The date when the event ends.
+`class_id`          | String   | No       | The unique id of the class the event is based on.
+`include_chat`      | Boolean  | No       | Whether the event should include chat.
+`include_video`     | Boolean  | No       | Whether the event should include video.
+`tas`               | List     | No       | A list of training assistant emails.
+`trainees`          | List     | No       | A list of student emails (adding trainees implicitly means a private event).
 
-We will be gradually adding additional functionality for changing event student list, and more.
+<aside class="notice">
+You cannot currently modify live events. That will be supported in the future.
+</aside>
+
 
 
 
