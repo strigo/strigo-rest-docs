@@ -180,7 +180,7 @@ Create a new event.
 Attribute           | Type     | Required | Description
 ---------           | -------  |  ------- | -------
 `name`              | String   | Yes      | The event's name (limited to 256 chars).
-`owner`             | String   | Yes      | The email or unique ID of the org member hosting the event.
+`owner`             | String   | Yes      | The email of the org member hosting the event.
 `class_id`          | String   | Yes      | The unique id of the class the event is based on.
 `description`       | String   | No       | The event's description (limited to 65536 chars).
 `date_start`        | Datetime | Yes      | The date when the event starts.
@@ -246,7 +246,7 @@ Attribute           | Type     | Required | Description
 Attribute           | Type     | Required | Description
 ---------           | -------  | -------  | -------
 `name`              | String   | No       | The event's name (limited to 256 chars).
-`owner`             | String   | No       | The email or unique ID of the org member hosting the event.
+`owner`             | String   | No       | The email of the org member hosting the event.
 `description`       | String   | No       | The event's description (limited to 65536 chars).
 `date_start`        | Datetime | No       | The date when the event starts.
 `date_end`          | Datetime | No       | The date when the event ends.
