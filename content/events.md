@@ -18,13 +18,12 @@ Attribute         | Type     | Description
 `class_id`        | String   | The unique id of the class the event is based on.
 `availability`    | String   | public/private
 `description`     | String   | The event's description.
-`date_start`      | Datetime | The date when the event starts.
-`date_end`        | Datetime | The date when the event ends.
+`date_start`      | Datetime | The date when the event starts (ISO8601).
+`date_end`        | Datetime | The date when the event ends (ISO8601).
 `include_chat`    | Boolean  | Whether the event should include chat.
 `include_video`   | Boolean  | Whether the event should include video.
 `tas`             | List     | A list of training assistant emails.
 `trainees`        | List     | A list of student emails (for private only).
-`use_new_console` | Boolean  | Whether to use the new console or not (Beta).
 `status`          | String   | The status of the event.
 `partner_id`      | String   | The unique ID of the partner entity to which this event belongs.
 
@@ -62,8 +61,7 @@ $ curl -X GET \
         "status": "live",
         "tas": [],
         "token": "9NX4",
-        "trainees": [],
-        "use_new_console": false
+        "trainees": []
     }
 ]
 ```
@@ -107,8 +105,7 @@ $ curl -X GET \
     "status": "live",
     "tas": [],
     "token": "9NX4",
-    "trainees": [],
-    "use_new_console": false
+    "trainees": []
 }
 ```
 
@@ -164,8 +161,7 @@ $ curl -X POST \
     "status": "live",
     "tas": [],
     "token": "9NX4",
-    "trainees": [],
-    "use_new_console": false
+    "trainees": []
 }
 ```
 
@@ -183,13 +179,12 @@ Attribute           | Type     | Required | Description
 `owner`             | String   | Yes      | The email of the org member hosting the event.
 `class_id`          | String   | Yes      | The unique id of the class the event is based on.
 `description`       | String   | No       | The event's description (limited to 65536 chars).
-`date_start`        | Datetime | Yes      | The date when the event starts.
-`date_end`          | Datetime | Yes      | The date when the event ends.
+`date_start`        | Datetime | Yes      | The date when the event starts (ISO8601).
+`date_end`          | Datetime | Yes      | The date when the event ends (ISO8601).
 `include_chat`      | Boolean  | No       | Whether the event should include chat.
 `include_video`     | Boolean  | No       | Whether the event should include video.
 `tas`               | List     | No       | A list of training assistant emails.
 `trainees`          | List     | No       | A list of student emails (adding trainees implicitly creates a private event).
-`use_new_console`   | Boolean  | No       | Whether to use the new console or not (Beta).
 
 ## Modify an event
 
@@ -224,8 +219,7 @@ $ curl -X PATCH \
     "status": "live",
     "tas": [],
     "token": "9NX4",
-    "trainees": [],
-    "use_new_console": false
+    "trainees": []
 }
 ```
 
@@ -248,8 +242,8 @@ Attribute           | Type     | Required | Description
 `name`              | String   | No       | The event's name (limited to 256 chars).
 `owner`             | String   | No       | The email of the org member hosting the event.
 `description`       | String   | No       | The event's description (limited to 65536 chars).
-`date_start`        | Datetime | No       | The date when the event starts.
-`date_end`          | Datetime | No       | The date when the event ends.
+`date_start`        | Datetime | No       | The date when the event starts (ISO8601).
+`date_end`          | Datetime | No       | The date when the event ends (ISO8601).
 `class_id`          | String   | No       | The unique id of the class the event is based on.
 `include_chat`      | Boolean  | No       | Whether the event should include chat.
 `include_video`     | Boolean  | No       | Whether the event should include video.
