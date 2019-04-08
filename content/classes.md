@@ -132,3 +132,36 @@ Get a single class.
 Attribute  | Type    | Required | Description
 ---------  | ------- | -------  | -------
 `class_id` | String  | Yes      | The class's unique identifier.
+
+
+## Delete a single class
+
+> Request Example
+
+```shell
+$ curl -X DELETE \
+    -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    "http://app.strigo.io/api/v1/classes/p3bdnrweEystFToCq"
+```
+
+> Response Example
+
+```json
+{
+  "result": "success"
+}
+```
+
+### Usage
+
+Delete a single class.
+
+`DELETE "/classes/:class_id"`
+
+### URL Parameters
+
+Attribute  | Type    | Required | Description
+---------  | ------- | -------  | -------
+`class_id` | String  | Yes      | The class's unique identifier.
