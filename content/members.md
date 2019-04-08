@@ -23,7 +23,7 @@ $ curl -X GET \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "http://app.strigo.io/api/v1/members"
+    "https://app.strigo.io/api/v1/members"
 ```
 
 > Response Example

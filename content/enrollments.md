@@ -41,7 +41,7 @@ $ curl -X GET \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "http://app.strigo.io/api/v1/ondemand/nE5pDWGzFRRQ8uMrN/enrollments"
+    "https://app.strigo.io/api/v1/ondemand/nE5pDWGzFRRQ8uMrN/enrollments"
 ```
 
 > Response Example
@@ -83,7 +83,7 @@ $ curl -X GET \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "http://app.strigo.io/api/v1/ondemand/NFdFJBSwwA8BrSpxk/enrollments/9hQ5zitwbZh4zrga8"
+    "https://app.strigo.io/api/v1/ondemand/NFdFJBSwwA8BrSpxk/enrollments/9hQ5zitwbZh4zrga8"
 ```
 
 > Response Example
@@ -121,7 +121,7 @@ $ curl -X POST \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "http://app.strigo.io/api/v1/ondemand/NFdFJBSwwA8BrSpxk/enrollments" \
+    "https://app.strigo.io/api/v1/ondemand/NFdFJBSwwA8BrSpxk/enrollments" \
     -d { \
       "email":"me@strigo.io"
     }
@@ -167,7 +167,7 @@ $ curl -X PATCH \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "http://app.strigo.io/api/v1/ondemand/NFdFJBSwwA8BrSpxk/enrollments/9hQ5zitwbZh4zrga8" \
+    "https://app.strigo.io/api/v1/ondemand/NFdFJBSwwA8BrSpxk/enrollments/9hQ5zitwbZh4zrga8" \
     -d {"status":"expired"}
 ```
 
@@ -215,7 +215,7 @@ $ curl -X DELETE \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "http://app.strigo.io/api/v1/events/p3bdnrweEystFToCq"
+    "https://app.strigo.io/api/v1/events/p3bdnrweEystFToCq"
 ```
 
 > Response Example

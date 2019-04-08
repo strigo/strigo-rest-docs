@@ -29,7 +29,7 @@ $ curl -X GET \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "http://app.strigo.io/api/v1/classes"
+    "https://app.strigo.io/api/v1/classes"
 ```
 
 > Response Example
@@ -84,7 +84,7 @@ $ curl -X GET \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "http://app.strigo.io/api/v1/classes/p3bdnrweEystFToCq"
+    "https://app.strigo.io/api/v1/classes/p3bdnrweEystFToCq"
 ```
 
 > Response Example
@@ -143,7 +143,7 @@ $ curl -X DELETE \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "http://app.strigo.io/api/v1/classes/p3bdnrweEystFToCq"
+    "https://app.strigo.io/api/v1/classes/p3bdnrweEystFToCq"
 ```
 
 > Response Example
