@@ -23,7 +23,7 @@ $ curl -X GET \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "http://app.strigo.io/api/v1/partners"
+    "https://app.strigo.io/api/v1/partners"
 ```
 
 > Response Example
@@ -85,7 +85,7 @@ $ curl -X GET \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "http://app.strigo.io/api/v1/ntvXb3L2qdPbayRKZ/ntvXb3L2qdPbayRKZ"
+    "https://app.strigo.io/api/v1/ntvXb3L2qdPbayRKZ/ntvXb3L2qdPbayRKZ"
 ```
 
 > Response Example
@@ -122,7 +122,7 @@ $ curl -X POST \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "http://app.strigo.io/api/v1/partners" \
+    "https://app.strigo.io/api/v1/partners" \
     -d { \
       "name":"My New Partner"
     }
@@ -162,7 +162,7 @@ $ curl -X PATCH \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "http://app.strigo.io/api/v1/partner/Z3XKk7Swzr3MuaTGJ" \
+    "https://app.strigo.io/api/v1/partner/Z3XKk7Swzr3MuaTGJ" \
     -d { \
       "name":"My Partner's New Name"
     }
@@ -208,7 +208,7 @@ $ curl -X GET \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "http://app.strigo.io/api/v1/partners/Z3XKk7Swzr3MuaTGJ/members"
+    "https://app.strigo.io/api/v1/partners/Z3XKk7Swzr3MuaTGJ/members"
 ```
 
 > Response Example
@@ -255,7 +255,7 @@ $ curl -X POST \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "http://app.strigo.io/api/v1/partners/Z3XKk7Swzr3MuaTGJ/members" \
+    "https://app.strigo.io/api/v1/partners/Z3XKk7Swzr3MuaTGJ/members" \
     -d { \
       "email":"trainer@partner-company.com"
     }

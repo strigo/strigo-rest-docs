@@ -37,7 +37,7 @@ $ curl -X GET \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "http://app.strigo.io/api/v1/events"
+    "https://app.strigo.io/api/v1/events"
 ```
 
 > Response Example
@@ -82,7 +82,7 @@ $ curl -X GET \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "http://app.strigo.io/api/v1/events/p3bdnrweEystFToCq"
+    "https://app.strigo.io/api/v1/events/p3bdnrweEystFToCq"
 ```
 
 > Response Example
@@ -131,7 +131,7 @@ $ curl -X POST \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "http://app.strigo.io/api/v1/events" \
+    "https://app.strigo.io/api/v1/events" \
     -d { \
       "name":"My Event", \
       "date_end": "2018-10-30T13:00:00.000Z", \
@@ -195,7 +195,7 @@ $ curl -X PATCH \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "http://app.strigo.io/api/v1/events" \
+    "https://app.strigo.io/api/v1/events" \
     -d {"name":"Someone Else's Event", "owner": "someone.else@strigo.io"}
 ```
 
@@ -266,7 +266,7 @@ $ curl -X DELETE \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "http://app.strigo.io/api/v1/events/p3bdnrweEystFToCq"
+    "https://app.strigo.io/api/v1/events/p3bdnrweEystFToCq"
 ```
 
 > Response Example

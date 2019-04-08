@@ -31,7 +31,7 @@ $ curl -X METHOD \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "http://<STRIGO_ENDPOINT>/api/v1/<endpoint>" [-d <data>]
+    "https://<STRIGO_ENDPOINT>/api/v1/<endpoint>" [-d <data>]
 ```
 
 Authentication is done using a Bearer token split into two parts:
@@ -42,7 +42,7 @@ Authentication is done using a Bearer token split into two parts:
 Assuming you're an organization's owner, you can generate an API key for your org.
 If not, you can retrieve the generated key and org ID.
 
-The creds can be found [here](http://app.strigo.io/settings#account).
+The creds can be found [here](https://app.strigo.io/settings#account).
 
 We'll be adding additional authentication methods in the future.
 

@@ -30,7 +30,7 @@ $ curl -X GET \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "http://app.strigo.io/api/v1/ondemand"
+    "https://app.strigo.io/api/v1/ondemand"
 ```
 
 > Response Example
@@ -67,7 +67,7 @@ $ curl -X GET \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "http://app.strigo.io/api/v1/ondemand/nE5pDWGzFRRQ8uMrN"
+    "https://app.strigo.io/api/v1/ondemand/nE5pDWGzFRRQ8uMrN"
 ```
 
 > Response Example
@@ -108,7 +108,7 @@ $ curl -X POST \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "http://app.strigo.io/api/v1/ondemand" \
+    "https://app.strigo.io/api/v1/ondemand" \
     -d { \
       "name":"My Event", \
       "class_id": "hd3ALTaLAbhfzmBbf", \
@@ -163,7 +163,7 @@ $ curl -X DELETE \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "http://app.strigo.io/api/v1/ondemand/i7gHDXnDzpRFQqFZP"
+    "https://app.strigo.io/api/v1/ondemand/i7gHDXnDzpRFQqFZP"
 ```
 
 > Response Example

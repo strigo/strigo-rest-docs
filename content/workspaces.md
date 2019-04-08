@@ -35,7 +35,7 @@ $ curl -X GET \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "http://app.strigo.io/api/v1/events/K6inELDjusK76rwGw/workspaces"
+    "https://app.strigo.io/api/v1/events/K6inELDjusK76rwGw/workspaces"
 ```
 
 > Response Example
@@ -73,7 +73,7 @@ $ curl -X GET \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "http://app.strigo.io/api/v1/events/K6inELDjusK76rwGw/workspaces/ECANkhaMraTFjFBSk"
+    "https://app.strigo.io/api/v1/events/K6inELDjusK76rwGw/workspaces/ECANkhaMraTFjFBSk"
 ```
 
 > Response Example
