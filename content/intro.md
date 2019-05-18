@@ -84,7 +84,7 @@ We'll be adding additional authentication methods in the future.
 Each response, (except for `/health`) contains at the very least one high-level key (`result`) and two optional ones (`data` and `error`).
 
 <aside class="notice">
-`DELETE` responses only contain a `result` key.
+Successful `DELETE` requests do not return a structured response, and instead return a 204 status code.
 </aside>
 
 ### The `result` Key
@@ -103,19 +103,72 @@ The `error` key is only included when an error occurs, and has two fields (`type
 * `type` -> The Strigo-specific type of error (e.g. `ClassNotFound`). While you can operate on HTTP status codes, this provides a more elaborate mechanism for acting on errors. For example, a request can return `400` for two completely different types of errors.
 * `message` -> A more elaborate, human-readable message describing the error.
 
+Request validation errors also return an `errors` array as part of the error:
+
+```json
+{
+    "result": "failure",
+    "error": {
+        "message": "The request is not valid",
+        "type": "RequestValidationError",
+        "errors": [
+            {
+                "location": "body",
+                "param": "class_id",
+                "msg": "Must be a valid class ID"
+            },
+            {
+                "location": "body",
+                "param": "owner",
+                "msg": "Must be a valid email address"
+            },
+            {
+                "location": "body",
+                "param": "date_start",
+                "msg": "Must be an ISO8601 compliant date"
+            },
+            {
+                "location": "body",
+                "param": "date_end",
+                "msg": "Must be an ISO8601 compliant date"
+            }
+        ]
+    }
+}
+```
+
 <aside class="notice">
 All responses shown in the examples in the API reference only include the content of the `data` key in the response.
 </aside>
 
+
+## Errors and Validations
+
+### Validation errors
+
+Request validations are performed on all request query and body parameters. This should allow users to understand exactly which parameter is invalid.
+
+For all validation errors, the `RequestValidationError` error type is returned with HTTP error 422.
+
+### Granular Error Types (WIP)
+
+We provide rather granular error types that should allow you to programmatically respond to errors.
+
+For example, given a DELETE request to delete an event that is currently live, an `EventNotInReadyState` error type will be returned.
+
+### Error Codes
+
+We use standard response codes for all requests.
+
+
 ## Actions and Methods
 
-Strigo uses the common pattern of performing actions based on the HTTP method used:
+We use the common pattern of performing actions based on the HTTP method used:
 
-* `POST` for creating a new entity.
 * `GET` for retrieving a list of entities or a single entity.
-* `PATCH/PUT` for updating an existing entity.
+* `POST` for creating a new entity.
+* `PATCH` for updating an existing entity.
 * `DELETE` for deleting an entity.
-
 
 
 ## Health Check
@@ -191,3 +244,4 @@ x-ratelimit-reset: 1540715901
 
 Too many requests, please try again later.
 ```
+
