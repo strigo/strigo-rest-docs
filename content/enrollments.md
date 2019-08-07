@@ -202,8 +202,11 @@ Attribute       | Type     | Required | Description
 
 Attribute           | Type     | Required | Description
 ---------           | -------  | -------  | -------
-`status`            | String   | Yes      | The status to set the enrollment to (`expired`, `paused`, `stopped`, `inactive`)
+`status`            | String   | Yes      | The status to set the enrollment to (`expired`)
 
+<aside class="notice">
+You can currently only patch enrollments to expire them.
+</aside>
 
 
 ## Unenroll a student
