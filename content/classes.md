@@ -15,9 +15,9 @@ Attribute               | Type     | Description
 `name`                  | String   | The class's name.
 `owner`                 | String   | The email or unique ID of the org member who created the class.
 `description`           | String   | The class's description.
-`resources`             | List     | The lab resources chosen for the class.
-`presentation_notes`    | List     | The presentation notes added to the class's presentation.
-`presentation_filename` | String   | The name of the presentation file.
+`resources`             | List     | The lab resources chosen for the class (see [resources](#resources.md).
+`presentation_notes`    | List     | The presentation notes added to the class's presentation (see [presentation notes](#presentation-notes.md).
+`presentation_filename` | String   | The name of the presentation file (see [presentations](#presentations.md).
 
 
 ## Retrieve all classes
@@ -134,6 +134,104 @@ Attribute  | Type    | Required | Description
 `class_id` | String  | Yes      | The class's unique identifier.
 
 
+## Create a class
+
+> Request Example
+
+```shell
+$ curl -X POST \
+    -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    "https://app.strigo.io/api/v1/classes" \
+    -d { \
+      "name":"Intro to Docker", \
+      "owner": "me@strigo.io" \
+    }
+```
+
+> Response Example
+
+```json
+{
+  "id": "K6inELDjusK76rwGw",
+  "name": "Intro to Docker",
+  "owner": {
+      "email": "me@strigo.io",
+      "id": "rMWNrMT2PCySh2PGo"
+  },
+  "presentation_notes": [],
+  "resources": []
+}
+```
+
+### Usage
+
+Create a new class.
+
+`POST "/classes"`
+
+### BODY Parameters
+
+Attribute  | Type    | Required | Description
+---------  | ------- | -------  | -------
+`name`        | String   | Yes | The class's name.
+`owner`       | String   | Yes | The email or unique ID of the org member who created the class.
+`description` | String   | No  | The class's description.
+
+
+## Modify a class
+
+> Request Example
+
+```shell
+$ curl -X PATCH \
+    -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    "https://app.strigo.io/api/v1/classes" \
+    -d { \
+      "name":"Intro to Docker", \
+      "owner": "me2@strigo.io" \
+    }
+```
+
+> Response Example
+
+```json
+{
+  "id": "K6inELDjusK76rwGw",
+  "name": "Intro to Docker",
+  "owner": {
+      "email": "me2@strigo.io",
+      "id": "rMWNrMT2PCySh2PGo"
+  },
+  "presentation_notes": [],
+  "resources": []
+}
+```
+
+### Usage
+
+Modify a class.
+
+`PATCH "/classes/:class_id"`
+
+### URL Parameters
+
+Attribute  | Type    | Required | Description
+---------  | ------- | -------  | -------
+`class_id` | String  | Yes      | The class's unique identifier.
+
+### BODY Parameters
+
+Attribute     | Type     | Required | Description
+---------     | -------  | -------  | -------
+`name`        | String   | No       | The class's name.
+`owner`       | String   | No       | The email or unique ID of the org member who created the class.
+`description` | String   | No       | The class's description.
+
+
 ## Delete a single class
 
 > Request Example
@@ -143,7 +241,7 @@ $ curl -X DELETE \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "https://app.strigo.io/api/v1/classes/p3bdnrweEystFToCq"
+    "https://app.strigo.io/api/v1/classes/K6inELDjusK76rwGw"
 ```
 
 > Response Example
