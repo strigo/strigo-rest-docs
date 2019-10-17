@@ -13,7 +13,7 @@ Attribute               | Type     | Description
 ---------               | -------  | -------
 `id`                    | String   | The class's unique identifier.
 `name`                  | String   | The class's name.
-`owner`                 | String   | The email or unique ID of the org member who created the class.
+`owner`                 | String   | The email or unique ID of the org member who created the class. Note that this is currently automatically inferred from the request, and has not effect on functionality.
 `description`           | String   | The class's description.
 `resources`             | List     | The lab resources chosen for the class (see [resources](#resources.md).
 `presentation_notes`    | List     | The presentation notes added to the class's presentation (see [presentation notes](#presentation-notes.md).
@@ -145,8 +145,7 @@ $ curl -X POST \
     -H "Content-Type: application/json" \
     "https://app.strigo.io/api/v1/classes" \
     -d { \
-      "name":"Intro to Docker", \
-      "owner": "me@strigo.io" \
+      "name":"Intro to Docker" \
     }
 ```
 
@@ -176,7 +175,6 @@ Create a new class.
 Attribute  | Type    | Required | Description
 ---------  | ------- | -------  | -------
 `name`        | String   | Yes | The class's name.
-`owner`       | String   | Yes | The email or unique ID of the org member who created the class.
 `description` | String   | No  | The class's description.
 
 
@@ -192,7 +190,7 @@ $ curl -X PATCH \
     "https://app.strigo.io/api/v1/classes" \
     -d { \
       "name":"Intro to Docker", \
-      "owner": "me2@strigo.io" \
+      "description": "Learning how to run and use Docker" \
     }
 ```
 
@@ -202,8 +200,9 @@ $ curl -X PATCH \
 {
   "id": "K6inELDjusK76rwGw",
   "name": "Intro to Docker",
+  "description": "Learning how to run and use Docker",
   "owner": {
-      "email": "me2@strigo.io",
+      "email": "me@strigo.io",
       "id": "rMWNrMT2PCySh2PGo"
   },
   "presentation_notes": [],
@@ -228,7 +227,6 @@ Attribute  | Type    | Required | Description
 Attribute     | Type     | Required | Description
 ---------     | -------  | -------  | -------
 `name`        | String   | No       | The class's name.
-`owner`       | String   | No       | The email or unique ID of the org member who created the class.
 `description` | String   | No       | The class's description.
 
 
