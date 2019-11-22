@@ -123,9 +123,11 @@ $ curl -X POST \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     "https://app.strigo.io/api/v1/partners" \
-    -d { \
+    -d @- <<EOF
+    {
       "name":"My New Partner"
     }
+EOF
 ```
 
 > Response Example
@@ -163,9 +165,11 @@ $ curl -X PATCH \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     "https://app.strigo.io/api/v1/partner/Z3XKk7Swzr3MuaTGJ" \
-    -d { \
-      "name":"My Partner's New Name"
+    -d @- <<EOF
+    {
+      "name":"New name for partner"
     }
+EOF
 ```
 
 > Response Example
@@ -174,7 +178,7 @@ $ curl -X PATCH \
 {
     "data": {
         "id": "Z3XKk7Swzr3MuaTGJ",
-        "name": "My Partner's New Name"
+        "name": "New name for partner"
     },
     "result": "success"
 }
@@ -256,9 +260,11 @@ $ curl -X POST \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     "https://app.strigo.io/api/v1/partners/Z3XKk7Swzr3MuaTGJ/members" \
-    -d { \
+    -d @- <<EOF
+    {
       "email":"trainer@partner-company.com"
     }
+EOF
 ```
 
 > Response Example

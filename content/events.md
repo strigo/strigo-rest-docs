@@ -132,13 +132,15 @@ $ curl -X POST \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     "https://app.strigo.io/api/v1/events" \
-    -d { \
-      "name":"My Event", \
-      "date_end": "2018-10-30T13:00:00.000Z", \
-      "date_start": "2018-09-20T11:00:00.000Z", \
-      "owner": "me@strigo.io", \
-      "class_id": "hd3ALTaLAbhfzmBbf" \
+    -d @- <<EOF
+    {
+      "name":"My Event",
+      "date_end": "2018-10-30T13:00:00.000Z",
+      "date_start": "2018-09-20T11:00:00.000Z",
+      "owner": "me@strigo.io",
+      "class_id": "hd3ALTaLAbhfzmBbf"
     }
+EOF
 ```
 
 > Response Example
@@ -196,7 +198,12 @@ $ curl -X PATCH \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     "https://app.strigo.io/api/v1/events" \
-    -d {"name":"Someone Else's Event", "owner": "someone.else@strigo.io"}
+    -d @- <<EOF
+    {
+        "name": "Another Event",
+        "owner": "someone.else@strigo.io"
+    }
+EOF
 ```
 
 > Response Example
@@ -211,7 +218,7 @@ $ curl -X PATCH \
     "id": "p3bdnrweEystFToCq",
     "include_chat": false,
     "include_video": false,
-    "name": "Someone Else's Event",
+    "name": "Another Event",
     "owner": {
         "email": "someone.else@strigo.io",
         "id": "LLWdr8TFpRTS022Go"
