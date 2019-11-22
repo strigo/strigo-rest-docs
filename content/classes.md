@@ -144,9 +144,11 @@ $ curl -X POST \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     "https://app.strigo.io/api/v1/classes" \
-    -d { \
-      "name":"Intro to Docker" \
+    -d @- <<EOF
+    {
+      "name":"Intro to Docker"
     }
+EOF
 ```
 
 > Response Example
@@ -188,10 +190,12 @@ $ curl -X PATCH \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     "https://app.strigo.io/api/v1/classes" \
-    -d { \
-      "name":"Intro to Docker", \
-      "description": "Learning how to run and use Docker" \
+    -d @- <<EOF
+    {
+      "name":"Intro to Docker",
+      "description": "Learning how to run and use Docker"
     }
+EOF
 ```
 
 > Response Example

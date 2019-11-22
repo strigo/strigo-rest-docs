@@ -122,9 +122,11 @@ $ curl -X POST \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     "https://app.strigo.io/api/v1/ondemand/NFdFJBSwwA8BrSpxk/enrollments" \
-    -d { \
+    -d @- <<EOF
+    {
       "email":"me@strigo.io"
     }
+EOF
 ```
 
 > Response Example
@@ -168,7 +170,11 @@ $ curl -X PATCH \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     "https://app.strigo.io/api/v1/ondemand/NFdFJBSwwA8BrSpxk/enrollments/9hQ5zitwbZh4zrga8" \
-    -d {"status":"expired"}
+    -d @- <<EOF
+    {
+      "status": "expired"
+    }
+EOF
 ```
 
 > Response Example

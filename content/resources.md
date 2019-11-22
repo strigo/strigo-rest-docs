@@ -124,12 +124,14 @@ $ curl -X POST \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     "https://app.strigo.io/api/v1/classes/K6inELDjusK76rwGw/resources" \
-    -d { \
-      "image_id":"ami-0ea21e760f354e854", \
-      "image_user": "ubuntu", \
-      "name": "My Lab" \
-      "webview_links": '[{"url": "http://instance.autolab.strigo.io", "name":"My Lab Link"}]' \
+    -d @- <<EOF
+    {
+      "image_id":"ami-0ea21e760f354e854",
+      "image_user": "ubuntu",
+      "name": "My Lab",
+      "webview_links": [{"url": "http://instance.autolab.strigo.io", "name":"My Lab Link"}]
     }
+EOF
 ```
 
 > Response Example
@@ -195,12 +197,14 @@ $ curl -X PATCH \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     "https://app.strigo.io/api/v1/classes/K6inELDjusK76rwGw/resources/DcnEqgGiBuisXadqe" \
-    -d { \
-      "image_id":"ami-1111111111", \
-      "image_user": "ubuntu", \
-      "name": "My Lab 2" \
-      "webview_links": '[{"url": "http://instance.autolab.strigo.io", "name":"My Lab Link"}]' \
+    -d @- <<EOF
+    {
+      "image_id":"ami-1111111111",
+      "image_user": "ubuntu",
+      "name": "My Lab 2",
+      "webview_links": [{"url": "http://instance.autolab.strigo.io", "name":"My Lab Link"}]
     }
+EOF
 ```
 
 > Response Example

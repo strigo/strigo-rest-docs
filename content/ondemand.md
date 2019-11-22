@@ -109,14 +109,15 @@ $ curl -X POST \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     "https://app.strigo.io/api/v1/ondemand" \
-    -d { \
-      "name":"My Event", \
-      "class_id": "hd3ALTaLAbhfzmBbf", \
-      "days_limit": 5, \
-      "activity_hours_limit": 10, \
-      "status": "online", \
-      "external_id": "course1" \
+    -d @- <<EOF
+      "name":"My Event",
+      "class_id": "hd3ALTaLAbhfzmBbf",
+      "days_limit": 5,
+      "activity_hours_limit": 10,
+      "status": "online",
+      "external_id": "course1"
     }
+EOF
 ```
 
 > Response Example
