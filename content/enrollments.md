@@ -29,6 +29,7 @@ Attribute        | Type     | Description
 `paused_at`      | Datetime | The time in which the enrollment was paused.
 `end_date`       | Datetime | The designated time for the enrollment to end.
 `first_activity` | Datetime | The time in which the student was first active in the course.
+`exercises`      | List     | The exercises for this enrollment (see [exercises](#workspace-exercises)).
 
 
 
@@ -55,7 +56,20 @@ $ curl -X GET \
       "id": "xK8cPmPYEuXwjxbu3",
       "started_at": "2018-10-16T11:40:27.929Z",
       "end_date": "2018-10-26T11:40:27.929Z",
-      "status": "expired"
+      "status": "expired",
+      "exercises": [
+        {
+          "id": "pB6H3XaTS2Tf53z3p",
+          "title": "Introduction",
+          "status": "DONE",
+          "finished_at": "2018-09-20T10:39:35.425Z",
+        },
+        {
+          "id": "BSY4hBSTGYfpXzN5G",
+          "title": "Databases Overview",
+          "status": "OPEN"
+        }
+      ]
   },
   {
       "course_id": "NFdFJBSwwA8BrSpxk",
