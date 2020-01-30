@@ -18,6 +18,8 @@ Attribute               | Type     | Description
 `resources`             | List     | The lab resources chosen for the class (see [resources](#class-lab-resources)).
 `presentation_notes`    | List     | The presentation notes added to the class's presentation (see [presentation notes](#presentation-notes)).
 `presentation_filename` | String   | The name of the presentation file (see [presentations](#presentations)).
+`created_at`            | Datetime | The time when the class was created.
+`updated_at`            | Datetime | The time when the class was last updated.
 
 
 ## Retrieve all classes
