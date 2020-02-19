@@ -8,24 +8,25 @@ weight: 110
 
 ### Attributes:
 
-Attribute         | Type     | Description
----------         | -------  | -------
-`id`              | String   | The event's unique identifier.
-`owner`           | Object   | The `email` and `id` of the org member hosting the event.
-`name`            | String   | The event's name.
-`event_link`      | String   | The event's link.
-`token`           | String   | The event's public access token.
-`class_id`        | String   | The unique id of the class the event is based on.
-`availability`    | String   | public/private
-`description`     | String   | The event's description.
-`date_start`      | Datetime | The date when the event starts (ISO8601).
-`date_end`        | Datetime | The date when the event ends (ISO8601).
-`include_chat`    | Boolean  | Whether the event should include chat.
-`include_video`   | Boolean  | Whether the event should include video.
-`tas`             | List     | A list of training assistant emails.
-`trainees`        | List     | A list of student emails (for private only).
-`status`          | String   | The status of the event.
-`partner_id`      | String   | The unique ID of the partner entity to which this event belongs.
+Attribute           | Type     | Description
+---------           | -------  | -------
+`id`                | String   | The event's unique identifier.
+`owner`             | Object   | The `email` and `id` of the org member hosting the event.
+`name`              | String   | The event's name.
+`event_link`        | String   | The event's link.
+`token`             | String   | The event's public access token.
+`class_id`          | String   | The unique id of the class the event is based on.
+`availability`      | String   | public/private
+`description`       | String   | The event's description.
+`date_start`        | Datetime | The date when the event starts (ISO8601).
+`date_end`          | Datetime | The date when the event ends (ISO8601).
+`include_chat`      | Boolean  | Whether the event should include chat.
+`include_video`     | Boolean  | Whether the event should include video.
+`tas`               | List     | A list of training assistant emails.
+`trainees`          | List     | A list of student emails (for private only).
+`status`            | String   | The status of the event.
+`partner_id`        | String   | The unique ID of the partner entity to which this event belongs.
+`use_new_terminal`  | Boolean  | Whether the event should use new terminal (beta). 
 
 
 ## Retrieve all events
@@ -61,7 +62,8 @@ $ curl -X GET \
         "status": "live",
         "tas": [],
         "token": "9NX4",
-        "trainees": []
+        "trainees": [],
+        "use_new_terminal": false
     }
 ]
 ```
@@ -105,7 +107,8 @@ $ curl -X GET \
     "status": "live",
     "tas": [],
     "token": "9NX4",
-    "trainees": []
+    "trainees": [],
+    "use_new_terminal": false
 }
 ```
 
@@ -163,7 +166,8 @@ EOF
     "status": "live",
     "tas": [],
     "token": "9NX4",
-    "trainees": []
+    "trainees": [],
+    "use_new_terminal": false
 }
 ```
 
@@ -187,6 +191,7 @@ Attribute           | Type     | Required | Description
 `include_video`     | Boolean  | No       | Whether the event should include video.
 `tas`               | List     | No       | A list of training assistant emails.
 `trainees`          | List     | No       | A list of student emails (adding trainees implicitly creates a private event).
+`use_new_terminal`  | Boolean  | No       | Whether the event should use new terminal (beta). 
 
 ## Modify an event
 
@@ -226,7 +231,8 @@ EOF
     "status": "live",
     "tas": [],
     "token": "9NX4",
-    "trainees": []
+    "trainees": [],
+    "use_new_terminal": false
 }
 ```
 
