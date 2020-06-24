@@ -84,7 +84,7 @@ We'll be adding additional authentication methods in the future.
 Each response, (except for `/health`) contains at the very least one high-level key (`result`) and two optional ones (`data` and `error`).
 
 <aside class="notice">
-Successful `DELETE` requests do not return a structured response, and instead return a 204 status code.
+Successful `DELETE` requests do not return a structured response, and instead return a 204 (No Content) status code.
 </aside>
 
 ### The `result` Key

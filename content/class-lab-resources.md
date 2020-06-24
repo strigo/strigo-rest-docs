@@ -275,11 +275,10 @@ $ curl -X DELETE \
 
 > Response Example
 
-```json
-{
-  "result": "success"
-}
+```text
+204 No Content
 ```
+
 
 ### Usage
 
