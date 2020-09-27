@@ -64,12 +64,14 @@ $ curl -X POST \
     -H "Content-Type: application/json" \
     "https://app.strigo.io/api/v1/classes/RXKeXmMBjptt3EMQt/presentations/455e6c87af85c916d9bc2e7c/notes" \
     -d @- <<EOF
-    [
-      {
-        "page": "1",
-        "content": "yo"
-      }
-    ]
+    {
+      "notes": [
+        {
+          "page": "1",
+          "content": "yo"
+        }
+      ]
+    }
 EOF
 ```
 
