@@ -46,59 +46,46 @@ $ curl -X POST \
     "https://training.mycompany.com/webhooks/events" \
     -d @- <<EOF
     {
-        "source_message_id": "4dd6be9e",
-        "type": "RESOURCE",
-        "status": "CREATED",
-        "timestamp": "2020-09-27T19:00:00.000+00:00",
-        "data": {
-            "resources": [
+        source_message_id: "dfede374",
+        type: "RESOURCE",
+        action: "CREATED",
+        data: {
+            resources: [
                 {
-                    "id": "5108e970",
-                    "fields": {
-                        "added": [
-                                // Add an item to an array.
-                                {
-                                    "path": "connectivity_info",
-                                    "value": {
-                                        "id": "17d10840",
-                                        "private_ip": "172.31.10.4"
-                                    }
-                                }
-                        ],
-                        "updated": [
-                            // Update an item in an array.
-                            {
-                                "path": "connectivity_info.0.public_ip",
-                                "value": "142.94.13.6"
-                            },
-                            // Update an object.
-                            {
-                                "path": "status",
-                                "value": "ready"
-                            }
-                        ]
+                    id: "25f377ac",
+                    type: "VM",
+                    name: "server",
+                    data: {
+                        status: "LAUNCHING"
+                    }
+                },
+                {
+                    id: "56ea830e",
+                    type: "VM",
+                    name: "agent",
+                    data: {
+                        status: "LAUNCHING"
+                    }
+                },
+                {
+                    id: "619a8bbe",
+                    type: "VM",
+                    name: "client",
+                    data: {
+                        status: "LAUNCHING"
                     }
                 }
             ],
-            "interfaces": [
+            interfaces: [
                 {
-                    "id": "25f377ac",
-                    "name": "CLIENT",
-                    "type": "TERMINAL",
-                    "resource_id": "5108e970",
-                    "data": {
-                        "connectivity_info": {
-                            "id": "e9c09fc2",
-                            "port": "22"
-                        },
-                        "credentials": {
-                            "type": "generated_username_password",
-                            "data": {
-                                "username": "admin",
-                                "password": "p@$$w0rd"
-                            }
-                        }
-                    }
+                    type: "TERMINAL",
+                    resource_id: "25f377ac",
+                    ...
+                },
+                {
+                    type: "TERMINAL",
+                    resource_id: "619a8bbe",
+                    ...
                 }
             ]
         }
@@ -107,3 +94,33 @@ EOF
 ```
 
 ## Available types, statuses, resources and interfaces.
+
+The following represents an exhaustive list of resource types and actions, and interface types.
+
+### Actions
+
+* `CREATED` => Resources were created.
+* `UPDATED` => Resources were updated.
+* `DELETED` => Resources were deleted.
+
+### Resource types
+
+* `VM` => Refers to a virtual machine.
+* `URL` => Refers to a public/webview URL.
+
+### Resource statuses
+
+* `STARTING`
+* `PREPARING`
+* `READY`
+* `STOPPING`
+* `STOPPED`
+* `DELETING`
+* `DELETED`
+* `ERROR`
+
+### Interface types
+
+* `TERMINAL`
+* `WEB_INTERFACE`
+* `REMOTE_DESKTOP`
