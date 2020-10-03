@@ -13,14 +13,36 @@ For example, once the customer's backend has created a lab for a student, Strigo
 
 See [Outgoing Messages](#webhooks-outgoing-messages) for examples on the webhook messages Strigo sends.
 
-### Attributes:
+### Incoming message attributes:
 
 Attribute               | Type     | Description
 ---------               | -------  | -------
-`source_message_id`     | String   | The source message's unique identifier. This is the `message_id` provided in the webhook.
+`source_message_id`     | String   | The source message's unique identifier. This is the `message_id` as provided in the outgoing message.
 `type`                  | String   | The type of resource Strigo needs to handle.
 `status`                | String   | The current state of the resource (CRUD?).
 `data`                  | Object   | An object containing `resources` and `interfaces` lists.
+
+#### Resource attributes:
+
+Attribute               | Type     | Description
+---------               | -------  | -------
+`source_message_id`     | String   | The source message's unique identifier. This is the `message_id` as provided in the outgoing message.
+`type`                  | String   | The type of resource Strigo needs to handle.
+`status`                | String   | The current state of the resource (CRUD?).
+`data`                  | Object   | An object containing `resources` and `interfaces` lists.
+
+#### Interface attributes:
+
+Attribute               | Type     | Description
+---------               | -------  | -------
+`source_message_id`     | String   | The source message's unique identifier. This is the `message_id` as provided in the outgoing message.
+`type`                  | String   | The type of resource Strigo needs to handle.
+`status`                | String   | The current state of the resource (CRUD?).
+`data`
+
+#### Interface attributes:
+
+
 
 ### Response Structure:
 
@@ -36,7 +58,7 @@ The differences between them will be the `message_id`, `type`, `action` and `ent
 For a list of possible `type`s and `action`s, see below.
 
 
-> Request Example
+> Creation Request Example
 
 ```shell
 $ curl -X POST \
@@ -48,44 +70,111 @@ $ curl -X POST \
     {
         source_message_id: "dfede374",
         type: "RESOURCE",
-        action: "CREATED",
+        status: "CREATED",
         data: {
             resources: [
                 {
                     id: "25f377ac",
                     type: "VM",
                     name: "server",
-                    data: {
-                        status: "LAUNCHING"
+                    status: "STARTING",
+                    network_interfaces: [
+                        {
+                            id: "e9c09fc2",
+                            public_ip: "32.17.144.2",
+                            private_ip: "10.0.0.6",
+                            dns: "5108e970-labs.mycompany.com"
+                        },
+                        {
+                            id: "bb4c038e",
+                            private_ip: "10.1.0.2"
+                        }
+                    ],
+                    location: {
+                        region: "us-west-2",
+                        availability_zone: "a"
                     }
                 },
                 {
                     id: "56ea830e",
                     type: "VM",
                     name: "agent",
-                    data: {
-                        status: "LAUNCHING"
+                    status: "STARTING",
+                    network_interfaces: [
+                        {
+                            id: "b4ef518a",
+                            public_ip: "32.17.144.3",
+                            private_ip: "10.0.0.8"
+                        }
+                    ],
+                    location: {
+                        region: "us-west-2",
+                        availability_zone: "a"
                     }
                 },
                 {
                     id: "619a8bbe",
                     type: "VM",
                     name: "client",
+                    status: "STARTING",
+                    network_interfaces: [
+                        {
+                            id: "e111fbf9",
+                            public_ip: "32.17.149.7",
+                            private_ip: "10.0.0.9"
+                        }
+                    ],
+                },
+                {
+                    id: "acf1109b",
+                    type: "URL",
+                    name: "hosted_application",
+                    status: "READY",
                     data: {
-                        status: "LAUNCHING"
+                        address: "https://my.webpage.com:3131"
                     }
                 }
             ],
             interfaces: [
                 {
+                    name: "Server"
                     type: "TERMINAL",
-                    resource_id: "25f377ac",
-                    ...
+                    resource_id: "25f377ac"
                 },
                 {
+                    name: "Agent"
                     type: "TERMINAL",
+                    resource_id: "56ea830e"
+                },
+                {
+                    name: "Client"
+                    type: "DESKTOP",
                     resource_id: "619a8bbe",
-                    ...
+                    network_interface: {
+                        id: "e9c09fc2",
+                        port: "3389"
+                    },
+                    credentials: {
+                        type: "generated_username_password",
+                        data: {
+                            username: "admin",
+                            password: "p@$$w0rd"
+                        }
+                    }
+                },
+                {
+                    name: "Web Application"
+                    type: "WEBVIEW",
+                    resource_id: "25f377ac",
+                    external: false,
+                    context: {
+                        port: 8080
+                    }
+                }
+                {
+                    name: "Hosted Application"
+                    type: "WEBVIEW",
+                    resource_id: "acf1109b"
                 }
             ]
         }
@@ -122,5 +211,5 @@ The following represents an exhaustive list of resource types and actions, and i
 ### Interface types
 
 * `TERMINAL`
-* `WEB_INTERFACE`
-* `REMOTE_DESKTOP`
+* `DESKTOP`
+* `WEBVIEW`

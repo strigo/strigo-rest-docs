@@ -19,10 +19,10 @@ Attribute               | Type     | Description
 ---------               | -------  | -------
 `message_id`            | String   | The message's unique identifier. This will be used to correlate webhook calls with their corresponding actions.
 `type`                  | String   | The type of entity for which the webhook was triggered (uppercase).
-`action`                | String   | The action performed on that entity (uppercase).
+`status`                | String   | The current status of the entity (uppercase).
 `entity_ids`            | List     | The list of entity IDs for which the webhook was triggered. For example, multiple on-demand enrollments can expire at the same time, triggering a single webhook to notify the customer. This array can therefore contain things like class IDs, event IDs, enrollment IDs, etc..
 `context`               | Object   | Any additional context a certain event may require.
-`callback`              | List     | The callback URL to call to after the webhook was triggered.
+`callback`              | String   | The callback URL to call to after the webhook was triggered.
 
 ### Response Structure:
 
@@ -52,7 +52,7 @@ courselication/json" \
     {
         "message_id": "4dd6be9e",
         "type": "EVENT",
-        "action": "STARTED",
+        "status": "STARTED",
         "entity_ids": ["daf24556"],
         "context": {
             ...
@@ -62,9 +62,17 @@ courselication/json" \
 EOF
 ```
 
-## Available types and actions
+## Available types and statuses
 
-The following represents an exhaustive list of types of entities and actions corresponding with those types.
+The following represents an exhaustive list of types of entities and statuses corresponding with those types.
+
+### TYPE: `CLASS`
+
+Represents a class template.
+
+* `CREATED` => The class was created.
+* `UPDATED` => The class configuration was updated.
+* `DELETED` => The class was deleted.
 
 ### TYPE: `EVENT`
 
@@ -73,8 +81,15 @@ Represents an ILT event.
 * `STARTED` => The event started.
 * `ENDED` => The event ended.
 * `EXTENDED` => The event end time was extended.
-* `WORKSPACE_JOINED` => An attendee has joined the event.
-* `WORKSPACE_REMOVED` => An attendee was removed from the event.
+
+### TYPE: `EVENT_WORKSPACE`
+
+Represents a single attendee in an event.
+
+* `CREATED` => An attendee has joined the event.
+* `REMOVED` => An attendee was removed from the event.
+* `REINSTATED` => An attendee was reinstated, and can now rejoin the event.
+* `DELETED` => The event ended, and so the workspace was deleted.
 
 ### TYPE: `ONDEMAND_COURSE`
 
@@ -102,11 +117,3 @@ Represents a single resource that can be either restarted or replaced (like a VM
 
 * `RESTARTED` => The resource was restarted.
 * `REPLACED` => The resource was replaced.
-
-### TYPE: `CLASS`
-
-Represents a class template.
-
-* `CREATED` => The class was created.
-* `UPDATED` => The class configuration was updated.
-* `DELETED` => The class was deleted.
