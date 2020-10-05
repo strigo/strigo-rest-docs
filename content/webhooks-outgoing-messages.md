@@ -18,11 +18,13 @@ See [Incoming Messages](#webhooks-incoming-messages) for examples on the API cal
 Attribute               | Type     | Description
 ---------               | -------  | -------
 `message_id`            | String   | The message's unique identifier. This will be used to correlate webhook calls with their corresponding actions.
-`type`                  | String   | The type of entity for which the webhook was triggered (uppercase).
-`status`                | String   | The current status of the entity (uppercase).
+`type`                  | String   | The type of entity for which the webhook was triggered.
+`status`                | String   | The current status of the entity.
 `entity_ids`            | List     | The list of entity IDs for which the webhook was triggered. For example, multiple on-demand enrollments can expire at the same time, triggering a single webhook to notify the customer. This array can therefore contain things like class IDs, event IDs, enrollment IDs, etc..
 `context`               | Object   | Any additional context a certain event may require.
 `callback`              | String   | The callback URL to call to after the webhook was triggered.
+
+See [list of possible types and statuses](#available-types-and-statuses) below.
 
 ### Response Structure:
 
@@ -31,12 +33,7 @@ Note that Strigo will convey the success or failure of webhook calls based on st
 
 ## Example Message
 
-All webhook messages should look like the following example.
-
-The differences between them will be the `message_id`, `type`, `action` and `entity_ids` provided.
-
-For a list of possible `type`s and `action`s, see below.
-
+All webhook messages should look somehwat like the following example.
 
 > Request Example
 
@@ -44,9 +41,7 @@ For a list of possible `type`s and `action`s, see below.
 $ curl -X POST \
     -H "Authorization: Bearer ${ORG_BACKEND_USER}:${ORG_BACKEND_KEY}" \
     -H "Accept: application/json" \
-    -H "Content-Type: appcourse
-course
-courselication/json" \
+    -H "Content-Type: application/json" \
     "https://training.mycompany.com/webhooks/events" \
     -d @- <<EOF
     {

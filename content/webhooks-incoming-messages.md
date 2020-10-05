@@ -26,22 +26,20 @@ Attribute               | Type     | Description
 
 Attribute               | Type     | Description
 ---------               | -------  | -------
-`source_message_id`     | String   | The source message's unique identifier. This is the `message_id` as provided in the outgoing message.
+`id`                    | String   | The resource's unique identifier. This is defined by the customer, and can be refernced later in a Strigo interface.
 `type`                  | String   | The type of resource Strigo needs to handle.
-`status`                | String   | The current state of the resource (CRUD?).
-`data`                  | Object   | An object containing `resources` and `interfaces` lists.
+`status`                | String   | The current status of the resource. See [list of possible resource statuses](#resource-statuses) below.
+`name`                  | String   | The name of the resource. This will be used for auditing purposes.
+`network_interfaces`    | List     | A list of network interfaces available for the resource. These will be referenced by Strigo interfaces.
 
 #### Interface attributes:
 
 Attribute               | Type     | Description
 ---------               | -------  | -------
-`source_message_id`     | String   | The source message's unique identifier. This is the `message_id` as provided in the outgoing message.
-`type`                  | String   | The type of resource Strigo needs to handle.
-`status`                | String   | The current state of the resource (CRUD?).
-`data`
-
-#### Interface attributes:
-
+`name`                  | String   | A name for the interface, which will be displayed for the attendees.
+`type`                  | String   | The type of interace to be used to connect to the resource.
+`region`                | String   | The location from which Strigo will attempt to connect to the referenced resource. See [available regions](#available-regions) for a list of available regions.
+`resource_id`           | String   | The resource's unique identifier, as defined in the `resource` object.
 
 
 ### Response Structure:
@@ -62,10 +60,10 @@ For a list of possible `type`s and `action`s, see below.
 
 ```shell
 $ curl -X POST \
-    -H "Authorization: Bearer ${ORG_BACKEND_USER}:${ORG_BACKEND_KEY}" \
+    -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "https://training.mycompany.com/webhooks/events" \
+    "https://app.strigo.io/api/v1/webhooks/events/incoming" \
     -d @- <<EOF
     {
         source_message_id: "dfede374",
@@ -76,8 +74,8 @@ $ curl -X POST \
                 {
                     id: "25f377ac",
                     type: "VM",
-                    name: "server",
                     status: "STARTING",
+                    name: "server",
                     network_interfaces: [
                         {
                             id: "e9c09fc2",
@@ -87,49 +85,41 @@ $ curl -X POST \
                         },
                         {
                             id: "bb4c038e",
-                            private_ip: "10.1.0.2"
+                            private_ip: "10.0.1.19"
                         }
-                    ],
-                    location: {
-                        region: "us-west-2",
-                        availability_zone: "a"
-                    }
+                    ]
                 },
                 {
                     id: "56ea830e",
                     type: "VM",
-                    name: "agent",
                     status: "STARTING",
+                    name: "agent",
                     network_interfaces: [
                         {
                             id: "b4ef518a",
                             public_ip: "32.17.144.3",
                             private_ip: "10.0.0.8"
                         }
-                    ],
-                    location: {
-                        region: "us-west-2",
-                        availability_zone: "a"
-                    }
+                    ]
                 },
                 {
                     id: "619a8bbe",
                     type: "VM",
-                    name: "client",
                     status: "STARTING",
+                    name: "client",
                     network_interfaces: [
                         {
                             id: "e111fbf9",
                             public_ip: "32.17.149.7",
                             private_ip: "10.0.0.9"
                         }
-                    ],
+                    ]
                 },
                 {
                     id: "acf1109b",
                     type: "URL",
-                    name: "hosted_application",
                     status: "READY",
+                    name: "hosted_application",
                     data: {
                         address: "https://my.webpage.com:3131"
                     }
@@ -139,16 +129,32 @@ $ curl -X POST \
                 {
                     name: "Server"
                     type: "TERMINAL",
+                    region: "us-east-1",
                     resource_id: "25f377ac"
+                },
+                {
+                    name: "Server Web Application"
+                    type: "WEBVIEW",
+                    region: "us-east-1",
+                    resource_id: "25f377ac",
+                    external: false,
+                    context: {
+                        port: 8080
+                    }
                 },
                 {
                     name: "Agent"
                     type: "TERMINAL",
-                    resource_id: "56ea830e"
+                    region: "us-east-1",
+                    resource_id: "56ea830e",
+                    context: {
+                        port: 2022
+                    }
                 },
                 {
                     name: "Client"
                     type: "DESKTOP",
+                    region: "us-east-1",
                     resource_id: "619a8bbe",
                     network_interface: {
                         id: "e9c09fc2",
@@ -163,17 +169,9 @@ $ curl -X POST \
                     }
                 },
                 {
-                    name: "Web Application"
+                    name: "Hosted Service"
                     type: "WEBVIEW",
-                    resource_id: "25f377ac",
-                    external: false,
-                    context: {
-                        port: 8080
-                    }
-                }
-                {
-                    name: "Hosted Application"
-                    type: "WEBVIEW",
+                    region: "eu-north-1",
                     resource_id: "acf1109b"
                 }
             ]
@@ -181,6 +179,7 @@ $ curl -X POST \
     }
 EOF
 ```
+
 
 ## Available types, statuses, resources and interfaces.
 
