@@ -19,8 +19,9 @@ Attribute               | Type     | Description
 ---------               | -------  | -------
 `source_message_id`     | String   | The source message's unique identifier. This is the `message_id` as provided in the outgoing message.
 `type`                  | String   | The type of resource Strigo needs to handle.
-`status`                | String   | The current state of the resource (CRUD?).
+`status`                | String   | The current state of the resource.
 `data`                  | Object   | An object containing `resources` and `interfaces` lists.
+`timestamp`             | Datetime | An ISO8601 compatible timestamp.
 
 #### Resource attributes:
 
@@ -30,7 +31,7 @@ Attribute               | Type     | Description
 `type`                  | String   | The type of resource Strigo needs to handle.
 `status`                | String   | The current status of the resource. See [list of possible resource statuses](#resource-statuses) below.
 `name`                  | String   | The name of the resource. This will be used for auditing purposes.
-`network_interfaces`    | List     | A list of network interfaces available for the resource. These will be referenced by Strigo interfaces.
+`config`                | Object   | Any mandatory or optional configuration for the resource.
 
 #### Interface attributes:
 
@@ -38,8 +39,14 @@ Attribute               | Type     | Description
 ---------               | -------  | -------
 `name`                  | String   | A name for the interface, which will be displayed for the attendees.
 `type`                  | String   | The type of interace to be used to connect to the resource.
-`region`                | String   | The location from which Strigo will attempt to connect to the referenced resource. See [available regions](#available-regions) for a list of available regions.
+`region`                | String   | The location from which Strigo will attempt to connect to the referenced resource. This affects latency for the different interfaces. See [available regions](#available-regions) for a list of available regions.
 `resource_id`           | String   | The resource's unique identifier, as defined in the `resource` object.
+`config`                | Object   | Any mandatory or optional configuration for the interface.
+
+
+### TODO: Elaborate on the following fields
+`authentication`        | Object   | The authentication configuration for accessing the resource.
+`network_interfaces`    | List     | A list of network interfaces available for the resource. These will be referenced by Strigo interfaces.
 
 
 ### Response Structure:
@@ -69,6 +76,7 @@ $ curl -X POST \
         source_message_id: "dfede374",
         type: "RESOURCE",
         status: "CREATED",
+        timestamp: "2020-10-05T08:39:09+00:00",
         data: {
             resources: [
                 {
@@ -76,51 +84,44 @@ $ curl -X POST \
                     type: "VM",
                     status: "STARTING",
                     name: "server",
-                    network_interfaces: [
-                        {
-                            id: "e9c09fc2",
+                    config: {
+                        network_interface: {
                             public_ip: "32.17.144.2",
                             private_ip: "10.0.0.6",
                             dns: "5108e970-labs.mycompany.com"
-                        },
-                        {
-                            id: "bb4c038e",
-                            private_ip: "10.0.1.19"
                         }
-                    ]
+                    }
                 },
                 {
                     id: "56ea830e",
                     type: "VM",
                     status: "STARTING",
                     name: "agent",
-                    network_interfaces: [
-                        {
-                            id: "b4ef518a",
+                    config: {
+                        network_interface: {
                             public_ip: "32.17.144.3",
                             private_ip: "10.0.0.8"
                         }
-                    ]
+                    }
                 },
                 {
                     id: "619a8bbe",
                     type: "VM",
                     status: "STARTING",
                     name: "client",
-                    network_interfaces: [
-                        {
-                            id: "e111fbf9",
+                    config: {
+                        network_interface: {
                             public_ip: "32.17.149.7",
                             private_ip: "10.0.0.9"
                         }
-                    ]
+                    }
                 },
                 {
                     id: "acf1109b",
                     type: "URL",
                     status: "READY",
                     name: "hosted_application",
-                    data: {
+                    config: {
                         address: "https://my.webpage.com:3131"
                     }
                 }
@@ -137,8 +138,7 @@ $ curl -X POST \
                     type: "WEBVIEW",
                     region: "us-east-1",
                     resource_id: "25f377ac",
-                    external: false,
-                    context: {
+                    config: {
                         port: 8080
                     }
                 },
@@ -147,8 +147,14 @@ $ curl -X POST \
                     type: "TERMINAL",
                     region: "us-east-1",
                     resource_id: "56ea830e",
-                    context: {
-                        port: 2022
+                    config: {
+                        port: 2022,
+                        authentication: {
+                            type: "keypair",
+                            data: {
+                                key: "..."
+                            }
+                        }
                     }
                 },
                 {
@@ -156,15 +162,14 @@ $ curl -X POST \
                     type: "DESKTOP",
                     region: "us-east-1",
                     resource_id: "619a8bbe",
-                    network_interface: {
-                        id: "e9c09fc2",
-                        port: "3389"
-                    },
-                    credentials: {
-                        type: "generated_username_password",
-                        data: {
-                            username: "admin",
-                            password: "p@$$w0rd"
+                    config: {
+                        port: "3389",
+                        authentication: {
+                            type: "generated_username_password",
+                            data: {
+                                username: "Administrator",
+                                password: "p@$$w0rd"
+                            }
                         }
                     }
                 },
@@ -209,6 +214,6 @@ The following represents an exhaustive list of resource types and actions, and i
 
 ### Interface types
 
-* `TERMINAL`
-* `DESKTOP`
-* `WEBVIEW`
+* `TERMINAL` => An SSH-based shell.
+* `DESKTOP` => A desktop interface to either a Linux or Windows based machine, via RDP.
+* `WEBVIEW` => An iframe that redirects to either a web server hosted on a VM, or an external website.

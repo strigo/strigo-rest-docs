@@ -21,6 +21,7 @@ Attribute               | Type     | Description
 `type`                  | String   | The type of entity for which the webhook was triggered.
 `status`                | String   | The current status of the entity.
 `entity_ids`            | List     | The list of entity IDs for which the webhook was triggered. For example, multiple on-demand enrollments can expire at the same time, triggering a single webhook to notify the customer. This array can therefore contain things like class IDs, event IDs, enrollment IDs, etc..
+`timestamp`             | Datetime | An ISO8601 compatible timestamp.
 `context`               | Object   | Any additional context a certain event may require.
 `callback`              | String   | The callback URL to call to after the webhook was triggered.
 
@@ -49,6 +50,7 @@ $ curl -X POST \
         "type": "EVENT",
         "status": "STARTED",
         "entity_ids": ["daf24556"],
+        "timestamp": "2020-10-05T08:36:09+00:00",
         "context": {
             ...
         },
