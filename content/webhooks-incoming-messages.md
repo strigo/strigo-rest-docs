@@ -19,7 +19,7 @@ Attribute               | Type     | Description
 ---------               | -------  | -------
 `source_message_id`     | String   | The source message's unique identifier. This is the `message_id` as provided in the outgoing message.
 `type`                  | String   | The type of resource Strigo needs to handle.
-`status`                | String   | The current state of the resource.
+`action`                | String   | The performed action.
 `data`                  | Object   | An object containing `resources` and `interfaces` lists.
 `timestamp`             | Datetime | An ISO8601 compatible timestamp.
 
@@ -44,9 +44,14 @@ Attribute               | Type     | Description
 `config`                | Object   | Any mandatory or optional configuration for the interface.
 
 
-### TODO: Elaborate on the following fields
+### Additional attributes:
+
+Note that some field definitions are still missing, specifically for:
+
 `authentication`        | Object   | The authentication configuration for accessing the resource.
 `network_interfaces`    | List     | A list of network interfaces available for the resource. These will be referenced by Strigo interfaces.
+
+These will be elaborated on later.
 
 
 ### Response Structure:
@@ -75,7 +80,7 @@ $ curl -X POST \
     {
         source_message_id: "dfede374",
         type: "RESOURCE",
-        status: "CREATED",
+        action: "CREATED",
         timestamp: "2020-10-05T08:39:09+00:00",
         data: {
             resources: [
@@ -135,7 +140,7 @@ $ curl -X POST \
                 },
                 {
                     name: "Server Web Application"
-                    type: "WEBVIEW",
+                    type: "WEB_PAGE",
                     region: "us-east-1",
                     resource_id: "25f377ac",
                     config: {
@@ -175,7 +180,7 @@ $ curl -X POST \
                 },
                 {
                     name: "Hosted Service"
-                    type: "WEBVIEW",
+                    type: "WEB_PAGE",
                     region: "eu-north-1",
                     resource_id: "acf1109b"
                 }
@@ -199,7 +204,7 @@ The following represents an exhaustive list of resource types and actions, and i
 ### Resource types
 
 * `VM` => Refers to a virtual machine.
-* `URL` => Refers to a public/webview URL.
+* `URL` => Refers to a public/WEB_PAGE URL.
 
 ### Resource statuses
 
@@ -216,4 +221,4 @@ The following represents an exhaustive list of resource types and actions, and i
 
 * `TERMINAL` => An SSH-based shell.
 * `DESKTOP` => A desktop interface to either a Linux or Windows based machine, via RDP.
-* `WEBVIEW` => An iframe that redirects to either a web server hosted on a VM, or an external website.
+* `WEB_PAGE` => An iframe that redirects to either a web server hosted on a VM, or an external website.
