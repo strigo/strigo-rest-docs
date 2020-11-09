@@ -52,7 +52,8 @@ $ curl -X GET \
     "host": "ec2-3-124-187-66.eu-central-1.compute.amazonaws.com",
     "port": "22",
     "connection_type": "ssh",
-    "status": "running"
+    "status": "running",
+    "strigo_dns": "ecankhamratfjfbsk-heflvgbrrknpdfi2y.labs.strigo.io"
   }
 ]
 ```
