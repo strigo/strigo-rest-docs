@@ -23,6 +23,7 @@ Attribute               | Type     | Description
 `host`                  | String   | The publically accessible host string of the resource.
 `port`                  | String   | The port through which which this resource can be accessed.
 `status`                | String   | The status of the resource.
+`strigo_dns`            | String   | The publically accessible DNS name of the resource.
 
 
 ## Retrieve all workspace resources
