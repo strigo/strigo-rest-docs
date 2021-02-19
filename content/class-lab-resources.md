@@ -158,7 +158,7 @@ EOF
 
 Create a new lab resource.
 
-`POST "/classes/:class_id/resources"`
+`PATCH "/classes/:class_id/resources"`
 
 ### URL Parameters
 
