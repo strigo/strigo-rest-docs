@@ -18,7 +18,6 @@ Attribute              | Type    | Description
 `external_id`          | String  | The user provided external ID of the course.
 `days_limit`           | Number  | The number of the days each enrollment will be limited to.
 `activity_hours_limit` | Number  | The number of work hours each enrollment will be limited to.
-`public_access_token`  | String  | The course's public access token.
 `status`               | String  | The status of the course (`online`, `offline`).
 
 ## Retrieve all courses
@@ -45,7 +44,6 @@ $ curl -X GET \
     "external_id": "course1",
     "id": "nE5pDWGzFRRQ8uMrN",
     "name": "Elastic Stack for beginners",
-    "public_access_token": "DQGT",
     "status": "online"
   }
 ]
@@ -81,7 +79,6 @@ $ curl -X GET \
   "external_id": "course1",
   "id": "nE5pDWGzFRRQ8uMrN",
   "name": "Elastic Stack for beginners",
-  "public_access_token": "DQGT",
   "status": "online"
 }
 ```
@@ -131,7 +128,6 @@ EOF
   "external_id": "course1",
   "id": "i7gHDXnDzpRFQqFZP",
   "name": "ooo",
-  "public_access_token": "MEWD",
   "status": "online"
 }
 ```
