@@ -1,8 +1,6 @@
 # Strigo's REST API Docs
 
-The API Reference is available at https://docs.strigo.io).
-
-[![CircleCI](https://circleci.com/gh/strigo/rest-docs/tree/master.svg?style=shield)](https://circleci.com/gh/strigo/rest-docs/tree/master)
+The API Reference is available at https://docs.strigo.io.
 
 # Installing and running locally
 
