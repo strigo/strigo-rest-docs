@@ -4,7 +4,7 @@ weight: 140
 
 # On Demand Course Enrollments
 
-Enrollments represent single, student-specific access definitions to on demand courses.
+Enrollments represent single, learner-specific access definitions to on demand courses.
 
 ## The Enrollment Resource
 
@@ -18,17 +18,17 @@ Attribute        | Type     | Description
 ---------        | -------  | -------
 `id`             | String   | The enrollments's unique identifier.
 `course_id`      | String   | The on-demand course's unique ID the enrollment belongs to.
-`email`          | String   | The email of the student.
+`email`          | String   | The email of the learner.
 `status`         | String   | The current status of the enrollment (`enrolled`, `started`, `expired`, ...)
-`enrolled_at`    | Datetime | The time in which the student was enrolled.
-`started_at`     | Datetime | The time in which the student started the course.
+`enrolled_at`    | Datetime | The time in which the learner was enrolled.
+`started_at`     | Datetime | The time in which the learner started the course.
 `expired_at`     | Datetime | The time in which the enrollment expired.
 `finished_at`    | Datetime | The time in which the enrollment was finished.
 `inactivated_at` | Datetime | The time in which the enrollment became inactive.
 `stopped_at`     | Datetime | The time in which the enrollment was stopped.
 `paused_at`      | Datetime | The time in which the enrollment was paused.
 `end_date`       | Datetime | The designated time for the enrollment to end.
-`first_activity` | Datetime | The time in which the student was first active in the course.
+`first_activity` | Datetime | The time in which the learner was first active in the course.
 `exercises`      | List     | The exercises for this enrollment (see [exercises](#workspace-exercises)).
 
 
@@ -126,7 +126,7 @@ Attribute       | Type    | Required | Description
 `enrollment_id` | String  | Yes      | The enrollment's unique identifier.
 
 
-## Enroll a student
+## Enroll a learner
 
 > Request Example
 
@@ -157,7 +157,7 @@ EOF
 
 ### Usage
 
-Enroll a student to an on-demand course.
+Enroll a learner to an on-demand course.
 
 `POST "/ondemand/:course_id/enrollments"`
 
@@ -171,7 +171,7 @@ Attribute   | Type    | Required | Description
 
 Attribute        | Type     | Required | Description
 ---------        | -------  | -------- | -------
-`email`          | String   | Yes      | The email of the student to invite.
+`email`          | String   | Yes      | The email of the learner to invite.
 
 
 ## Modify an enrollment
@@ -229,7 +229,7 @@ You can currently only patch enrollments to expire them.
 </aside>
 
 
-## Unenroll a student
+## Unenroll a learner
 
 > Request Example
 
@@ -250,7 +250,7 @@ $ curl -X DELETE \
 
 ### Usage
 
-Unenroll a previously enrolled student.
+Unenroll a previously enrolled learner.
 
 <aside class="notice">
 You can only delete enrollments in `enrolled` state.
