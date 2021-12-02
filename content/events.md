@@ -23,7 +23,7 @@ Attribute               | Type     | Description
 `include_chat`          | Boolean  | Whether the event should include chat.
 `include_video`         | Boolean  | Whether the event should include video.
 `tas`                   | List     | A list of training assistant emails.
-`trainees`              | List     | A list of student emails (for private only).
+`trainees`              | List     | A list of learner emails (for private only).
 `status`                | String   | The status of the event.
 `partner_id`            | String   | The unique ID of the partner entity to which this event belongs.
 `include_lab_exercises` | Boolean  | Whether to include lab exercises in the event (if there are exercises configured in the class template).
@@ -187,7 +187,7 @@ Attribute               | Type     | Required | Description
 `include_chat`          | Boolean  | No       | Whether the event should include chat.
 `include_video`         | Boolean  | No       | Whether the event should include video.
 `tas`                   | List     | No       | A list of training assistant emails.
-`trainees`              | List     | No       | A list of student emails (adding trainees implicitly creates a private event).
+`trainees`              | List     | No       | A list of learner emails (adding trainees implicitly creates a private event).
 `include_lab_exercises` | Boolean  | No       | Whether to include lab exercises in the event (if there are exercises configured in the class template).
 
 ## Modify an event
@@ -257,7 +257,7 @@ Attribute               | Type     | Required | Description
 `include_chat`          | Boolean  | No       | Whether the event should include chat.
 `include_video`         | Boolean  | No       | Whether the event should include video.
 `tas`                   | List     | No       | A list of training assistant emails.
-`trainees`              | List     | No       | A list of student emails (adding trainees implicitly means a private event).
+`trainees`              | List     | No       | A list of learner emails (adding trainees implicitly means a private event).
 `include_lab_exercises` | Boolean  | No       | Whether to include lab exercises in the event (if there are exercises configured in the class template).
 
 <aside class="notice">
