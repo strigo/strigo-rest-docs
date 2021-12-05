@@ -262,3 +262,86 @@ Attribute       | Type     | Required | Description
 ---------       | -------  | -------  | -------
 `course_id`     | String   | Yes      | The course's unique identifier.
 `enrollment_id` | String   | Yes      | The enrollment's unique identifier.
+
+## Enroll multiple learners
+
+> Request Example
+
+```shell
+$ curl -X POST \
+    -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    "https://app.strigo.io/api/v1/ondemand/NFdFJBSwwA8BrSpxk/enrollments/batch" \
+    -d @- <<EOF
+    {
+      "emails":["me@strigo.io", "not_me@strigo.io"]
+    }
+EOF
+```
+
+> Successful Response Example
+```json
+[
+  {
+    "course_id": "NFdFJBSwwA8BrSpxk",
+    "email": "me@strigo.io",
+    "enrolled_at": "2018-10-28T08:14:55.743Z",
+    "id": "yvTSaihvDRs7Kukeq",
+    "status": "enrolled"
+  },
+  {
+    "course_id": "NFdFJBSwwA8BrSpxk",
+    "email": "not_me@strigo.io",
+    "enrolled_at": "2018-10-28T08:14:55.743Z",
+    "id": "avTSaihvDRs7Kukew",
+    "status": "enrolled"
+  },
+]
+```
+
+> Partial Success Response Example
+```json
+{
+  "result": "failure",
+  "error": {
+    "message": "Could not enroll users",
+    "type": "EnrollmentsCreateFailure",
+    "errors": [
+      {
+        "type": "EnrollmentCreateFailure",
+        "value": "me@strigo.io",
+        "message": "User with provided email address has been already enrolled for the course"
+      }
+    ]
+  },
+  "data": [
+    {
+      "course_id": "NFdFJBSwwA8BrSpxk",
+      "email": "not_me@strigo.io",
+      "enrolled_at": "2018-10-28T08:14:55.743Z",
+      "id": "avTSaihvDRs7Kukew",
+      "status": "enrolled"
+    }
+  ]
+}
+```
+
+
+### Usage
+
+Enroll multiple learners to an on-demand course.
+
+`POST "/ondemand/:course_id/enrollments/batch"`
+
+### URL Parameters
+
+Attribute   | Type    | Required | Description
+---------   | ------- | -------  | -------
+`course_id` | String  | Yes      | The course's unique identifier.
+
+### BODY Parameters
+
+Attribute         | Type     | Required | Description
+---------         | -------  | -------- | -------
+`emails`          | List     | Yes      | A list of learner emails to invite.
