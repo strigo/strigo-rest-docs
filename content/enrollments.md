@@ -281,6 +281,7 @@ EOF
 ```
 
 > Successful Response Example
+
 ```json
 [
   {
@@ -301,6 +302,7 @@ EOF
 ```
 
 > Partial Success Response Example
+
 ```json
 {
   "result": "failure",
