@@ -39,7 +39,8 @@ We use Netlify to manage the docs' build process. Once a PR is merged to master,
 
 To publish a new version:
 
-1. Go to https://app.netlify.com/sites/strigo-rest-docs/overview
+1. Go to https://github.com (preferably in incognito mode) and sign in as `strigops`
+1. Go to https://app.netlify.com/sites/strigo-rest-docs/overview and sign in with GitHub
 1. Click the relevant item under "Production deploys", which represents the commit you want to deploy.
 1. Click the "Publish deploy" button.
 1. Done! The docs should now be up-to-date.
