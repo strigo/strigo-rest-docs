@@ -27,9 +27,9 @@ The API Reference is available at https://docs.strigo.io.
      1. Install Hugo: `brew install hugo`
 
 1. Verify that Hugo is installed: `hugo version`
-1. Clone this repository.
-1. Install the theme submodule by running `git submodule init && git submodule update`
-1. Change directory to the `strigo-rest-docs` directory.
+1. Clone this repository
+1. Change directory to the `strigo-rest-docs` directory
+1. Install the theme submodule by running: `git submodule init && git submodule update`
 1. Start the hugo web server: `hugo server`
 1. Go to: http://localhost:1313
 
