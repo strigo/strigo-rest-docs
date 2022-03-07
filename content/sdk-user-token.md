@@ -21,7 +21,7 @@ Before calling the [setup method in the SDK](https://github.com/strigo/strigo-sd
 
 Create a new user token.
 
-`POST "/libro/generate-token"`
+`POST "/academy/users/token"`
 
 ### BODY Parameters
 
@@ -39,7 +39,7 @@ $ curl -X POST \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "https://app.strigo.io/api/v1/libro/generate-token" \
+    "https://app.strigo.io/api/v1/academy/users/token" \
     -d @- <<EOF
     {
       email: "user1@strigo.io",
