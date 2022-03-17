@@ -25,12 +25,13 @@ Create a new user token.
 
 ### BODY Parameters
 
-| Attribute        | Type   | Required | Default  | Description                                                                                 |
-| ---------------- | ------ | -------- | -------- | ------------------------------------------------------------------------------------------- |
-| `email`          | String | Yes      |          | The user's unique email.                                                                    |
-| `name`           | String | No       | `""`     | The name of the user.                                                                       |
-| `externalUserId` | String | No       | `""`     | The user's identifier in your system.                                                       |
-| `expiration`     | Number | No       | 2 months | Expiration date for the token - can be up to 2 months after the token creation (UNIX time). |
+| Attribute        | Type   | Required | Default  | Description                                                                                                                                         |
+| ---------------- | ------ | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `email`          | String | Yes      |          | The user's unique email.                                                                                                                            |
+| `name`           | String | No       | `""`     | The name of the user.                                                                                                                               |
+| `externalUserId` | String | No       | `""`     | The user's identifier in your system.                                                                                                               |
+| `expiration`     | Number | No       | 2 months | Expiration date for the token - can be up to 2 months after the token creation (UNIX time).                                                         |
+| `groups`         | Array  | No       | `[]`     | The groups this user is assigned to. Users with groups will be able to view only courses that are tagged with the groups that they are assigned to. |
 
 > Request Example
 
@@ -46,6 +47,7 @@ $ curl -X POST \
       name: "user1",
       externalUserId: "external-user-id",
       expiration: Date.now() + 2592000000,
+      groups: ["group1", "advancedUsers"]
     }
 EOF
 ```
