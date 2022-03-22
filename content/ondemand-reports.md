@@ -47,7 +47,7 @@ $ curl -X GET \
 
 Lists all workspaces for an course.
 
-`GET "/ondemand-courses/:course_id/workspaces/reports/questions"`
+`GET "/ondemand-courses/:course_id/reports/questions"`
 
 ### URL Parameters
 

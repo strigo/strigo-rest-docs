@@ -47,7 +47,7 @@ $ curl -X GET \
 
 Lists all workspaces for an event.
 
-`GET "/events/:event_id/workspaces/reports/questions"`
+`GET "/events/:event_id/reports/questions"`
 
 ### URL Parameters
 
