@@ -8,26 +8,25 @@ weight: 110
 
 ### Attributes:
 
-Attribute               | Type     | Description
----------               | -------  | -------
-`id`                    | String   | The event's unique identifier.
-`owner`                 | Object   | The `email` and `id` of the org member hosting the event.
-`name`                  | String   | The event's name.
-`event_link`            | String   | The event's link.
-`token`                 | String   | The event's public access token.
-`class_id`              | String   | The unique id of the class the event is based on.
-`availability`          | String   | public/private
-`description`           | String   | The event's description.
-`date_start`            | Datetime | The date when the event starts (ISO8601).
-`date_end`              | Datetime | The date when the event ends (ISO8601).
-`include_chat`          | Boolean  | Whether the event should include chat.
-`include_video`         | Boolean  | Whether the event should include video.
-`tas`                   | List     | A list of training assistant emails.
-`trainees`              | List     | A list of learner emails (for private only).
-`status`                | String   | The status of the event.
-`partner_id`            | String   | The unique ID of the partner entity to which this event belongs.
-`include_lab_exercises` | Boolean  | Whether to include lab exercises in the event (if there are exercises configured in the class template).
-
+| Attribute               | Type     | Description                                                                                              |
+|-------------------------|----------|----------------------------------------------------------------------------------------------------------|
+| `id`                    | String   | The event's unique identifier.                                                                           |
+| `owner`                 | Object   | The `email` and `id` of the org member hosting the event.                                                |
+| `name`                  | String   | The event's name.                                                                                        |
+| `event_link`            | String   | The event's link.                                                                                        |
+| `token`                 | String   | The event's public access token.                                                                         |
+| `class_id`              | String   | The unique id of the class the event is based on.                                                        |
+| `availability`          | String   | public/private                                                                                           |
+| `description`           | String   | The event's description.                                                                                 |
+| `date_start`            | Datetime | The date when the event starts (ISO8601).                                                                |
+| `date_end`              | Datetime | The date when the event ends (ISO8601).                                                                  |
+| `include_chat`          | Boolean  | Whether the event should include chat.                                                                   |
+| `include_video`         | Boolean  | Whether the event should include video.                                                                  |
+| `tas`                   | List     | A list of training assistant emails.                                                                     |
+| `trainees`              | List     | A list of learner emails (for private only).                                                             |
+| `status`                | String   | The status of the event.                                                                                 |
+| `partner_id`            | String   | The unique ID of the partner entity to which this event belongs.                                         |
+| `include_lab_exercises` | Boolean  | Whether to include lab exercises in the event (if there are exercises configured in the class template). |
 
 ## Retrieve all events
 
@@ -118,10 +117,9 @@ Get a single event.
 
 ### URL Parameters
 
-Attribute  | Type    | Required | Description
----------  | ------- | -------  | -------
-`event_id` | String  | Yes      | The event's unique identifier.
-
+| Attribute  | Type   | Required | Description                    |
+|------------|--------|----------|--------------------------------|
+| `event_id` | String | Yes      | The event's unique identifier. |
 
 ## Create an event
 
@@ -176,19 +174,20 @@ Create a new event.
 
 ### BODY Parameters
 
-Attribute               | Type     | Required | Description
----------               | -------  |  ------- | -------
-`name`                  | String   | Yes      | The event's name (limited to 256 chars).
-`owner`                 | String   | Yes      | The email of the org member hosting the event.
-`class_id`              | String   | Yes      | The unique id of the class the event is based on.
-`description`           | String   | No       | The event's description (limited to 65536 chars).
-`date_start`            | Datetime | Yes      | The date when the event starts (ISO8601).
-`date_end`              | Datetime | Yes      | The date when the event ends (ISO8601).
-`include_chat`          | Boolean  | No       | Whether the event should include chat.
-`include_video`         | Boolean  | No       | Whether the event should include video.
-`tas`                   | List     | No       | A list of training assistant emails.
-`trainees`              | List     | No       | A list of learner emails (adding trainees implicitly creates a private event).
-`include_lab_exercises` | Boolean  | No       | Whether to include lab exercises in the event (if there are exercises configured in the class template).
+| Attribute               | Type     | Required | Description                                                                                              |
+|-------------------------|----------|----------|----------------------------------------------------------------------------------------------------------|
+| `name`                  | String   | Yes      | The event's name (limited to 256 chars).                                                                 |
+| `owner`                 | String   | Yes      | The email of the org member hosting the event.                                                           |
+| `class_id`              | String   | Yes      | The unique id of the class the event is based on.                                                        |
+| `description`           | String   | No       | The event's description (limited to 65536 chars).                                                        |
+| `date_start`            | Datetime | Yes      | The date when the event starts (ISO8601).                                                                |
+| `date_end`              | Datetime | Yes      | The date when the event ends (ISO8601).                                                                  |
+| `include_chat`          | Boolean  | No       | Whether the event should include chat.                                                                   |
+| `include_video`         | Boolean  | No       | Whether the event should include video.                                                                  |
+| `tas`                   | List     | No       | A list of training assistant emails.                                                                     |
+| `trainees`              | List     | No       | A list of learner emails (adding trainees implicitly creates a private event).                           |
+| `availability`          | String   | No       | The availability of the event ["public"/"private"].                                                      |
+| `include_lab_exercises` | Boolean  | No       | Whether to include lab exercises in the event (if there are exercises configured in the class template). |
 
 ## Modify an event
 
@@ -240,25 +239,26 @@ Modify an existing event.
 
 ### URL Parameters
 
-Attribute           | Type     | Required | Description
----------           | -------  | -------  | -------
-`event_id`          | String   | Yes      | The event's unique identifier.
+| Attribute  | Type   | Required | Description                    |
+|------------|--------|----------|--------------------------------|
+| `event_id` | String | Yes      | The event's unique identifier. |
 
 ### BODY Parameters
 
-Attribute               | Type     | Required | Description
----------               | -------  | -------  | -------
-`name`                  | String   | No       | The event's name (limited to 256 chars).
-`owner`                 | String   | No       | The email of the org member hosting the event.
-`description`           | String   | No       | The event's description (limited to 65536 chars).
-`date_start`            | Datetime | No       | The date when the event starts (ISO8601).
-`date_end`              | Datetime | No       | The date when the event ends (ISO8601).
-`class_id`              | String   | No       | The unique id of the class the event is based on.
-`include_chat`          | Boolean  | No       | Whether the event should include chat.
-`include_video`         | Boolean  | No       | Whether the event should include video.
-`tas`                   | List     | No       | A list of training assistant emails.
-`trainees`              | List     | No       | A list of learner emails (adding trainees implicitly means a private event).
-`include_lab_exercises` | Boolean  | No       | Whether to include lab exercises in the event (if there are exercises configured in the class template).
+| Attribute               | Type     | Required | Description                                                                                                                      |                                                                                  
+|-------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------|
+| `name`                  | String   | No       | The event's name (limited to 256 chars).                                                                                         |
+| `owner`                 | String   | No       | The email of the org member hosting the event.                                                                                   |
+| `description`           | String   | No       | The event's description (limited to 65536 chars).                                                                                |
+| `date_start`            | Datetime | No       | The date when the event starts (ISO8601).                                                                                        |
+| `date_end`              | Datetime | No       | The date when the event ends (ISO8601).                                                                                          |
+| `class_id`              | String   | No       | The unique id of the class the event is based on.                                                                                |
+| `include_chat`          | Boolean  | No       | Whether the event should include chat.                                                                                           |
+| `include_video`         | Boolean  | No       | Whether the event should include video.                                                                                          |
+| `tas`                   | List     | No       | A list of training assistant emails.                                                                                             |
+| `trainees`              | List     | No       | A list of learner emails (adding trainees implicitly means a private event).                                                     |
+| `availability`          | String   | No       | The availability of the event ["public"/"private"]. * Setting a private event to "public" will remove the event 'trainees' list. |
+| `include_lab_exercises` | Boolean  | No       | Whether to include lab exercises in the event (if there are exercises configured in the class template).                         |
 
 <aside class="notice">
 You cannot currently modify live events. That will be supported in the future.
@@ -298,6 +298,6 @@ You can only delete events in `ready` state.
 
 ### URL Parameters
 
-Attribute  | Type    | Required | Description
----------  | ------- | -------  | -------
-`event_id` | String  | Yes      | The event's unique identifier.
+| Attribute  | Type   | Required | Description                    |
+|------------|--------|----------|--------------------------------|
+| `event_id` | String | Yes      | The event's unique identifier. |
