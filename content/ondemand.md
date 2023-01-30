@@ -21,6 +21,7 @@ weight: 130
 | `features.slides`           | Boolean | The flag for including slides in the course.                 |
 | `features.lab_manual_pause` | Boolean | The flag for hiding workspace pause button.                  |
 | `status`                    | String  | The status of the course (`online`, `offline`).              |
+| `labels`                    | List    | The list of labels applied to the course.                    |
 
 ## Retrieve all courses
 
@@ -171,6 +172,7 @@ Create a new on demand course.
 | `features.slides`           | Boolean | Yes      | The flag for including slides in the course.                 |
 | `features.lab_manual_pause` | Boolean | Yes      | The flag for hiding workspace pause button.                  |
 | `status`                    | String  | Yes      | The status of the course (`online`, `offline`).              |
+| `labels`                    | List    | No       | The list of labels to apply to the course.                   |
 
 ## Update a course
 
@@ -228,15 +230,16 @@ Update an on demand course.
 
 | Attribute                   | Type    | Required | Description                                                  |
 | --------------------------- | ------- | -------- | ------------------------------------------------------------ |
-| `name`                      | String  | Yes      | The name of the course.                                      |
-| `class_id`                  | String  | Yes      | The class's unique ID the course is based on.                |
+| `name`                      | String  | No       | The name of the course.                                      |
+| `class_id`                  | String  | No      | The class's unique ID the course is based on.                |
 | `external_id`               | String  | No       | The user provided external ID of the course.                 |
-| `days_limit`                | Number  | Yes      | The number of the days each enrollment will be limited to.   |
-| `activity_hours_limit`      | Number  | Yes      | The number of work hours each enrollment will be limited to. |
-| `features.video`            | Boolean | Yes      | The flag for including video in the course.                  |
-| `features.slides`           | Boolean | Yes      | The flag for including slides in the course.                 |
-| `features.lab_manual_pause` | Boolean | Yes      | The flag for hiding workspace pause button.                  |
-| `status`                    | String  | Yes      | The status of the course (`online`, `offline`).              |
+| `days_limit`                | Number  | No      | The number of the days each enrollment will be limited to.   |
+| `activity_hours_limit`      | Number  | No      | The number of work hours each enrollment will be limited to. |
+| `features.video`            | Boolean | No      | The flag for including video in the course.                  |
+| `features.slides`           | Boolean | No      | The flag for including slides in the course.                 |
+| `features.lab_manual_pause` | Boolean | No      | The flag for hiding workspace pause button.                  |
+| `status`                    | String  | No       | The status of the course (`online`, `offline`).              |
+| `labels`                    | List    | No       | The list of labels to apply to the course.                   |
 
 ## Delete a course
 

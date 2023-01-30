@@ -20,6 +20,7 @@ Attribute               | Type     | Description
 `presentation_filename` | String   | The name of the presentation file (see [presentations](#presentations)).
 `created_at`            | Datetime | The time when the class was created.
 `updated_at`            | Datetime | The time when the class was last updated.
+`labels`                | List     | The list of labels applied to the class template.
 
 
 ## Retrieve all classes
@@ -180,6 +181,7 @@ Attribute  | Type    | Required | Description
 ---------  | ------- | -------  | -------
 `name`        | String   | Yes | The class's name.
 `description` | String   | No  | The class's description.
+`labels`      | List     | No  | The list of labels to apply to the class template.
 
 
 ## Modify a class
@@ -234,6 +236,7 @@ Attribute     | Type     | Required | Description
 ---------     | -------  | -------  | -------
 `name`        | String   | No       | The class's name.
 `description` | String   | No       | The class's description.
+`labels`      | List     | No       | The list of labels to apply to the class template.
 
 
 ## Delete a single class
