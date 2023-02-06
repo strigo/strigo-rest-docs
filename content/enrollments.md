@@ -238,7 +238,7 @@ $ curl -X DELETE \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "https://app.strigo.io/api/v1/events/p3bdnrweEystFToCq"
+    "https://app.strigo.io/api/v1/ondemand/NFdFJBSwwA8BrSpxk/enrollments/9hQ5zitwbZh4zrga8"
 ```
 
 > Response Example
@@ -256,12 +256,16 @@ Unenroll a previously enrolled learner.
 You can only delete enrollments in `enrolled` state.
 </aside>
 
+<aside class="notice">
+You can also delete an enrollment by providing the url-encoded email of a learner instead of providing the enrollment ID.
+</aside>
+
 `DELETE "/ondemand/:course_id/enrollments/:enrollment_id"`
 
 Attribute       | Type     | Required | Description
 ---------       | -------  | -------  | -------
 `course_id`     | String   | Yes      | The course's unique identifier.
-`enrollment_id` | String   | Yes      | The enrollment's unique identifier.
+`enrollment_id` | String   | Yes      | The enrollment's unique identifier (or leaner email. See note above.).
 
 ## Enroll multiple learners
 
