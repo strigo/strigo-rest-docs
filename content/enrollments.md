@@ -224,6 +224,24 @@ $ curl -X PATCH \
 EOF
 ```
 
+
+> Response Example
+
+```json
+{
+  "result": "success",
+  "data": {
+    "id": "d2iRTXOp8UcxvST",
+    "course_id": "XYZ3uityordf66XQ",
+    "email": "me18@strigo.io",
+    "status": "expired",
+    "enrolled_at": "2023-10-08T08:54:31.624Z",
+    "expired_at": "2023-10-08T08:54:41.686Z",
+    "exercises": []
+  }
+}
+```
+
 > Request Example for modifying expiration date
 
 ```shell
