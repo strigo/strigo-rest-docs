@@ -8,19 +8,19 @@ weight: 900
 
 ### Attributes:
 
-Attribute               | Type     | Description
----------               | -------  | -------
-`id`                    | String   | The event's unique identifier.
-`target`                | String   | The URL to send the payload to.
-`event`                 | String   | The type of event to send notifications to.
-`status`                | String   | The status of the subscription (Can be either `active` or `inactive`).
-`createdAt`             | Datetime | The date when the subscription was created (ISO8601).
-`updatedAt`             | Datetime | The date when the subscription was updated (ISO8601).
+| Attribute   | Type     | Description                                                            |
+|-------------|----------|------------------------------------------------------------------------|
+| `id`        | String   | The event's unique identifier.                                         |
+| `target`    | String   | The URL to send the payload to.                                        |
+| `event`     | String   | The type of event to send notifications to.                            |
+| `status`    | String   | The status of the subscription (Can be either `active` or `inactive`). |
+| `createdAt` | Datetime | The date when the subscription was created (ISO8601).                  |
+| `updatedAt` | Datetime | The date when the subscription was updated (ISO8601).                  |
 
 #### Available event types:
 
-See our [Subscriptions API help article](http://help.strigo.io/en/articles/5685041-using-strigo-s-subscriptions-api) for more info.
-
+See our [Subscriptions API help article](http://help.strigo.io/en/articles/5685041-using-strigo-s-subscriptions-api) for
+more info.
 
 ## Retrieve all subscriptions
 
@@ -66,7 +66,6 @@ Lists all subscriptions for your organization, regardless of their status.
 
 `GET "/subscriptions"`
 
-
 ## Retrieve a single subscription
 
 > Request Example
@@ -103,10 +102,9 @@ Get a single subscription.
 
 ### URL Parameters
 
-Attribute         | Type    | Required | Description
----------         | ------- | -------  | -------
-`subscription_id` | String  | Yes      | The subscription's unique identifier.
-
+| Attribute         | Type   | Required | Description                           |
+|-------------------|--------|----------|---------------------------------------|
+| `subscription_id` | String | Yes      | The subscription's unique identifier. |
 
 ## Create an subscription
 
@@ -150,11 +148,11 @@ Create a new subscription.
 
 ### BODY Parameters
 
-Attribute | Type     | Required | Description
---------- | -------  |  ------- | -------
-`target`  | String   | Yes      | The target to send the notification to.
-`event`   | String   | Yes      | The type of the event to subscribe to.
-`status`  | String   | No       | The status of the subscription (Can be either `active` or `inactive`).
+| Attribute | Type   | Required | Description                                                            |
+|-----------|--------|----------|------------------------------------------------------------------------|
+| `target`  | String | Yes      | The target to send the notification to.                                |
+| `event`   | String | Yes      | The type of the event to subscribe to.                                 |
+| `status`  | String | No       | The status of the subscription (Can be either `active` or `inactive`). |
 
 ## Modify a subscription
 
@@ -199,18 +197,17 @@ Modify an existing subscription.
 
 ### URL Parameters
 
-Attribute         | Type    | Required | Description
----------         | ------- | -------  | -------
-`subscription_id` | String  | Yes      | The subscription's unique identifier.
+| Attribute         | Type   | Required | Description                           |
+|-------------------|--------|----------|---------------------------------------|
+| `subscription_id` | String | Yes      | The subscription's unique identifier. |
 
 ### BODY Parameters
 
-Attribute | Type     | Required | Description
---------- | -------  |  ------- | -------
-`target`  | String   | Yes      | The target to send the notification to.
-`event`   | String   | Yes      | The type of the event to subscribe to.
-`status`  | String   | No       | The status of the subscription (Can be either `active` or `inactive`).
-
+| Attribute | Type   | Required | Description                                                            |
+|-----------|--------|----------|------------------------------------------------------------------------|
+| `target`  | String | Yes      | The target to send the notification to.                                |
+| `event`   | String | Yes      | The type of the event to subscribe to.                                 |
+| `status`  | String | No       | The status of the subscription (Can be either `active` or `inactive`). |
 
 ## Delete a subscription
 
@@ -230,7 +227,6 @@ $ curl -X DELETE \
 204 No Content
 ```
 
-
 ### Usage
 
 Delete a single subscription.
@@ -239,6 +235,6 @@ Delete a single subscription.
 
 ### URL Parameters
 
-Attribute         | Type    | Required | Description
----------         | ------- | -------  | -------
-`subscription_id` | String  | Yes      | The subscription's unique identifier.
+| Attribute         | Type   | Required | Description                           |
+|-------------------|--------|----------|---------------------------------------|
+| `subscription_id` | String | Yes      | The subscription's unique identifier. |

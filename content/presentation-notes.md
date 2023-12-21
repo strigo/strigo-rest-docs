@@ -2,7 +2,6 @@
 weight: 109
 ---
 
-
 # Presentation Notes
 
 <aside class="notice">
@@ -11,10 +10,9 @@ Currently, there's no way to handle single notes. You can only GET, POST or DELE
 
 ## The Presentation Notes Resource
 
-Attribute     | Type     | Description
----------     | -------  | -------
-`notes`       | List     | A list of Note objects.
-
+| Attribute | Type | Description             |
+|-----------|------|-------------------------|
+| `notes`   | List | A list of Note objects. |
 
 ## Retrieve all notes
 
@@ -47,11 +45,10 @@ Lists all presentation notes for your presentation.
 
 ### URL Parameters
 
-Attribute  | Type    | Required | Description
----------  | ------- | -------  | -------
-`class_id` | String  | Yes      | The class's unique identifier.
-`presentation_id` | String | Yes | The presentation's unique identifier.
-
+| Attribute         | Type   | Required | Description                           |
+|-------------------|--------|----------|---------------------------------------|
+| `class_id`        | String | Yes      | The class's unique identifier.        |
+| `presentation_id` | String | Yes      | The presentation's unique identifier. |
 
 ## Create notes for a presentation
 
@@ -94,24 +91,23 @@ Assign notes to a presentaiton.
 
 ### URL Parameters
 
-Attribute  | Type    | Required | Description
----------  | ------- | -------  | -------
-`class_id` | String  | Yes      | The class's unique identifier.
-`presentation_id` | String | Yes | The presentation's unique identifier.
+| Attribute         | Type   | Required | Description                           |
+|-------------------|--------|----------|---------------------------------------|
+| `class_id`        | String | Yes      | The class's unique identifier.        |
+| `presentation_id` | String | Yes      | The presentation's unique identifier. |
 
 ### BODY Parameters
 
-Attribute     | Type     | Required | Description
----------     | -------  | -------  | -------
-`notes`       | List     | Yes      | A list of NOTE objects.
+| Attribute | Type | Required | Description             |
+|-----------|------|----------|-------------------------|
+| `notes`   | List | Yes      | A list of NOTE objects. |
 
 ### NOTE Parameters
 
-Attribute     | Type     | Required | Description
----------     | -------  | -------  | -------
-`page`        | Integer  | Yes      | The page in the presentation to which this note applies.
-`content`     | String   | Yes      | The textual content of the note.
-
+| Attribute | Type    | Required | Description                                              |
+|-----------|---------|----------|----------------------------------------------------------|
+| `page`    | Integer | Yes      | The page in the presentation to which this note applies. |
+| `content` | String  | Yes      | The textual content of the note.                         |
 
 ## Delete all notes for a presentation
 
@@ -131,7 +127,6 @@ $ curl -X DELETE \
 204 No Content
 ```
 
-
 ### Usage
 
 Delete all notes for a presentation.
@@ -140,7 +135,7 @@ Delete all notes for a presentation.
 
 ### URL Parameters
 
-Attribute  | Type    | Required | Description
----------  | ------- | -------  | -------
-`class_id` | String  | Yes      | The class's unique identifier.
-`presentation_id` | String | Yes | The presentation's unique identifier.
+| Attribute         | Type   | Required | Description                           |
+|-------------------|--------|----------|---------------------------------------|
+| `class_id`        | String | Yes      | The class's unique identifier.        |
+| `presentation_id` | String | Yes      | The presentation's unique identifier. |

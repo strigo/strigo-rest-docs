@@ -4,7 +4,8 @@ weight: 1
 
 # Introduction
 
-Strigo's v1 REST API allows you to perform most basic actions Strigo supports for non-live interaction with Strigo's platform.
+Strigo's v1 REST API allows you to perform most basic actions Strigo supports for non-live interaction with Strigo's
+platform.
 
 Some actions, like changing billing settings, are only available via the web interface.
 
@@ -20,7 +21,6 @@ The default API endpoint for all v1 requests is:
 `https://app.strigo.io/api/v1`
 
 All paths shown here are relative to this path.
-
 
 ## Authentication
 
@@ -45,7 +45,6 @@ If not, you can retrieve the generated key and org ID.
 The creds can be found [here](https://app.strigo.io/settings#account).
 
 We'll be adding additional authentication methods in the future.
-
 
 ## Response Structure
 
@@ -81,7 +80,8 @@ We'll be adding additional authentication methods in the future.
 }
 ```
 
-Each response, (except for `/health`) contains at the very least one high-level key (`result`) and two optional ones (`data` and `error`).
+Each response, (except for `/health`) contains at the very least one high-level key (`result`) and two optional
+ones (`data` and `error`).
 
 <aside class="notice">
 Successful `DELETE` requests do not return a structured response, and instead return a 204 (No Content) status code.
@@ -89,7 +89,8 @@ Successful `DELETE` requests do not return a structured response, and instead re
 
 ### The `result` Key
 
-The `result` key is supposed to help you identify, before proceeding any further in your code, whether the request was successful or not. This is merely a convenience. The values can either be `success` or `failure`.
+The `result` key is supposed to help you identify, before proceeding any further in your code, whether the request was
+successful or not. This is merely a convenience. The values can either be `success` or `failure`.
 
 ### The `data` Key
 
@@ -100,40 +101,42 @@ don't return data.
 
 The `error` key is only included when an error occurs, and has two fields (`type` and `message`).
 
-* `type` -> The Strigo-specific type of error (e.g. `ClassNotFound`). While you can operate on HTTP status codes, this provides a more elaborate mechanism for acting on errors. For example, a request can return `400` for two completely different types of errors.
+* `type` -> The Strigo-specific type of error (e.g. `ClassNotFound`). While you can operate on HTTP status codes, this
+  provides a more elaborate mechanism for acting on errors. For example, a request can return `400` for two completely
+  different types of errors.
 * `message` -> A more elaborate, human-readable message describing the error.
 
 Request validation errors also return an `errors` array as part of the error:
 
 ```json
 {
-    "result": "failure",
-    "error": {
-        "message": "The request is not valid",
-        "type": "RequestValidationError",
-        "errors": [
-            {
-                "location": "body",
-                "param": "class_id",
-                "msg": "Must be a valid class ID"
-            },
-            {
-                "location": "body",
-                "param": "owner",
-                "msg": "Must be a valid email address"
-            },
-            {
-                "location": "body",
-                "param": "date_start",
-                "msg": "Must be an ISO8601 compliant date"
-            },
-            {
-                "location": "body",
-                "param": "date_end",
-                "msg": "Must be an ISO8601 compliant date"
-            }
-        ]
-    }
+  "result": "failure",
+  "error": {
+    "message": "The request is not valid",
+    "type": "RequestValidationError",
+    "errors": [
+      {
+        "location": "body",
+        "param": "class_id",
+        "msg": "Must be a valid class ID"
+      },
+      {
+        "location": "body",
+        "param": "owner",
+        "msg": "Must be a valid email address"
+      },
+      {
+        "location": "body",
+        "param": "date_start",
+        "msg": "Must be an ISO8601 compliant date"
+      },
+      {
+        "location": "body",
+        "param": "date_end",
+        "msg": "Must be an ISO8601 compliant date"
+      }
+    ]
+  }
 }
 ```
 
@@ -141,12 +144,12 @@ Request validation errors also return an `errors` array as part of the error:
 All responses shown in the examples in the API reference only include the content of the `data` key in the response.
 </aside>
 
-
 ## Errors and Validations
 
 ### Validation errors
 
-Request validations are performed on all request query and body parameters. This should allow users to understand exactly which parameter is invalid.
+Request validations are performed on all request query and body parameters. This should allow users to understand
+exactly which parameter is invalid.
 
 For all validation errors, the `RequestValidationError` error type is returned with HTTP error 422.
 
@@ -154,12 +157,12 @@ For all validation errors, the `RequestValidationError` error type is returned w
 
 We provide rather granular error types that should allow you to programmatically respond to errors.
 
-For example, given a DELETE request to delete an event that is currently live, an `EventNotInReadyState` error type will be returned.
+For example, given a DELETE request to delete an event that is currently live, an `EventNotInReadyState` error type will
+be returned.
 
 ### Error Codes
 
 We use standard response codes for all requests.
-
 
 ## Actions and Methods
 
@@ -169,7 +172,6 @@ We use the common pattern of performing actions based on the HTTP method used:
 * `POST` for creating a new entity.
 * `PATCH` for updating an existing entity.
 * `DELETE` for deleting an entity.
-
 
 ## Health Check
 
@@ -187,8 +189,8 @@ $ curl -X GET \
 
 ```json
 {
-  "status":"ok",
-  "message":"Healthy"
+  "status": "ok",
+  "message": "Healthy"
 }
 ```
 
@@ -199,7 +201,6 @@ $ curl -X GET \
 ### Usage
 
 This can be used to verify server integrity and to validate your credentials.
-
 
 ## Rate Limiting
 

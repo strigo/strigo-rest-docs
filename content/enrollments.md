@@ -87,7 +87,6 @@ Lists all enrollments for the course, regardless of their status.
 
 `GET "/ondemand/:course_id/enrollments"`
 
-
 ## Retrieve a single enrollment
 
 > Request Example
@@ -224,7 +223,6 @@ $ curl -X PATCH \
 EOF
 ```
 
-
 > Response Example
 
 ```json
@@ -299,7 +297,6 @@ Modify an existing enrollment.
 You can currently only patch enrollments to expire them.
 </aside>
 
-
 ## Unenroll a learner
 
 > Request Example
@@ -317,7 +314,6 @@ $ curl -X DELETE \
 ```text
 204 No Content
 ```
-
 
 ### Usage
 
@@ -375,7 +371,6 @@ EOF
   }
 ]
 ```
-
 
 > Request Example with expiration date
 
@@ -446,7 +441,6 @@ EOF
   ]
 }
 ```
-
 
 ### Usage
 

@@ -1,5 +1,5 @@
 ---
-weight: 115
+weight: 145
 ---
 
 # On Demand Course Reports
@@ -10,11 +10,10 @@ This data represents all workspaces question results that related to a specific 
 
 ### Attributes:
 
-| Attribute   | Type   | Description                                                |
-|-------------|--------|------------------------------------------------------------|
-| `course_id` | String | A unique identifier of the course.                         |
-| `output`    | String | The desired output type (`json`, `csv`). Default is `json`.|
-
+| Attribute   | Type   | Description                                                 |
+|-------------|--------|-------------------------------------------------------------|
+| `course_id` | String | A unique identifier of the course.                          |
+| `output`    | String | The desired output type (`json`, `csv`). Default is `json`. |
 
 ### URL Parameters
 

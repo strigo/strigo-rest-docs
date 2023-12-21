@@ -8,11 +8,11 @@ weight: 160
 
 ### Attributes:
 
-Attribute | Type | Description
---------- | ------- | -------
-`id`      | String  | The member's unique identifier.
-`email`   | String  | The member's email.
-`level`    | String  | The member's role.
+| Attribute | Type   | Description                     |
+|-----------|--------|---------------------------------|
+| `id`      | String | The member's unique identifier. |
+| `email`   | String | The member's email.             |
+| `level`   | String | The member's role.              |
 
 ## Retrieve all members
 

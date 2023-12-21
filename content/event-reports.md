@@ -14,7 +14,6 @@ This data represents all workspaces question results that related to a specific 
 |------------|--------|-----------------------------------|
 | `event_id` | String | A unique identifier of the event. |
 
-
 ### URL Parameters
 
 | Attribute  | Type   | Required | Description                    |
@@ -61,6 +60,7 @@ $ curl -X GET \
   }
 ]
 ```
+
 ____________________________________________
 
 ## Lab Challenges report
@@ -72,7 +72,6 @@ This data represents all workspaces question results that related to a specific 
 | Attribute  | Type   | Description                       |
 |------------|--------|-----------------------------------|
 | `event_id` | String | A unique identifier of the event. |
-
 
 ### URL Parameters
 
@@ -139,6 +138,7 @@ $ curl -X GET \
   ]
 }
 ```
+
 > CSV Request Example
 
 ```shell
@@ -157,10 +157,10 @@ $ curl -X GET \
 "45f2305650328ac7afd34a61","Erlich Bachman's new event","ymo45j5QknKEopgkJ",,"2023-11-21T09:43:59.285Z","hidday@strigo.io","# Example command that writes to stderr >&2 echo ""This is standard error (stderr)""","FAILURE"
 "45f2305650328ac7afd34a61","Erlich Bachman's new event","ymo45j5QknKEopgkJ",,"2023-11-21T09:44:29.297Z","hidday@strigo.io","successfull challenge","SUCCESS"
 ```
+
 ____________________________________________
 
 ## User activity report
-
 
 Lists event's user activity sessions.
 

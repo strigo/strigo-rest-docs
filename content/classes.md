@@ -2,26 +2,24 @@
 weight: 100
 ---
 
-
 # Classes
 
 ## The Class Resource
 
 ### Attributes:
 
-Attribute               | Type     | Description
----------               | -------  | -------
-`id`                    | String   | The class's unique identifier.
-`name`                  | String   | The class's name.
-`owner`                 | String   | The email or unique ID of the org member who created the class. Note that this is currently automatically inferred from the request, and has not effect on functionality.
-`description`           | String   | The class's description.
-`resources`             | List     | The lab resources chosen for the class (see [resources](#class-lab-resources)).
-`presentation_notes`    | List     | The presentation notes added to the class's presentation (see [presentation notes](#presentation-notes)).
-`presentation_filename` | String   | The name of the presentation file (see [presentations](#presentations)).
-`created_at`            | Datetime | The time when the class was created.
-`updated_at`            | Datetime | The time when the class was last updated.
-`labels`                | List     | The list of labels applied to the class template.
-
+| Attribute               | Type     | Description                                                                                                                                                               |
+|-------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `id`                    | String   | The class's unique identifier.                                                                                                                                            |
+| `name`                  | String   | The class's name.                                                                                                                                                         |
+| `owner`                 | String   | The email or unique ID of the org member who created the class. Note that this is currently automatically inferred from the request, and has not effect on functionality. |
+| `description`           | String   | The class's description.                                                                                                                                                  |
+| `resources`             | List     | The lab resources chosen for the class (see [resources](#class-lab-resources)).                                                                                           |
+| `presentation_notes`    | List     | The presentation notes added to the class's presentation (see [presentation notes](#presentation-notes)).                                                                 |
+| `presentation_filename` | String   | The name of the presentation file (see [presentations](#presentations)).                                                                                                  |
+| `created_at`            | Datetime | The time when the class was created.                                                                                                                                      |
+| `updated_at`            | Datetime | The time when the class was last updated.                                                                                                                                 |
+| `labels`                | List     | The list of labels applied to the class template.                                                                                                                         |
 
 ## Retrieve all classes
 
@@ -77,7 +75,6 @@ Lists all classes for your organization.
 
 `GET "/classes"`
 
-
 ## Retrieve a single class
 
 > Request Example
@@ -132,10 +129,9 @@ Get a single class.
 
 ### URL Parameters
 
-Attribute  | Type    | Required | Description
----------  | ------- | -------  | -------
-`class_id` | String  | Yes      | The class's unique identifier.
-
+| Attribute  | Type   | Required | Description                    |
+|------------|--------|----------|--------------------------------|
+| `class_id` | String | Yes      | The class's unique identifier. |
 
 ## Create a class
 
@@ -177,12 +173,11 @@ Create a new class.
 
 ### BODY Parameters
 
-Attribute  | Type    | Required | Description
----------  | ------- | -------  | -------
-`name`        | String   | Yes | The class's name.
-`description` | String   | No  | The class's description.
-`labels`      | List     | No  | The list of labels to apply to the class template.
-
+| Attribute     | Type   | Required | Description                                        |
+|---------------|--------|----------|----------------------------------------------------|
+| `name`        | String | Yes      | The class's name.                                  |
+| `description` | String | No       | The class's description.                           |
+| `labels`      | List   | No       | The list of labels to apply to the class template. |
 
 ## Modify a class
 
@@ -226,18 +221,17 @@ Modify a class.
 
 ### URL Parameters
 
-Attribute  | Type    | Required | Description
----------  | ------- | -------  | -------
-`class_id` | String  | Yes      | The class's unique identifier.
+| Attribute  | Type   | Required | Description                    |
+|------------|--------|----------|--------------------------------|
+| `class_id` | String | Yes      | The class's unique identifier. |
 
 ### BODY Parameters
 
-Attribute     | Type     | Required | Description
----------     | -------  | -------  | -------
-`name`        | String   | No       | The class's name.
-`description` | String   | No       | The class's description.
-`labels`      | List     | No       | The list of labels to apply to the class template.
-
+| Attribute     | Type   | Required | Description                                        |
+|---------------|--------|----------|----------------------------------------------------|
+| `name`        | String | No       | The class's name.                                  |
+| `description` | String | No       | The class's description.                           |
+| `labels`      | List   | No       | The list of labels to apply to the class template. |
 
 ## Delete a single class
 
@@ -265,6 +259,6 @@ Delete a single class.
 
 ### URL Parameters
 
-Attribute  | Type    | Required | Description
----------  | ------- | -------  | -------
-`class_id` | String  | Yes      | The class's unique identifier.
+| Attribute  | Type   | Required | Description                    |
+|------------|--------|----------|--------------------------------|
+| `class_id` | String | Yes      | The class's unique identifier. |
