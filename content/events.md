@@ -73,7 +73,6 @@ Lists all events for your organization, regardless of their status.
 
 `GET "/events"`
 
-
 ## Retrieve a single event
 
 > Request Example
@@ -189,7 +188,7 @@ Create a new event.
 | `trainees`              | List     | No       | A list of learner emails (adding trainees implicitly creates a private event).                           |
 | `availability`          | String   | No       | The availability of the event ["public"/"private"].                                                      |
 | `include_lab_exercises` | Boolean  | No       | Whether to include lab exercises in the event (if there are exercises configured in the class template). |
-| `labels`                | List     | No       | The list of labels to apply to the event. |
+| `labels`                | List     | No       | The list of labels to apply to the event.                                                                |
 
 ## Modify an event
 
@@ -261,14 +260,11 @@ Modify an existing event.
 | `trainees`              | List     | No       | A list of learner emails (adding trainees implicitly means a private event).                                                     |
 | `availability`          | String   | No       | The availability of the event ["public"/"private"]. * Setting a private event to "public" will remove the event 'trainees' list. |
 | `include_lab_exercises` | Boolean  | No       | Whether to include lab exercises in the event (if there are exercises configured in the class template).                         |
-| `labels`                | List     | No       | The list of labels to apply to the event. |
+| `labels`                | List     | No       | The list of labels to apply to the event.                                                                                        |
 
 <aside class="notice">
 You cannot currently modify live events. That will be supported in the future.
 </aside>
-
-
-
 
 ## Delete an event
 
@@ -287,7 +283,6 @@ $ curl -X DELETE \
 ```text
 204 No Content
 ```
-
 
 ### Usage
 

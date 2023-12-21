@@ -4,14 +4,15 @@ weight: 910
 
 # SDK User token
 
-Before calling the [setup method in the SDK](https://github.com/strigo/strigo-sdk#setup), you need to generate a user token to identify the SDK user
+Before calling the [setup method in the SDK](https://github.com/strigo/strigo-sdk#setup), you need to generate a user
+token to identify the SDK user
 
 ## The User Token Resource
 
 ### Attributes:
 
 | Attribute        | Type   | Description                                                                                 |
-| ---------------- | ------ | ------------------------------------------------------------------------------------------- |
+|------------------|--------|---------------------------------------------------------------------------------------------|
 | `email`          | String | The user's unique email.                                                                    |
 | `name`           | String | The name of the user.                                                                       |
 | `externalUserId` | String | The user's identifier in your system.                                                       |
@@ -26,7 +27,7 @@ Create a new user token.
 ### BODY Parameters
 
 | Attribute        | Type   | Required | Default  | Description                                                                                                                                         |
-| ---------------- | ------ | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+|------------------|--------|----------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | `email`          | String | Yes      |          | The user's unique email.                                                                                                                            |
 | `name`           | String | No       | `""`     | The name of the user.                                                                                                                               |
 | `externalUserId` | String | No       | `""`     | The user's identifier in your system.                                                                                                               |

@@ -2,7 +2,6 @@
 weight: 115
 ---
 
-
 # Event Workspaces
 
 Workspaces are the technical entities which represent learners in an event.
@@ -13,18 +12,17 @@ A workspace contains some information about learner activities and state.
 
 ### Attributes:
 
-Attribute               | Type     | Description
----------               | -------  | -------
-`id`                    | String   | The workspace's unique identifier.
-`event_id`              | String   | The event id the workspace belongs to.
-`created_at`            | Datetime | The time when the workspace was created (attendee attended the event).
-`type`                  | String   | The type of the workspace (`host`, `ta`, `learner`).
-`owner`                 | Object   | The `email` and `id` of the org member hosting the event.
-`viewstate`             | String   | The position in the classroom the attendee is currently in.
-`online_status`         | String   | Whether the attendee is currently considered active or not.
-`last_seen`             | Datetime | The time when the user was last seen active.
-`need_assistance`       | Boolean  | Whether the workspace is currently asking for assistance.
-
+| Attribute         | Type     | Description                                                            |
+|-------------------|----------|------------------------------------------------------------------------|
+| `id`              | String   | The workspace's unique identifier.                                     |
+| `event_id`        | String   | The event id the workspace belongs to.                                 |
+| `created_at`      | Datetime | The time when the workspace was created (attendee attended the event). |
+| `type`            | String   | The type of the workspace (`host`, `ta`, `learner`).                   |
+| `owner`           | Object   | The `email` and `id` of the org member hosting the event.              |
+| `viewstate`       | String   | The position in the classroom the attendee is currently in.            |
+| `online_status`   | String   | Whether the attendee is currently considered active or not.            |
+| `last_seen`       | Datetime | The time when the user was last seen active.                           |
+| `need_assistance` | Boolean  | Whether the workspace is currently asking for assistance.              |
 
 ## Retrieve all workspaces
 
@@ -63,7 +61,6 @@ Lists all workspaces for an event.
 
 `GET "/events/:event_id/workspaces"`
 
-
 ## Retrieve a single workspace
 
 > Request Example
@@ -101,8 +98,8 @@ Get a single workspace.
 
 ### URL Parameters
 
-Attribute      | Type    | Required | Description
----------      | ------- | -------  | -------
-`event_id`     | String  | Yes      | The event's unique identifier.
-`workspace_id` | String  | Yes      | The workspace's unique identifier.
+| Attribute      | Type   | Required | Description                        |
+|----------------|--------|----------|------------------------------------|
+| `event_id`     | String | Yes      | The event's unique identifier.     |
+| `workspace_id` | String | Yes      | The workspace's unique identifier. |
 

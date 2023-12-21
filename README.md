@@ -6,25 +6,25 @@ The API Reference is available at https://docs.strigo.io.
 
 1. Install the latest Hugo:
 
-   - On CentOS:
+    - On CentOS:
 
-     1. Install the copr plugin for yum: `sudo yum install yum-plugin-copr`
-     1. Enable the Hugo repository: `sudo yum copr enable daftaupe/hugo`
-     1. Install Hugo: `sudo yum install hugo`
+        1. Install the copr plugin for yum: `sudo yum install yum-plugin-copr`
+        1. Enable the Hugo repository: `sudo yum copr enable daftaupe/hugo`
+        1. Install Hugo: `sudo yum install hugo`
 
-   - On Ubuntu:
+    - On Ubuntu:
 
-     - Install Hugo: `sudo apt-get install hugo`
+        - Install Hugo: `sudo apt-get install hugo`
 
-   - On Windows:
+    - On Windows:
 
-     1. Install [chocolatey](https://chocolatey.org/install).
-     1. Install Hugo: `choco install hugo -confirm`
+        1. Install [chocolatey](https://chocolatey.org/install).
+        1. Install Hugo: `choco install hugo -confirm`
 
-   - On MacOS:
+    - On MacOS:
 
-     1. Install [homebrew](https://brew.sh/)
-     1. Install Hugo: `brew install hugo`
+        1. Install [homebrew](https://brew.sh/)
+        1. Install Hugo: `brew install hugo`
 
 1. Verify that Hugo is installed: `hugo version`
 1. Clone this repository
@@ -35,7 +35,8 @@ The API Reference is available at https://docs.strigo.io.
 
 # Publishing
 
-We use Netlify to manage the docs' build process. Once a PR is merged to master, if everything went well, it will be available for publishing.
+We use Netlify to manage the docs' build process. Once a PR is merged to master, if everything went well, it will be
+available for publishing.
 
 To publish a new version:
 

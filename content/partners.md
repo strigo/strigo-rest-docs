@@ -2,17 +2,16 @@
 weight: 170
 ---
 
-
 # Organization Partners
 
 ## The Partner Resource
 
 ### Attributes:
 
-Attribute              | Type    | Description
----------              | ------- | -------
-`id`                   | String  | The partner's unique identifier.
-`name`                 | String  | The name of the partner as set by the parent organization.
+| Attribute | Type   | Description                                                |
+|-----------|--------|------------------------------------------------------------|
+| `id`      | String | The partner's unique identifier.                           |
+| `name`    | String | The name of the partner as set by the parent organization. |
 
 ## Retrieve all partners
 
@@ -30,41 +29,41 @@ $ curl -X GET \
 
 ```json
 {
-    "data": [
-        {
-            "id": "yCoaiix2pRjxMjCn7",
-            "name": "w00t"
-        },
-        {
-            "id": "x6GHbXKBTPeAHpjmS",
-            "name": "w00t1"
-        },
-        {
-            "id": "hMJrmcqPDDjKwLN7Z",
-            "name": "woot13"
-        },
-        {
-            "id": "cYCk2Yq45qMQXGZkh",
-            "name": "w00t3"
-        },
-        {
-            "id": "ozSjhvAr8hMaQCLND",
-            "name": "newa"
-        },
-        {
-            "id": "mYsEBS6PeBeMpFCfQ",
-            "name": "BLUASD"
-        },
-        {
-            "id": "ggKqkNgY4KzQQoFsM",
-            "name": "w00tasd"
-        },
-        {
-            "id": "ntvXb3L2qdPbayRKZ",
-            "name": "nur"
-        }
-    ],
-    "result": "success"
+  "data": [
+    {
+      "id": "yCoaiix2pRjxMjCn7",
+      "name": "w00t"
+    },
+    {
+      "id": "x6GHbXKBTPeAHpjmS",
+      "name": "w00t1"
+    },
+    {
+      "id": "hMJrmcqPDDjKwLN7Z",
+      "name": "woot13"
+    },
+    {
+      "id": "cYCk2Yq45qMQXGZkh",
+      "name": "w00t3"
+    },
+    {
+      "id": "ozSjhvAr8hMaQCLND",
+      "name": "newa"
+    },
+    {
+      "id": "mYsEBS6PeBeMpFCfQ",
+      "name": "BLUASD"
+    },
+    {
+      "id": "ggKqkNgY4KzQQoFsM",
+      "name": "w00tasd"
+    },
+    {
+      "id": "ntvXb3L2qdPbayRKZ",
+      "name": "nur"
+    }
+  ],
+  "result": "success"
 }
 
 ```
@@ -74,7 +73,6 @@ $ curl -X GET \
 Lists all partners for your organization.
 
 `GET "/partners"`
-
 
 ## Retrieve a single partner
 
@@ -92,11 +90,11 @@ $ curl -X GET \
 
 ```json
 {
-    "data": {
-        "id": "ntvXb3L2qdPbayRKZ",
-        "name": "nur"
-    },
-    "result": "success"
+  "data": {
+    "id": "ntvXb3L2qdPbayRKZ",
+    "name": "nur"
+  },
+  "result": "success"
 }
 ```
 
@@ -108,10 +106,9 @@ Get a single partner.
 
 ### URL Parameters
 
-Attribute   | Type    | Required | Description
----------   | ------- | -------  | -------
-`partner_id`| String  | Yes      | The partner's unique identifier.
-
+| Attribute    | Type   | Required | Description                      |
+|--------------|--------|----------|----------------------------------|
+| `partner_id` | String | Yes      | The partner's unique identifier. |
 
 ## Create a partner
 
@@ -134,11 +131,11 @@ EOF
 
 ```json
 {
-    "data": {
-        "id": "Z3XKk7Swzr3MuaTGJ",
-        "name": "My New Parnter"
-    },
-    "result": "success"
+  "data": {
+    "id": "Z3XKk7Swzr3MuaTGJ",
+    "name": "My New Parnter"
+  },
+  "result": "success"
 }
 ```
 
@@ -150,10 +147,9 @@ Create a new partner.
 
 ### BODY Parameters
 
-Attribute              | Type    | Required | Description
----------              | ------- |  ------- | -------
-`name`                 | String  | Yes      | The name of the partner.
-
+| Attribute | Type   | Required | Description              |
+|-----------|--------|----------|--------------------------|
+| `name`    | String | Yes      | The name of the partner. |
 
 ## Modify a partner
 
@@ -176,11 +172,11 @@ EOF
 
 ```json
 {
-    "data": {
-        "id": "Z3XKk7Swzr3MuaTGJ",
-        "name": "New name for partner"
-    },
-    "result": "success"
+  "data": {
+    "id": "Z3XKk7Swzr3MuaTGJ",
+    "name": "New name for partner"
+  },
+  "result": "success"
 }
 ```
 
@@ -192,16 +188,15 @@ Modify a partner.
 
 ### URL Parameters
 
-Attribute   | Type    | Required | Description
----------   | ------- | -------  | -------
-`partner_id`| String  | Yes      | The partner's unique identifier.
+| Attribute    | Type   | Required | Description                      |
+|--------------|--------|----------|----------------------------------|
+| `partner_id` | String | Yes      | The partner's unique identifier. |
 
 ### BODY Parameters
 
-Attribute   | Type    | Required | Description
----------   | ------- | -------  | -------
-`name`      | String  | Yes      | The partner's new name.
-
+| Attribute | Type   | Required | Description             |
+|-----------|--------|----------|-------------------------|
+| `name`    | String | Yes      | The partner's new name. |
 
 ## Retrieve partner members
 
@@ -219,21 +214,21 @@ $ curl -X GET \
 
 ```json
 {
-    "data": [
-        {
-            "email": "niro@strigo.io",
-            "id": "MzkRF9fPnq34SatJB",
-            "partner_id": "yCoaiix2pRjxMjCn7",
-            "role": "partner"
-        },
-        {
-            "email": "nira@strigo.io",
-            "id": "BSwKLejmQtSsEyzE9",
-            "partner_id": "yCoaiix2pRjxMjCn7",
-            "role": "partner"
-        }
-    ],
-    "result": "success"
+  "data": [
+    {
+      "email": "niro@strigo.io",
+      "id": "MzkRF9fPnq34SatJB",
+      "partner_id": "yCoaiix2pRjxMjCn7",
+      "role": "partner"
+    },
+    {
+      "email": "nira@strigo.io",
+      "id": "BSwKLejmQtSsEyzE9",
+      "partner_id": "yCoaiix2pRjxMjCn7",
+      "role": "partner"
+    }
+  ],
+  "result": "success"
 }
 ```
 
@@ -245,10 +240,9 @@ Retrieve parter members.
 
 ### URL Parameters
 
-Attribute   | Type    | Required | Description
----------   | ------- | -------  | -------
-`partner_id`| String  | Yes      | The partner's unique identifier.
-
+| Attribute    | Type   | Required | Description                      |
+|--------------|--------|----------|----------------------------------|
+| `partner_id` | String | Yes      | The partner's unique identifier. |
 
 ## Invite a partner member
 
@@ -271,15 +265,15 @@ EOF
 
 ```json
 {
-    "data": {
-        "created_at": "2019-01-07T15:42:21.932Z",
-        "email": "trainer@partner-company.com",
-        "id": "8unc2Gt4sGcqJgBqX",
-        "link": "https://app.strigo.io/team/invite/LKOONmxKR2XcsbgKaz79xVVkAaPQyQ8PrX_1fVv3qFp",
-        "partner_id": "Z3XKk7Swzr3MuaTGJ",
-        "status": "pending"
-    },
-    "result": "success"
+  "data": {
+    "created_at": "2019-01-07T15:42:21.932Z",
+    "email": "trainer@partner-company.com",
+    "id": "8unc2Gt4sGcqJgBqX",
+    "link": "https://app.strigo.io/team/invite/LKOONmxKR2XcsbgKaz79xVVkAaPQyQ8PrX_1fVv3qFp",
+    "partner_id": "Z3XKk7Swzr3MuaTGJ",
+    "status": "pending"
+  },
+  "result": "success"
 }
 ```
 
@@ -291,13 +285,13 @@ Invite someone to join as a member in your defined partner entity.
 
 ### URL Parameters
 
-Attribute   | Type    | Required | Description
----------   | ------- | -------  | -------
-`partner_id`| String  | Yes      | The partner's unique identifier.
+| Attribute    | Type   | Required | Description                      |
+|--------------|--------|----------|----------------------------------|
+| `partner_id` | String | Yes      | The partner's unique identifier. |
 
 ### BODY Parameters
 
-Attribute              | Type    | Required | Description
----------              | ------- |  ------- | -------
-`email`                | String  | Yes      | Email of partner trainer to invite.
+| Attribute | Type   | Required | Description                         |
+|-----------|--------|----------|-------------------------------------|
+| `email`   | String | Yes      | Email of partner trainer to invite. |
 

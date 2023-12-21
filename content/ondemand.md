@@ -9,7 +9,7 @@ weight: 130
 ### Attributes:
 
 | Attribute                   | Type    | Description                                                  |
-| --------------------------- | ------- | ------------------------------------------------------------ |
+|-----------------------------|---------|--------------------------------------------------------------|
 | `id`                        | String  | The course's unique identifier.                              |
 | `name`                      | String  | The name of the course.                                      |
 | `course_link`               | String  | The course's attendance link.                                |
@@ -104,7 +104,7 @@ Get a single on demand course.
 ### URL Parameters
 
 | Attribute   | Type   | Required | Description                     |
-| ----------- | ------ | -------- | ------------------------------- |
+|-------------|--------|----------|---------------------------------|
 | `course_id` | String | Yes      | The course's unique identifier. |
 
 ## Create a course
@@ -162,7 +162,7 @@ Create a new on demand course.
 ### BODY Parameters
 
 | Attribute                   | Type    | Required | Description                                                  |
-| --------------------------- | ------- | -------- | ------------------------------------------------------------ |
+|-----------------------------|---------|----------|--------------------------------------------------------------|
 | `name`                      | String  | Yes      | The name of the course.                                      |
 | `class_id`                  | String  | Yes      | The class's unique ID the course is based on.                |
 | `external_id`               | String  | No       | The user provided external ID of the course.                 |
@@ -229,15 +229,15 @@ Update an on demand course.
 ### BODY Parameters
 
 | Attribute                   | Type    | Required | Description                                                  |
-| --------------------------- | ------- | -------- | ------------------------------------------------------------ |
+|-----------------------------|---------|----------|--------------------------------------------------------------|
 | `name`                      | String  | No       | The name of the course.                                      |
-| `class_id`                  | String  | No      | The class's unique ID the course is based on.                |
+| `class_id`                  | String  | No       | The class's unique ID the course is based on.                |
 | `external_id`               | String  | No       | The user provided external ID of the course.                 |
-| `days_limit`                | Number  | No      | The number of the days each enrollment will be limited to.   |
-| `activity_hours_limit`      | Number  | No      | The number of work hours each enrollment will be limited to. |
-| `features.video`            | Boolean | No      | The flag for including video in the course.                  |
-| `features.slides`           | Boolean | No      | The flag for including slides in the course.                 |
-| `features.lab_manual_pause` | Boolean | No      | The flag for hiding workspace pause button.                  |
+| `days_limit`                | Number  | No       | The number of the days each enrollment will be limited to.   |
+| `activity_hours_limit`      | Number  | No       | The number of work hours each enrollment will be limited to. |
+| `features.video`            | Boolean | No       | The flag for including video in the course.                  |
+| `features.slides`           | Boolean | No       | The flag for including slides in the course.                 |
+| `features.lab_manual_pause` | Boolean | No       | The flag for hiding workspace pause button.                  |
 | `status`                    | String  | No       | The status of the course (`online`, `offline`).              |
 | `labels`                    | List    | No       | The list of labels to apply to the course.                   |
 
@@ -272,5 +272,5 @@ You can only delete courses for which there are no running enrollments.
 ### URL Parameters
 
 | Attribute   | Type   | Required | Description                     |
-| ----------- | ------ | -------- | ------------------------------- |
+|-------------|--------|----------|---------------------------------|
 | `course_id` | String | Yes      | The course's unique identifier. |

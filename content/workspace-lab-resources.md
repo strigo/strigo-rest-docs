@@ -2,7 +2,6 @@
 weight: 115
 ---
 
-
 # Workspace Lab Resources
 
 A workspace lab resource is a reference to the actual lab created for a workspace.
@@ -11,20 +10,19 @@ A workspace lab resource is a reference to the actual lab created for a workspac
 
 ### Attributes:
 
-Attribute               | Type     | Description
----------               | -------  | -------
-`id`                    | String   | The resource's unique identifier.
-`event_id`              | String   | The event id the resource belongs to.
-`type`                  | String   | The type of the resource.
-`public_ip`             | String   | The publically accessible IP of the resource.
-`private_ip`            | String   | The private IP of the resource (accessible from other lab resources).
-`workspace_id`          | String   | The id of the workspace the resource belongs to.
-`connection_type`       | String   | The type of interface this resource is accessed by (RDP/SSH).
-`host`                  | String   | The publically accessible host string of the resource.
-`port`                  | String   | The port through which which this resource can be accessed.
-`status`                | String   | The status of the resource.
-`strigo_dns`            | String   | The publically accessible DNS name of the resource.
-
+| Attribute         | Type   | Description                                                           |
+|-------------------|--------|-----------------------------------------------------------------------|
+| `id`              | String | The resource's unique identifier.                                     |
+| `event_id`        | String | The event id the resource belongs to.                                 |
+| `type`            | String | The type of the resource.                                             |
+| `public_ip`       | String | The publically accessible IP of the resource.                         |
+| `private_ip`      | String | The private IP of the resource (accessible from other lab resources). |
+| `workspace_id`    | String | The id of the workspace the resource belongs to.                      |
+| `connection_type` | String | The type of interface this resource is accessed by (RDP/SSH).         |
+| `host`            | String | The publically accessible host string of the resource.                |
+| `port`            | String | The port through which which this resource can be accessed.           |
+| `status`          | String | The status of the resource.                                           |
+| `strigo_dns`      | String | The publically accessible DNS name of the resource.                   |
 
 ## Retrieve all workspace resources
 
@@ -66,7 +64,7 @@ Lists all resources for an workspace.
 
 ### URL Parameters
 
-Attribute      | Type    | Required | Description
----------      | ------- | -------  | -------
-`event_id`     | String  | Yes      | The event's unique identifier.
-`workspace_id` | String  | Yes      | The workspace's unique identifier.
+| Attribute      | Type   | Required | Description                        |
+|----------------|--------|----------|------------------------------------|
+| `event_id`     | String | Yes      | The event's unique identifier.     |
+| `workspace_id` | String | Yes      | The workspace's unique identifier. |

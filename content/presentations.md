@@ -2,7 +2,6 @@
 weight: 106
 ---
 
-
 # Presentations
 
 <aside class="notice">
@@ -13,16 +12,15 @@ Currently, you can only upload a single presentation per class, and it must be a
 
 ### Attributes:
 
-Attribute               | Type     | Description
----------               | -------  | -------
-`id`                    | String   | The presentation's unique identifier.
-`class_id`              | String   | The class's unique identifier to which this presentation is assigned.
-`md5`                   | String   | The md5 hash of the presentation.
-`upload_date`           | Datetime | The date in which the presentation was uploaded.
-`size_bytes`            | Integer  | The size of the file in bytes.
-`filename`              | String   | The name of the uploaded file.
-`content_type`          | List     | List of types of the file.
-
+| Attribute      | Type     | Description                                                           |
+|----------------|----------|-----------------------------------------------------------------------|
+| `id`           | String   | The presentation's unique identifier.                                 |
+| `class_id`     | String   | The class's unique identifier to which this presentation is assigned. |
+| `md5`          | String   | The md5 hash of the presentation.                                     |
+| `upload_date`  | Datetime | The date in which the presentation was uploaded.                      |
+| `size_bytes`   | Integer  | The size of the file in bytes.                                        |
+| `filename`     | String   | The name of the uploaded file.                                        |
+| `content_type` | List     | List of types of the file.                                            |
 
 ## Retrieve all presentations
 
@@ -60,10 +58,9 @@ Lists all presentations.
 
 ### URL Parameters
 
-Attribute  | Type    | Required | Description
----------  | ------- | -------  | -------
-`class_id` | String  | Yes      | The class's unique identifier.
-
+| Attribute  | Type   | Required | Description                    |
+|------------|--------|----------|--------------------------------|
+| `class_id` | String | Yes      | The class's unique identifier. |
 
 ## Retrieve a single presentation
 
@@ -103,11 +100,10 @@ This doesn't actually download the presentation. It only displays information ab
 
 ### URL Parameters
 
-Attribute  | Type    | Required | Description
----------  | ------- | -------  | -------
-`class_id` | String  | Yes      | The class's unique identifier.
-`presentation_id` | String | Yes | The presentation's unique identifier.
-
+| Attribute         | Type   | Required | Description                           |
+|-------------------|--------|----------|---------------------------------------|
+| `class_id`        | String | Yes      | The class's unique identifier.        |
+| `presentation_id` | String | Yes      | The presentation's unique identifier. |
 
 ## Create a presentation
 
@@ -142,16 +138,15 @@ Uploads a presentation.
 
 ### URL Parameters
 
-Attribute  | Type    | Required | Description
----------  | ------- | -------  | -------
-`class_id` | String  | Yes      | The class's unique identifier.
+| Attribute  | Type   | Required | Description                    |
+|------------|--------|----------|--------------------------------|
+| `class_id` | String | Yes      | The class's unique identifier. |
 
 ### FORM Parameters
 
-Attribute     | Type     | Required | Description
----------     | -------  | -------  | -------
-`presentation`       | List     | Yes      | A path to a presentation file.
-
+| Attribute      | Type | Required | Description                    |
+|----------------|------|----------|--------------------------------|
+| `presentation` | List | Yes      | A path to a presentation file. |
 
 ## Delete a presentation
 
@@ -171,7 +166,6 @@ $ curl -X DELETE \
 204 No Content
 ```
 
-
 ### Usage
 
 Delete a presentation.
@@ -180,8 +174,8 @@ Delete a presentation.
 
 ### URL Parameters
 
-Attribute  | Type    | Required | Description
----------  | ------- | -------  | -------
-`class_id` | String  | Yes      | The class's unique identifier.
-`presentation_id` | String | Yes | The presentation's unique identifier.
+| Attribute         | Type   | Required | Description                           |
+|-------------------|--------|----------|---------------------------------------|
+| `class_id`        | String | Yes      | The class's unique identifier.        |
+| `presentation_id` | String | Yes      | The presentation's unique identifier. |
 
