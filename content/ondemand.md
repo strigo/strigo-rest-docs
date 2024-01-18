@@ -15,7 +15,8 @@ weight: 130
 | `course_link`               | String  | The course's attendance link.                                |
 | `class_id`                  | String  | The class's unique ID the course is based on.                |
 | `external_id`               | String  | The user provided external ID of the course.                 |
-| `days_limit`                | Number  | The number of the days each enrollment will be limited to.   |
+| `duration`                  | Number  | The time each enrollment will be available once started.     |
+| `durationUnit`              | String  | The duration unit, either 'days' or 'hours'.                 |
 | `activity_hours_limit`      | Number  | The number of work hours each enrollment will be limited to. |
 | `features.video`            | Boolean | The flag for including video in the course.                  |
 | `features.slides`           | Boolean | The flag for including slides in the course.                 |
@@ -43,7 +44,8 @@ $ curl -X GET \
     "activity_hours_limit": 10,
     "class_id": "hd3ALTaLAbhfzmBbf",
     "course_link": "https://app.strigo.io/training/ondemand/nE5pDWGzFRRQ8uMrN",
-    "days_limit": 5,
+    "duration": 5,
+    "durationUnit": "days",
     "external_id": "course1",
     "id": "nE5pDWGzFRRQ8uMrN",
     "name": "Elastic Stack for beginners",
@@ -82,7 +84,8 @@ $ curl -X GET \
   "activity_hours_limit": 10,
   "class_id": "hd3ALTaLAbhfzmBbf",
   "course_link": "https://app.strigo.io/training/ondemand/nE5pDWGzFRRQ8uMrN",
-  "days_limit": 5,
+  "duration": 5,
+  "durationUnit": "days",
   "external_id": "course1",
   "id": "nE5pDWGzFRRQ8uMrN",
   "name": "Elastic Stack for beginners",
@@ -120,7 +123,8 @@ $ curl -X POST \
     -d @- <<EOF
       "name":"My Event",
       "class_id": "hd3ALTaLAbhfzmBbf",
-      "days_limit": 5,
+      "duration": 5,
+      "durationUnit": "days",
       "activity_hours_limit": 10,
       "status": "online",
       "external_id": "course1",
@@ -140,7 +144,8 @@ EOF
   "activity_hours_limit": 10,
   "class_id": "hd3ALTaLAbhfzmBbf",
   "course_link": "https://app.strigo.io/training/ondemand/i7gHDXnDzpRFQqFZP",
-  "days_limit": 5,
+  "duration": 5,
+  "durationUnit": "days",
   "external_id": "course1",
   "id": "i7gHDXnDzpRFQqFZP",
   "name": "ooo",
@@ -166,7 +171,8 @@ Create a new on demand course.
 | `name`                      | String  | Yes      | The name of the course.                                      |
 | `class_id`                  | String  | Yes      | The class's unique ID the course is based on.                |
 | `external_id`               | String  | No       | The user provided external ID of the course.                 |
-| `days_limit`                | Number  | Yes      | The number of the days each enrollment will be limited to.   |
+| `duration`                  | Number  | Yes      | The time each enrollment will be available once started.     |
+| `durationUnit`              | Number  | Yes      | The duration unit, either 'days' or 'hours'.                 |
 | `activity_hours_limit`      | Number  | Yes      | The number of work hours each enrollment will be limited to. |
 | `features.video`            | Boolean | Yes      | The flag for including video in the course.                  |
 | `features.slides`           | Boolean | Yes      | The flag for including slides in the course.                 |
@@ -187,7 +193,8 @@ $ curl -X PATCH \
     -d @- <<EOF
       "name":"My Event",
       "class_id": "hd3ALTaLAbhfzmBbf",
-      "days_limit": 5,
+      "duration": 5,
+      "durationUnit": "days",
       "activity_hours_limit": 10,
       "status": "online",
       "external_id": "course1",
@@ -207,7 +214,8 @@ EOF
   "activity_hours_limit": 10,
   "class_id": "hd3ALTaLAbhfzmBbf",
   "course_link": "https://app.strigo.io/training/ondemand/i7gHDXnDzpRFQqFZP",
-  "days_limit": 5,
+  "duration": 5,
+  "durationUnit": "days",
   "external_id": "course1",
   "id": "i7gHDXnDzpRFQqFZP",
   "name": "ooo",
@@ -233,7 +241,8 @@ Update an on demand course.
 | `name`                      | String  | No       | The name of the course.                                      |
 | `class_id`                  | String  | No       | The class's unique ID the course is based on.                |
 | `external_id`               | String  | No       | The user provided external ID of the course.                 |
-| `days_limit`                | Number  | No       | The number of the days each enrollment will be limited to.   |
+| `duration`                  | Number  | No       | The time each enrollment will be available once started.     |
+| `durationUnit`              | Number  | No       | The duration unit, either 'days' or 'hours'.                 |
 | `activity_hours_limit`      | Number  | No       | The number of work hours each enrollment will be limited to. |
 | `features.video`            | Boolean | No       | The flag for including video in the course.                  |
 | `features.slides`           | Boolean | No       | The flag for including slides in the course.                 |
