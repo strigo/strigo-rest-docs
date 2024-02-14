@@ -4,68 +4,9 @@ weight: 145
 
 # On Demand Course Reports
 
-## Questions report
+## Enrollments report
 
-This data represents all workspaces question results that related to a specific ondemand course.
-
-### Attributes:
-
-| Attribute   | Type   | Description                                                 |
-|-------------|--------|-------------------------------------------------------------|
-| `course_id` | String | A unique identifier of the course.                          |
-| `output`    | String | The desired output type (`json`, `csv`). Default is `json`. |
-
-### URL Parameters
-
-| Attribute   | Type   | Required | Description                     |
-|-------------|--------|----------|---------------------------------|
-| `course_id` | String | Yes      | The course's unique identifier. |
-
-### Query Parameters
-
-| Attribute | Type   | Required | Description                                                 |
-|-----------|--------|----------|-------------------------------------------------------------|
-| `output`  | String | No       | The desired output type (`json`, `csv`). Default is `json`. |
-
-### Usage
-
-Lists all workspaces for an ondemand course.
-
-`GET "/ondemand-courses/:course_id/reports/questions?output=json"`
-
-> Request Example
-
-```shell
-$ curl -X GET \
-    -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
-    -H "Accept: application/json" \
-    -H "Content-Type: application/json" \
-    "https://app.strigo.io/api/v1/ondemand-courses/${course_id}/reports/questions?output=json"
-```
-
-> Response Example
-
-```json
-[
-  {
-    "courseName": "Wrong answers only",
-    "completionTimestamp": "2022-03-06T16:00:27.381Z",
-    "email": "oleg.the.great+1234@viking.io",
-    "questionNumber": 1,
-    "questionTitle": "Kievan Rus",
-    "question": "Who was Oleg?",
-    "submittedNumber": 1,
-    "submitted": "Software Engineer",
-    "isCorrect": false
-  }
-]
-```
-
-_________________________________
-
-## Lab Challenges report
-
-This data represents all workspaces question results that related to a specific ondemand course.
+This data represents all enrollments that related to a specific on demand course.
 
 ### Attributes:
 
@@ -88,9 +29,9 @@ This data represents all workspaces question results that related to a specific 
 
 ### Usage
 
-Lists all workspaces for an ondemand course.
+Generates a report of all enrollments of the on demand course.
 
-`GET "/ondemand-courses/:course_id/reports/lab-challenges"`
+`GET "/ondemand-courses/:course_id/reports/enrollments"`
 
 > Request Example
 
@@ -99,7 +40,7 @@ $ curl -X GET \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "https://app.strigo.io/api/v1/ondemand-courses/${course_id}/reports/lab-challenges?output=json"
+    "https://app.strigo.io/api/v1/ondemand-courses/${course_id}/reports/enrollments?output=json"
 ```
 
 > Response Example
@@ -109,34 +50,18 @@ $ curl -X GET \
   "result": "success",
   "data": [
     {
-      "courseId": "eb917a943d6d0365784e8779",
-      "courseName": "Lab challenges",
-      "enrollmentId": "6578571c59421c82c1f5a44f",
-      "workspaceId": "pCFr9a6HzeEfKAm4a",
-      "email": "erlich@strigo.io",
-      "labChallengeTitle": "successfull challenge",
-      "validationResultTimestamp": "2023-12-12T12:53:41.912Z",
-      "validationResult": "SUCCESS"
-    },
-    {
-      "courseId": "eb917a943d6d0365784e8779",
-      "courseName": "Lab challenges",
-      "enrollmentId": "657870b2b6f436010adcf866",
-      "workspaceId": "EZvCvFwWmQREii4Tr",
-      "email": "erlichbachman@pp.com",
-      "labChallengeTitle": "failing challenge",
-      "validationResultTimestamp": "2023-12-17T12:14:20.438Z",
-      "validationResult": "FAILURE"
-    },
-    {
-      "courseId": "eb917a943d6d0365784e8779",
-      "courseName": "Lab challenges",
-      "enrollmentId": "657870b2b6f436010adcf866",
-      "workspaceId": "EZvCvFwWmQREii4Tr",
-      "email": "erlichbachman@pp.com",
-      "labChallengeTitle": "# Example command that writes to stderr >&2",
-      "validationResultTimestamp": "2023-12-17T12:14:45.443Z",
-      "validationResult": "FAILURE"
+      "course_id": "6363d3d399533fd52834c620",
+      "course_name": "My on demand course",
+      "enrollment_id": "65ae4e111113937279ef",
+      "email": "monica@raviga.com",
+      "name": "Monica Hall",
+      "workspace_id": "9kxwQn3BvkGsFFT4Y",
+      "enrolled_at": "2024-01-22T11:18:07.161Z",
+      "started_at": "2024-01-22T12:24:53.411Z",
+      "status": "finished",
+      "exercises_finished": 0,
+      "exercises_count": 2,
+      "all_exercises_completed": false
     }
   ]
 }
@@ -149,17 +74,102 @@ $ curl -X GET \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: text/csv" \
     -H "Content-Type: text/csv" \
-    "https://app.strigo.io/api/v1/ondemand-courses/${course_id}/reports/lab-challenges?output=csv"
+    "https://app.strigo.io/api/v1/ondemand-courses/${course_id}/reports/exercises?output=csv"
 ```
 
 > Response Example
 
 ```csv
-"Course Id","Course name","Enrollment Id","Course name","Validation timestamp","Email address","Lab challenge title","Result"
-"eb917a943d6d0365784e8779","Lab challenges","pCFr9a6HzeEfKAm4a","6578571c59421c82c1f5a44f","2023-12-12T12:53:41.912Z","erlich@strigo.io","successfull challenge","SUCCESS"
-"eb917a943d6d0365784e8779","Lab challenges","EZvCvFwWmQREii4Tr","657870b2b6f436010adcf866","2023-12-17T12:14:20.438Z","erlich@pp.com","failing challenge","FAILURE"
-"eb917a943d6d0365784e8779","Lab challenges","EZvCvFwWmQREii4Tr","657870b2b6f436010adcf866","2023-12-17T12:14:45.443Z","erlich@pp.com","# Example command that writes to stderr >&2","FAILURE"
-"eb917a943d6d0365784e8779","Lab challenges","EZvCvFwWmQREii4Tr","657870b2b6f436010adcf866","2023-12-17T12:15:00.456Z","erlich@pp.com","# Example command that writes to stderr >&2","FAILURE"
+"course_id","course_name","enrollment_id","email","name","workspace_id","enrolled_at","started_at","exercises_finished","exercises_count","all_exercises_completed"
+"6363d3d399533fd52834c620","My on demand course","65ae4e111113937279ef","monica@raviga.com","Monica Hall","9kxwQn3BvkGsFFT4Y","2024-01-22T11:18:07.161Z","2024-01-22T12:24:53.411Z","finished",0,2,false
+```
+
+_________________________
+
+
+## Exercises report
+
+This data represents all workspaces exercise results that related to a specific on demand course.
+
+### Attributes:
+
+| Attribute   | Type   | Description                                                 |
+|-------------|--------|-------------------------------------------------------------|
+| `course_id` | String | A unique identifier of the course.                          |
+| `output`    | String | The desired output type (`json`, `csv`). Default is `json`. |
+
+### URL Parameters
+
+| Attribute   | Type   | Required | Description                     |
+|-------------|--------|----------|---------------------------------|
+| `course_id` | String | Yes      | The course's unique identifier. |
+
+### Query Parameters
+
+| Attribute | Type   | Required | Description                                                 |
+|-----------|--------|----------|-------------------------------------------------------------|
+| `output`  | String | No       | The desired output type (`json`, `csv`). Default is `json`. |
+
+### Usage
+
+Generates a report of all workspaces' exercise results of the on demand course.
+
+`GET "/ondemand-courses/:course_id/reports/exercises"`
+
+> Request Example
+
+```shell
+$ curl -X GET \
+    -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    "https://app.strigo.io/api/v1/ondemand-courses/${course_id}/reports/exercises?output=json"
+```
+
+> Response Example
+
+```json
+{
+  "result": "success",
+  "data": [
+    {
+      "course_id": "eb917a943d6d0365784e8779",
+      "course_name": "My course",
+      "enrollment_id": "6578571c59421c82c1f5a44f",
+      "email": "erlich@strigo.io",
+      "name": "Erlich Bachman",
+      "workspace_id": "J5SEv6sXeJQcSFwAG",
+      "exercises_finished": 2,
+      "exercises_count": 2,
+      "all_exercises_completed": true,
+      "exercise1_title": "First question",
+      "exercise1_type": "question",
+      "exercise1_result": "success",
+      "exercise1_finished_at": "2023-11-21T09:43:59.285Z",
+      "exercise2_title": "Second exercise",
+      "exercise2_type": "exercise",
+      "exercise2_result": "success",
+      "exercise2_finished_at": "2023-11-21T09:59:59.285Z"
+    }
+  ]
+}
+```
+
+> Request Example
+
+```shell
+$ curl -X GET \
+    -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
+    -H "Accept: text/csv" \
+    -H "Content-Type: text/csv" \
+    "https://app.strigo.io/api/v1/ondemand-courses/${course_id}/reports/exercises?output=csv"
+```
+
+> Response Example
+
+```csv
+"course_id","course_name","enrollment_id","email","name","workspace_id","exercises_finished","exercises_count","all_exercises_completed","exercise1_title","exercise1_type","exercise1_result","exercise1_finished_at","exercise2_title","exercise2_type","exercise2_result","exercise2_finished_at"
+"eb917a943d6d0365784e8779","My course","6578571c59421c82c1f5a44f","erlich@strigo.io","Erlich Bachman","J5SEv6sXeJQcSFwAG",2,2,true,"First question","question","success","2023-11-21T09:43:59.285Z","Second exercise","exercise","failure","2023-11-21T09:59:59.285Z"
 ```
 
 _________________________
@@ -170,11 +180,11 @@ Lists on demand course user activity sessions.
 
 ### Attributes:
 
-| Attribute   | Type   | Required | Description                       |
-|-------------|--------|----------|-----------------------------------|
-| `course_id` | String | yes      | A unique identifier of the event. |
-| `from`      | Date   | no       | Start date to filter activity by. | 
-| `to`        | Date   | no       | End date to filter activity by.   |
+| Attribute   | Type   | Required | Description                        |
+|-------------|--------|----------|------------------------------------|
+| `course_id` | String | yes      | A unique identifier of the course. |
+| `from`      | Date   | no       | Start date to filter activity by.  | 
+| `to`        | Date   | no       | End date to filter activity by.    |
 
 #### `from` - defaults to one month ago.
 
@@ -182,9 +192,9 @@ Lists on demand course user activity sessions.
 
 ### URL Parameters
 
-| Attribute   | Type   | Required | Description                    |
-|-------------|--------|----------|--------------------------------|
-| `course_id` | String | Yes      | The event's unique identifier. |
+| Attribute   | Type   | Required | Description                     |
+|-------------|--------|----------|---------------------------------|
+| `course_id` | String | Yes      | The course's unique identifier. |
 
 ### Body Parameters
 
@@ -195,9 +205,9 @@ Lists on demand course user activity sessions.
 
 ### Usage
 
-Generate a report of attendees' user activity of the event.
+Generate a report of attendees' user activity of the on demand course.
 
-`POST "/events/:event_id/reports/user-activity"`
+`POST "/ondemand-courses/:course_id/reports/user-activity"`
 
 
 > Request Example
