@@ -4,9 +4,9 @@ weight: 115
 
 # Event Reports
 
-## Questions report
+## Exercises report
 
-This data represents all workspaces question results that related to a specific event.
+This data represents all workspaces' exercise results that related to a specific event.
 
 ### Attributes:
 
@@ -28,9 +28,9 @@ This data represents all workspaces question results that related to a specific 
 
 ### Usage
 
-Lists all workspaces for an event.
+Generates a report of all workspaces' exercise results of the event.
 
-`GET "/events/:event_id/reports/questions"`
+`GET "/events/:event_id/reports/exercises"`
 
 
 > Request Example
@@ -40,7 +40,7 @@ $ curl -X GET \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "https://app.strigo.io/api/v1/events/${EVENT_ID}/reports/questions"
+    "https://app.strigo.io/api/v1/events/${event_id}/reports/exercises"
 ```
 
 > Response Example
@@ -48,95 +48,24 @@ $ curl -X GET \
 ```json
 [
   {
-    "courseName": "Wrong answers only",
-    "completionTimestamp": "2022-03-06T16:00:27.381Z",
-    "email": "oleg.mostepan+1234@strigo.io",
-    "questionNumber": 1,
-    "questionTitle": "Kievan Rus",
-    "question": "Who was Oleg?",
-    "submittedNumber": 1,
-    "submitted": "Software Engineer at Strigo",
-    "isCorrect": false
+    "event_id": "45f2305650328ac7afd34a61",
+    "event_name": "Erlich Bachman's new event",
+    "email": "erlich@strigo.io",
+    "name": "Erlich Bachman",
+    "workspace_id": "J5SEv6sXeJQcSFwAG",
+    "exercises_finished": 2,
+    "exercises_count": 2,
+    "all_exercises_completed": true,
+    "exercise1_title": "First question",
+    "exercise1_type": "question",
+    "exercise1_result": "success",
+    "exercise1_finished_at": "2023-11-21T09:43:59.285Z",
+    "exercise2_title": "Second exercise",
+    "exercise2_type": "exercise",
+    "exercise2_result": "success",
+    "exercise2_finished_at": "2023-11-21T09:59:59.285Z",
   }
 ]
-```
-
-____________________________________________
-
-## Lab Challenges report
-
-This data represents all workspaces question results that related to a specific event.
-
-### Attributes:
-
-| Attribute  | Type   | Description                       |
-|------------|--------|-----------------------------------|
-| `event_id` | String | A unique identifier of the event. |
-
-### URL Parameters
-
-| Attribute  | Type   | Required | Description                    |
-|------------|--------|----------|--------------------------------|
-| `event_id` | String | Yes      | The event's unique identifier. |
-
-### Query Parameters
-
-| Attribute | Type   | Required | Description                                                 |
-|-----------|--------|----------|-------------------------------------------------------------|
-| `output`  | String | No       | The desired output type (`json`, `csv`). Default is `json`. |
-
-### Usage
-
-Lists all workspaces for an event.
-
-`GET "/events/:event_id/reports/lab-challenges"`
-
-
-> JSON Request Example
-
-```shell
-$ curl -X GET \
-    -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
-    -H "Accept: application/json" \
-    -H "Content-Type: application/json" \
-    "https://app.strigo.io/api/v1/events/${EVENT_ID}/reports/lab-challenges?output=json"
-```
-
-> Response Example
-
-```json
-{
-  "result": "success",
-  "data": [
-    {
-      "eventId": "45f2305650328ac7afd34a61",
-      "eventName": "Erlich Bachman's new event",
-      "workspaceId": "ymo45j5QknKEopgkJ",
-      "email": "erlich.bachman@pp.io",
-      "labChallengeTitle": "failing challenge",
-      "validationResultTimestamp": "2023-11-21T09:43:14.423Z",
-      "validationResult": "FAILURE"
-    },
-    {
-      "eventId": "45f2305650328ac7afd34a61",
-      "eventName": "Erlich Bachman's new event",
-      "workspaceId": "ymo45j5QknKEopgkJ",
-      "email": "erlich.bachman@pp.io",
-      "labChallengeTitle": "#Example command that writes to stderr >&2",
-      "validationResultTimestamp": "2023-11-21T09:43:59.285Z",
-      "validationResult": "FAILURE"
-    },
-    {
-      "eventId": "45f2305650328ac7afd34a61",
-      "eventName": "Erlich Bachman's new event",
-      "workspaceId": "ymo45j5QknKEopgkJ",
-      "email": "erlich.bachman@pp.io",
-      "labChallengeTitle": "successful challenge",
-      "validationResultTimestamp": "2023-11-21T09:44:29.297Z",
-      "validationResult": "SUCCESS"
-    }
-  ]
-}
 ```
 
 > CSV Request Example
@@ -146,16 +75,14 @@ $ curl -X GET \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: text/csv" \
     -H "Content-Type: text/csv" \
-    "https://app.strigo.io/api/v1/events/${EVENT_ID}/reports/lab-challenges?output=csv"
+    "https://app.strigo.io/api/v1/events/${event_id}/reports/exercises?output=csv"
 ```
 
 > Response Example
 
 ```csv
-"Event Id","Event name","Enrollment Id","Course name","Validation timestamp","Email address","Lab challenge title","Result"
-"45f2305650328ac7afd34a61","Erlich Bachman's new event","ymo45j5QknKEopgkJ",,"2023-11-21T09:43:14.423Z","hidday@strigo.io","failing challenge","FAILURE"
-"45f2305650328ac7afd34a61","Erlich Bachman's new event","ymo45j5QknKEopgkJ",,"2023-11-21T09:43:59.285Z","hidday@strigo.io","# Example command that writes to stderr >&2 echo ""This is standard error (stderr)""","FAILURE"
-"45f2305650328ac7afd34a61","Erlich Bachman's new event","ymo45j5QknKEopgkJ",,"2023-11-21T09:44:29.297Z","hidday@strigo.io","successfull challenge","SUCCESS"
+event_id,event_name,email,name,workspace_id,exercises_finished,exercises_count,all_exercises_completed,exercise1_title,exercise1_type,exercise1_result,exercise1_finished_at,exercise2_title,exercise2_type,exercise2_result,exercise2_finished_at
+"45f2305650328ac7afd34a61","Erlich Bachman's new event","erlich@strigo.io","Erlich Bachman","J5SEv6sXeJQcSFwAG",2,2,true,"First question","question","success","2023-11-21T09:43:59.285Z","Second exercise","exercise","failure","2023-11-21T09:59:59.285Z"
 ```
 
 ____________________________________________
