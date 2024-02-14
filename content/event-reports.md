@@ -56,14 +56,14 @@ $ curl -X GET \
     "exercises_finished": 2,
     "exercises_count": 2,
     "all_exercises_completed": true,
-    "exercise1_title": "First question",
-    "exercise1_type": "question",
-    "exercise1_result": "success",
-    "exercise1_finished_at": "2023-11-21T09:43:59.285Z",
-    "exercise2_title": "Second exercise",
-    "exercise2_type": "exercise",
-    "exercise2_result": "success",
-    "exercise2_finished_at": "2023-11-21T09:59:59.285Z",
+    "exercise_1_title": "First question",
+    "exercise_1_type": "question",
+    "exercise_1_result": "success",
+    "exercise_1_finished_at": "2023-11-21T09:43:59.285Z",
+    "exercise_2_title": "Second exercise",
+    "exercise_2_type": "exercise",
+    "exercise_2_result": "success",
+    "exercise_2_finished_at": "2023-11-21T09:59:59.285Z",
   }
 ]
 ```
@@ -81,7 +81,7 @@ $ curl -X GET \
 > Response Example
 
 ```csv
-event_id,event_name,email,name,workspace_id,exercises_finished,exercises_count,all_exercises_completed,exercise1_title,exercise1_type,exercise1_result,exercise1_finished_at,exercise2_title,exercise2_type,exercise2_result,exercise2_finished_at
+event_id,event_name,email,name,workspace_id,exercises_finished,exercises_count,all_exercises_completed,exercise_1_title,exercise_1_type,exercise_1_result,exercise_1_finished_at,exercise_2_title,exercise_2_type,exercise_2_result,exercise_2_finished_at
 "45f2305650328ac7afd34a61","Erlich Bachman's new event","erlich@strigo.io","Erlich Bachman","J5SEv6sXeJQcSFwAG",2,2,true,"First question","question","success","2023-11-21T09:43:59.285Z","Second exercise","exercise","failure","2023-11-21T09:59:59.285Z"
 ```
 
