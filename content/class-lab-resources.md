@@ -389,16 +389,17 @@ Modify a lab resource.
 
 ### BODY Parameters
 
-| Attribute            | Type   | Required | Description                                                                 |
-|----------------------|--------|----------|-----------------------------------------------------------------------------|
-| `name`               | String | No       | The resource's display name.                                                |
-| `image_id`           | String | No       | The instance's AMI ID.                                                      |
-| `image_user`         | String | No       | The user with which to connect to the instance.                             |
-| `webview_links`      | List   | No       | A list of webview links.                                                    |
-| `post_launch_script` | String | No       | A multiline script to run after all instances in the workspace have loaded. |
-| `userdata`           | String | No       | A multiline script to run after the intance loads.                          |
-| `ec2_region`         | String | No       | The AWS region in which the instance is running (default: `eu-central-1`).  |
-| `instance_type`      | String | No       | The type of the instance available for your org (default: `t2.medium`).     |
+| Attribute              | Type   | Required | Description                                                                 |
+|------------------------|--------|----------|-----------------------------------------------------------------------------|
+| `name`                 | String | No       | The resource's display name.                                                |
+| `image_id`             | String | No       | The instance's AMI ID.                                                      |
+| `image_user`           | String | No       | The user with which to connect to the instance.                             |
+| `webview_links`        | List   | No       | A list of webview links.                                                    |
+| `post_launch_script`   | String | No       | A multiline script to run after all instances in the workspace have loaded. |
+| `userdata`             | String | No       | A multiline script to run after the intance loads.                          |
+| `ec2_region`           | String | No       | The AWS region in which the instance is running (default: `eu-central-1`).  |
+| `instance_type`        | String | No       | The type of the instance available for your org (default: `t2.medium`).     |
+| `image_region_mapping` | Object | No       | A mapping of AWS regions to AMI IDs.                                        |
 
 ### WEBVIEW LINK Parameters
 
