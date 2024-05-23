@@ -174,21 +174,22 @@ Create a new event.
 
 ### BODY Parameters
 
-| Attribute               | Type     | Required | Description                                                                                              |
-|-------------------------|----------|----------|----------------------------------------------------------------------------------------------------------|
-| `name`                  | String   | Yes      | The event's name (limited to 256 chars).                                                                 |
-| `owner`                 | String   | Yes      | The email of the org member hosting the event.                                                           |
-| `class_id`              | String   | Yes      | The unique id of the class the event is based on.                                                        |
-| `description`           | String   | No       | The event's description (limited to 65536 chars).                                                        |
-| `date_start`            | Datetime | Yes      | The date when the event starts (ISO8601).                                                                |
-| `date_end`              | Datetime | Yes      | The date when the event ends (ISO8601).                                                                  |
-| `include_chat`          | Boolean  | No       | Whether the event should include chat.                                                                   |
-| `include_video`         | Boolean  | No       | Whether the event should include video.                                                                  |
-| `tas`                   | List     | No       | A list of training assistant emails.                                                                     |
-| `trainees`              | List     | No       | A list of learner emails (adding trainees implicitly creates a private event).                           |
-| `availability`          | String   | No       | The availability of the event ["public"/"private"].                                                      |
-| `include_lab_exercises` | Boolean  | No       | Whether to include lab exercises in the event (if there are exercises configured in the class template). |
-| `labels`                | List     | No       | The list of labels to apply to the event.                                                                |
+| Attribute               | Type     | Required | Description                                                                                                                      |
+|-------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------|
+| `name`                  | String   | Yes      | The event's name (limited to 256 chars).                                                                                         |
+| `owner`                 | String   | Yes      | The email of the org member hosting the event.                                                                                   |
+| `class_id`              | String   | Yes      | The unique id of the class the event is based on.                                                                                |
+| `description`           | String   | No       | The event's description (limited to 65536 chars).                                                                                |
+| `date_start`            | Datetime | Yes      | The date when the event starts (ISO8601).                                                                                        |
+| `date_end`              | Datetime | Yes      | The date when the event ends (ISO8601).                                                                                          |
+| `include_chat`          | Boolean  | No       | Whether the event should include chat.                                                                                           |
+| `include_video`         | Boolean  | No       | Whether the event should include video.                                                                                          |
+| `tas`                   | List     | No       | A list of training assistant emails.                                                                                             |
+| `trainees`              | List     | No       | A list of learner emails (adding trainees implicitly creates a private event).                                                   |
+| `availability`          | String   | No       | The availability of the event ["public"/"private"].                                                                              |
+| `include_lab_exercises` | Boolean  | No       | Whether to include lab exercises in the event (if there are exercises configured in the class template).                         |
+| `labels`                | List     | No       | The list of labels to apply to the event.                                                                                        |
+| `timezone`              | String   | No       | The timezone in which the start and end dates are set. See [timezone list](https://nodatime.org/TimeZones), Default is `Etc/UTC` |
 
 ## Modify an event
 
@@ -261,6 +262,7 @@ Modify an existing event.
 | `availability`          | String   | No       | The availability of the event ["public"/"private"]. * Setting a private event to "public" will remove the event 'trainees' list. |
 | `include_lab_exercises` | Boolean  | No       | Whether to include lab exercises in the event (if there are exercises configured in the class template).                         |
 | `labels`                | List     | No       | The list of labels to apply to the event.                                                                                        |
+| `timezone`              | String   | No       | The timezone in which the start and end dates are set. See [timezone list](https://nodatime.org/TimeZones), Default is `Etc/UTC` |
 
 <aside class="notice">
 You cannot currently modify live events. That will be supported in the future.
