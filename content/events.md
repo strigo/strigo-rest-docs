@@ -28,6 +28,7 @@ weight: 110
 | `partner_id`            | String   | The unique ID of the partner entity to which this event belongs.                                         |
 | `include_lab_exercises` | Boolean  | Whether to include lab exercises in the event (if there are exercises configured in the class template). |
 | `labels`                | List     | The list of labels applied to the event.                                                                 |
+| `is_recorded`           | Boolean  | Whether the event should be recorded                                                                     |
 
 ## Retrieve all events
 
@@ -62,6 +63,7 @@ $ curl -X GET \
         "status": "live",
         "tas": [],
         "token": "9NX4",
+        "is_recorded": false,
         "trainees": []
     }
 ]
@@ -105,6 +107,7 @@ $ curl -X GET \
     "status": "live",
     "tas": [],
     "token": "9NX4",
+    "is_recorded":false,
     "trainees": []
 }
 ```
@@ -162,6 +165,7 @@ EOF
     "status": "live",
     "tas": [],
     "token": "9NX4",
+    "is_recorded": false,
     "trainees": []
 }
 ```
@@ -191,6 +195,8 @@ Create a new event.
 | `labels`                | List     | No       | The list of labels to apply to the event.                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `timezone`              | String   | No       | The timezone in which the start and end dates are set. See [timezone list](https://nodatime.org/TimeZones), Default is `Etc/UTC`                                                                                                                                                                                                                                                                                                                                |
 | `captions_language`     | String   | No       | The BCP-47 code for a spoken language used on this event's live captions. The default value is "en-US". The following language codes are supported: "en-AU" (English, Australia), "en-GB" (Englsh, UK), "es-US" (English, US), "zh-CN” (Chinese, Simplified), "fr-FR" (French), "fr-CA" (French, Canadian), "de-DE" (German), "hi-IN" (Hindi, Indian), "it-IT" (Italian), "ja-JP" (Japanese), "ko-KR" (Korean), "pt-BR" (Portuguese, Brazilian), "th-TH" (Thai) |
+| `is_recorded`          | Boolean  | No       | Whether the event should be recorded.                                                                                                                                                                                                                                                                                                                                                                                                                          |
+
 
 ## Modify an event
 
@@ -230,6 +236,7 @@ EOF
     "status": "live",
     "tas": [],
     "token": "9NX4",
+    "is_recorded": false,
     "trainees": []
 }
 ```
@@ -265,6 +272,7 @@ Modify an existing event.
 | `labels`                | List     | No       | The list of labels to apply to the event.                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `timezone`              | String   | No       | The timezone in which the start and end dates are set. See [timezone list](https://nodatime.org/TimeZones), Default is `Etc/UTC`                                                                                                                                                                                                                                                                                                                                |
 | `captions_language`     | String   | No       | The BCP-47 code for a spoken language used on this event's live captions. The default value is "en-US". The following language codes are supported: "en-AU" (English, Australia), "en-GB" (Englsh, UK), "es-US" (English, US), "zh-CN” (Chinese, Simplified), "fr-FR" (French), "fr-CA" (French, Canadian), "de-DE" (German), "hi-IN" (Hindi, Indian), "it-IT" (Italian), "ja-JP" (Japanese), "ko-KR" (Korean), "pt-BR" (Portuguese, Brazilian), "th-TH" (Thai) |
+| `is_recorded`          | Boolean  | No       | Whether the event should be recorded.                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
 <aside class="notice">
 You cannot currently modify live events. That will be supported in the future.
