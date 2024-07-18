@@ -72,7 +72,8 @@ $ curl -X GET \
           "status": "OPEN"
         }
       ],
-      "time_left": 627
+			"active_time_left": 627,
+			"enrollment_time_left": 155705
   },
   {
       "course_id": "NFdFJBSwwA8BrSpxk",
