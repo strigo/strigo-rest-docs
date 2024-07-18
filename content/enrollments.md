@@ -32,7 +32,8 @@ Some of the following time attributes only exist once the enrollment was started
 | `exercises`       | List     | The exercises for this enrollment (see [exercises](#workspace-exercises)).                                                    |
 | `expiration_date` | Datetime | A fixed deadline. Regardless of when a student starts, their access to the course will end on this specific date (ISO8601).   |
 | `timezone`        | String   | The timezone in which the expiration date is set to.See [timezone list](https://nodatime.org/TimeZones), Default is `Etc/UTC` |
-| `time_left`        | Number   | The remaining time left for the enrollment (in minutes) |
+| `active_time_left`        | Number   | The remaining activity time left for the enrollment (in minutes) |
+| `enrollment_time_left`        | Number   | The remaining time left until the enrollment end date (in minutes) |
 
 ## Retrieve all enrollments
 
