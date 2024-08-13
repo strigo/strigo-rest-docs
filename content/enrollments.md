@@ -15,7 +15,7 @@ Some of the following time attributes only exist once the enrollment was started
 </aside>
 
 | Attribute              | Type     | Description                                                                                                                   |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+|------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------|
 | `id`                   | String   | The enrollments's unique identifier.                                                                                          |
 | `course_id`            | String   | The on-demand course's unique ID the enrollment belongs to.                                                                   |
 | `email`                | String   | The email of the learner.                                                                                                     |
@@ -91,6 +91,17 @@ Lists all enrollments for the course, regardless of their status.
 
 `GET "/ondemand/:course_id/enrollments"`
 
+### URL Parameters
+
+| Attribute           | Type    | Required | Description                                                                                                                                         |
+|---------------------|---------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| `course_id`         | String  | Yes      | The course's unique identifier.                                                                                                                     |
+| `email`             | String  | No       | Filter enrollments by learner's email.                                                                                                              |
+| `page`              | Integer | No       | The page number for pagination.                                                                                                                     |
+| `limit`             | Integer | No       | The number of enrollments per page for pagination.                                                                                                  |
+| `status`            | String  | No       | Filter enrollments by their status. Can be a comma-delimited list of statuses (`enrolled`, `started`, `inactive`, `paused`, `expired`, `finished`). |
+| `include_exercises` | Boolean | No       | Whether to include exercises in the response. Default is `true`.                                                                                    |
+
 ## Retrieve a single enrollment
 
 > Request Example
@@ -115,6 +126,62 @@ $ curl -X GET \
 }
 ```
 
+> Request Example with Pagination and Filtering
+
+```shell
+$ curl -X GET \
+    -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    "https://app.strigo.io/api/v1/ondemand/NF3adeSwwA8BrSpxk/enrollments?page=1&limit=10&email=me1@strigo.io&status=enrolled,expired&include_exercises=true"
+```
+
+> Response Example with Pagination Metadata
+
+```json
+{
+  "data": [
+    {
+      "course_id": "NF3adeSwwA8BrSpxk",
+      "email": "me1@strigo.io",
+      "enrolled_at": "2018-10-16T11:40:11.239Z",
+      "id": "xK8cPmPYEuXwjxbu3",
+      "started_at": "2018-10-16T11:40:27.929Z",
+      "end_date": "2018-10-26T11:40:27.929Z",
+      "status": "expired",
+      "exercises": [
+        {
+          "id": "pB6H3XaTS2Tfadz3p",
+          "title": "Introduction",
+          "status": "DONE",
+          "finished_at": "2018-09-20T10:39:35.425Z"
+        },
+        {
+          "id": "BSY4hBSTsdfpXzN5G",
+          "title": "Databases Overview",
+          "status": "OPEN"
+        }
+      ],
+      "active_time_left": 627,
+      "enrollment_time_left": 155705
+    },
+    {
+      "course_id": "NFdFJBSwwA8BrSpxk",
+      "email": "me2@strigo.io",
+      "enrolled_at": "2018-10-18T14:09:38.832Z",
+      "id": "9hQ5zitwbZh4zrad8",
+      "status": "enrolled"
+    }
+  ],
+  "metadata": {
+    "total_items": 2,
+    "total_pages": 1,
+    "current_page": 1,
+    "limit": 10
+  }
+}
+```
+
 ### Usage
 
 Get a single enrollment.
@@ -124,7 +191,7 @@ Get a single enrollment.
 ### URL Parameters
 
 | Attribute         | Type     | Required | Description                                                                                                                   |
-| ----------------- | -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+|-------------------|----------|----------|-------------------------------------------------------------------------------------------------------------------------------|
 | `course_id`       | String   | Yes      | The course's unique identifier.                                                                                               |
 | `enrollment_id`   | String   | Yes      | The enrollment's unique identifier.                                                                                           |
 | `expiration_date` | Datetime | No       | A fixed deadline. Regardless of when a student starts, their access to the course will end on this specific date (ISO8601).   |
@@ -199,13 +266,13 @@ Enroll a learner to an on-demand course.
 ### URL Parameters
 
 | Attribute   | Type   | Required | Description                     |
-| ----------- | ------ | -------- | ------------------------------- |
+|-------------|--------|----------|---------------------------------|
 | `course_id` | String | Yes      | The course's unique identifier. |
 
 ### BODY Parameters
 
 | Attribute         | Type     | Required | Description                                                                                                                   |
-| ----------------- | -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+|-------------------|----------|----------|-------------------------------------------------------------------------------------------------------------------------------|
 | `email`           | String   | Yes      | The email of the learner to invite.                                                                                           |
 | `expiration_date` | Datetime | No       | A fixed deadline. Regardless of when a student starts, their access to the course will end on this specific date (ISO8601).   |
 | `timezone`        | String   | No       | The timezone in which the expiration date is set to.See [timezone list](https://nodatime.org/TimeZones), Default is `Etc/UTC` |
@@ -285,14 +352,14 @@ Modify an existing enrollment.
 ### URL Parameters
 
 | Attribute       | Type   | Required | Description                         |
-| --------------- | ------ | -------- | ----------------------------------- |
+|-----------------|--------|----------|-------------------------------------|
 | `course_id`     | String | Yes      | The course's unique identifier.     |
 | `enrollment_id` | String | Yes      | The enrollment's unique identifier. |
 
 ### BODY Parameters
 
 | Attribute         | Type     | Required | Description                                                                                                                   |
-| ----------------- | -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+|-------------------|----------|----------|-------------------------------------------------------------------------------------------------------------------------------|
 | `status`          | String   | No       | The status to set the enrollment to (`expired`)                                                                               |
 | `expiration_date` | Datetime | No       | A fixed deadline. Regardless of when a student starts, their access to the course will end on this specific date (ISO8601).   |
 | `timezone`        | String   | No       | The timezone in which the expiration date is set to.See [timezone list](https://nodatime.org/TimeZones), Default is `Etc/UTC` |
@@ -334,7 +401,7 @@ You can also delete an enrollment by providing the url-encoded email of a learne
 `DELETE "/ondemand/:course_id/enrollments/:enrollment_id"`
 
 | Attribute       | Type   | Required | Description                                                            |
-| --------------- | ------ | -------- | ---------------------------------------------------------------------- |
+|-----------------|--------|----------|------------------------------------------------------------------------|
 | `course_id`     | String | Yes      | The course's unique identifier.                                        |
 | `enrollment_id` | String | Yes      | The enrollment's unique identifier (or leaner email. See note above.). |
 
@@ -455,13 +522,13 @@ Enroll multiple learners to an on-demand course.
 ### URL Parameters
 
 | Attribute   | Type   | Required | Description                     |
-| ----------- | ------ | -------- | ------------------------------- |
+|-------------|--------|----------|---------------------------------|
 | `course_id` | String | Yes      | The course's unique identifier. |
 
 ### BODY Parameters
 
 | Attribute         | Type     | Required | Description                                                                                                                   |
-| ----------------- | -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+|-------------------|----------|----------|-------------------------------------------------------------------------------------------------------------------------------|
 | `emails`          | List     | Yes      | A list of learner emails to invite.                                                                                           |
 | `expiration_date` | Datetime | No       | A fixed deadline. Regardless of when a student starts, their access to the course will end on this specific date (ISO8601).   |
 | `timezone`        | String   | No       | The timezone in which the expiration date is set to.See [timezone list](https://nodatime.org/TimeZones), Default is `Etc/UTC` |
