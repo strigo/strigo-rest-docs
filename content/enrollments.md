@@ -85,46 +85,6 @@ $ curl -X GET \
 ]
 ```
 
-### Usage
-
-Lists all enrollments for the course, regardless of their status.
-
-`GET "/ondemand/:course_id/enrollments"`
-
-### URL Parameters
-
-| Attribute           | Type    | Required | Description                                                                                                                                         |
-|---------------------|---------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| `course_id`         | String  | Yes      | The course's unique identifier.                                                                                                                     |
-| `email`             | String  | No       | Filter enrollments by learner's email.                                                                                                              |
-| `page`              | Integer | No       | The page number for pagination.                                                                                                                     |
-| `limit`             | Integer | No       | The number of enrollments per page for pagination.                                                                                                  |
-| `status`            | String  | No       | Filter enrollments by their status. Can be a comma-delimited list of statuses (`enrolled`, `started`, `inactive`, `paused`, `expired`, `finished`). |
-| `include_exercises` | Boolean | No       | Whether to include exercises in the response. Default is `true`.                                                                                    |
-
-## Retrieve a single enrollment
-
-> Request Example
-
-```shell
-$ curl -X GET \
-    -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
-    -H "Accept: application/json" \
-    -H "Content-Type: application/json" \
-    "https://app.strigo.io/api/v1/ondemand/NFdFJBSwwA8BrSpxk/enrollments/9hQ5zitwbZh4zrga8"
-```
-
-> Response Example
-
-```json
-{
-  "course_id": "NFdFJBSwwA8BrSpxk",
-  "email": "me2@strigo.io",
-  "enrolled_at": "2018-10-18T14:09:38.832Z",
-  "id": "9hQ5zitwbZh4zrga8",
-  "status": "enrolled"
-}
-```
 
 > Request Example with Pagination and Filtering
 
@@ -179,6 +139,47 @@ $ curl -X GET \
     "current_page": 1,
     "limit": 10
   }
+}
+```
+
+### Usage
+
+Lists all enrollments for the course, regardless of their status.
+
+`GET "/ondemand/:course_id/enrollments"`
+
+### URL Parameters
+
+| Attribute           | Type    | Required | Description                                                                                                                                         |
+|---------------------|---------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| `course_id`         | String  | Yes      | The course's unique identifier.                                                                                                                     |
+| `email`             | String  | No       | Filter enrollments by learner's email.                                                                                                              |
+| `page`              | Integer | No       | The page number for pagination.                                                                                                                     |
+| `limit`             | Integer | No       | The number of enrollments per page for pagination.                                                                                                  |
+| `status`            | String  | No       | Filter enrollments by their status. Can be a comma-delimited list of statuses (`enrolled`, `started`, `inactive`, `paused`, `expired`, `finished`). |
+| `include_exercises` | Boolean | No       | Whether to include exercises in the response. Default is `true`.                                                                                    |
+
+## Retrieve a single enrollment
+
+> Request Example
+
+```shell
+$ curl -X GET \
+    -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    "https://app.strigo.io/api/v1/ondemand/NFdFJBSwwA8BrSpxk/enrollments/9hQ5zitwbZh4zrga8"
+```
+
+> Response Example
+
+```json
+{
+  "course_id": "NFdFJBSwwA8BrSpxk",
+  "email": "me2@strigo.io",
+  "enrolled_at": "2018-10-18T14:09:38.832Z",
+  "id": "9hQ5zitwbZh4zrga8",
+  "status": "enrolled"
 }
 ```
 
