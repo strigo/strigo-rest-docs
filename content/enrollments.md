@@ -344,6 +344,37 @@ EOF
 }
 ```
 
+> Request Example for extending activity hours
+
+```shell
+$ curl -X PATCH \
+    -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    "https://app.strigo.io/api/v1/ondemand/NFdFJBSwwA8BrSpxk/enrollments/9hQ5zitwbZh4zrga8" \
+    -d @- <<EOF
+    {
+      "activity_hours_extension": 2.5
+    }
+EOF
+```
+
+> Request Example for extending enrollment duration
+
+```shell
+$ curl -X PATCH \
+    -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    "https://app.strigo.io/api/v1/ondemand/NFdFJBSwwA8BrSpxk/enrollments/9hQ5zitwbZh4zrga8" \
+    -d @- <<EOF
+    {
+      "duration": 3,
+      "duration_unit": "days"
+    }
+EOF
+```
+
 ### Usage
 
 Modify an existing enrollment.
@@ -359,14 +390,17 @@ Modify an existing enrollment.
 
 ### BODY Parameters
 
-| Attribute         | Type     | Required | Description                                                                                                                   |
-|-------------------|----------|----------|-------------------------------------------------------------------------------------------------------------------------------|
-| `status`          | String   | No       | The status to set the enrollment to (`expired`)                                                                               |
-| `expiration_date` | Datetime | No       | A fixed deadline. Regardless of when a student starts, their access to the course will end on this specific date (ISO8601).   |
-| `timezone`        | String   | No       | The timezone in which the expiration date is set to.See [timezone list](https://nodatime.org/TimeZones), Default is `Etc/UTC` |
+| Attribute                 | Type     | Required | Description                                                                                                                   |
+|---------------------------|----------|----------|-------------------------------------------------------------------------------------------------------------------------------|
+| `status`                  | String   | No       | The status to set the enrollment to (`expired`)                                                                               |
+| `expiration_date`         | Datetime | No       | A fixed deadline. Regardless of when a student starts, their access to the course will end on this specific date (ISO8601).   |
+| `timezone`                | String   | No       | The timezone in which the expiration date is set to.See [timezone list](https://nodatime.org/TimeZones), Default is `Etc/UTC` |
+| `activity_hours_extension`| Number   | No       | Additional hours to extend the learner's active lab time. Can be a decimal value.                                            |
+| `duration`                | Number   | No       | Value to extend the enrollment duration. Must be provided with `duration_unit`. Can be a decimal value.                      |
+| `duration_unit`           | String   | No       | Unit for duration extension. Must be either "hours" or "days". Required when using `duration`.                               |
 
 <aside class="notice">
-You can currently only patch enrollments to expire them.
+When extending enrollment duration, both `duration` and `duration_unit` must be provided together.
 </aside>
 
 ## Unenroll a learner
