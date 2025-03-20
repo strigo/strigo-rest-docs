@@ -369,8 +369,8 @@ $ curl -X PATCH \
     "https://app.strigo.io/api/v1/ondemand/NFdFJBSwwA8BrSpxk/enrollments/9hQ5zitwbZh4zrga8" \
     -d @- <<EOF
     {
-      "duration": 3,
-      "duration_unit": "days"
+      "duration_extension": 3,
+      "duration_extension_unit": "days"
     }
 EOF
 ```
@@ -396,11 +396,11 @@ Modify an existing enrollment.
 | `expiration_date`         | Datetime | No       | A fixed deadline. Regardless of when a student starts, their access to the course will end on this specific date (ISO8601).   |
 | `timezone`                | String   | No       | The timezone in which the expiration date is set to.See [timezone list](https://nodatime.org/TimeZones), Default is `Etc/UTC` |
 | `activity_hours_extension`| Number   | No       | Additional hours to extend the learner's active lab time. Can be a decimal value.                                            |
-| `duration`                | Number   | No       | Value to extend the enrollment duration. Must be provided with `duration_unit`. Can be a decimal value.                      |
-| `duration_unit`           | String   | No       | Unit for duration extension. Must be either "hours" or "days". Required when using `duration`.                               |
+| `duration_extension`      | Number   | No       | Value to extend the enrollment duration. Must be provided with `duration_extension_unit`. Can be a decimal value.            |
+| `duration_extension_unit` | String   | No       | Unit for duration extension. Must be either "hours" or "days". Required when using `duration_extension`.                     |
 
 <aside class="notice">
-When extending enrollment duration, both `duration` and `duration_unit` must be provided together.
+When extending enrollment duration, both `duration_extension` and `duration_extension_unit` must be provided together.
 </aside>
 
 ## Unenroll a learner
