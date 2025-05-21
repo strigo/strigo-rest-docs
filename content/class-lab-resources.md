@@ -193,7 +193,7 @@ $ curl -X POST \
       "image_id":"ami-0ea21e760f354e854",
       "image_user": "ubuntu",
       "name": "My Lab",
-      "webview_links": [{"url": "http://instance.autolab.strigo.io", "name":"My Lab Link"}]
+      "webview_links": [{"url": "http://instance.autolab.strigo.io", "name":"My Lab Link", "hidden": false}]
     }
 EOF
 ```
@@ -212,7 +212,8 @@ EOF
   "webview_links": [
     {
       "name": "My Lab Link",
-      "url": "://instance.autolab.strigo.io"
+      "url": "://instance.autolab.strigo.io",
+      "hidden": false
     }
   ]
 }
@@ -231,7 +232,7 @@ $ curl -X POST \
     {
       "image_user": "ubuntu",
       "name": "My Lab",
-      "webview_links": [{"url": "http://instance.autolab.strigo.io", "name":"My Lab Link"}]
+      "webview_links": [{"url": "http://instance.autolab.strigo.io", "name":"My Lab Link", "hidden": true}],
       "image_region_mapping": {"us-east-1": "ami-0ea214e760f354e85", "eu-west-1": "ami-a21e760f354e8540e"}
     }
 EOF
@@ -250,11 +251,12 @@ EOF
   "webview_links": [
     {
       "name": "My Lab Link",
-      "url": "://instance.autolab.strigo.io"
+      "url": "://instance.autolab.strigo.io",
+      "hidden": true
     }
   ],
-  "image_region_mapping": { 
-    "us-east-1": "ami-0ea214e760f354e85", 
+  "image_region_mapping": {
+    "us-east-1": "ami-0ea214e760f354e85",
     "eu-west-1": "ami-a21e760f354e8540e"
   }
 }
@@ -292,6 +294,7 @@ Create a new lab resource.
 |-----------|--------|----------|--------------------------------|
 | `name`    | String | Yes      | The display name for the link. |
 | `url`     | String | Yes      | The url to use.                |
+| `hidden`  | Boolean| No       | Whether or not this webview link is visible to students (default: `false`). |
 
 ## Modify a lab resource
 
@@ -308,7 +311,7 @@ $ curl -X PATCH \
       "image_id":"ami-1111111111",
       "image_user": "ubuntu",
       "name": "My Lab 2",
-      "webview_links": [{"url": "http://instance.autolab.strigo.io", "name":"My Lab Link"}]
+      "webview_links": [{"url": "http://instance.autolab.strigo.io", "name":"My Lab Link", "hidden": true}]
     }
 EOF
 ```
@@ -327,7 +330,8 @@ EOF
   "webview_links": [
     {
       "name": "My Lab Link",
-      "url": "://instance.autolab.strigo.io"
+      "url": "http://instance.autolab.strigo.io",
+      "hidden": true
     }
   ]
 }
@@ -345,7 +349,7 @@ $ curl -X PATCH \
     {
       "image_user": "ubuntu",
       "name": "My Lab 2",
-      "webview_links": [{"url": "http://instance.autolab.strigo.io", "name":"My Lab Link"}],
+      "webview_links": [{"url": "http://instance.autolab.strigo.io:8080", "name":"My Lab Link", "hidden": false}],
       "image_region_mapping": {"us-east-1": "ami-0ea214e760f354e85", "eu-west-1": "ami-a21e760f354e8540e"}
     }
 EOF
@@ -364,7 +368,8 @@ EOF
   "webview_links": [
     {
       "name": "My Lab Link",
-      "url": "://instance.autolab.strigo.io"
+      "url": "http://instance.autolab.strigo.io:8080",
+      "hidden": false
     }
   ],
   "image_region_mapping": {
@@ -407,6 +412,7 @@ Modify a lab resource.
 |-----------|--------|----------|--------------------------------|
 | `name`    | String | Yes      | The display name for the link. |
 | `url`     | String | Yes      | The url to use.                |
+| `hidden`  | Boolean| No       | Whether or not this webview link is visible to students (default: `false`). |
 
 ## Delete a single lab resource
 
@@ -438,3 +444,7 @@ Delete a single lab resource.
 |---------------|--------|----------|-----------------------------------|
 | `class_id`    | String | Yes      | The class's unique identifier.    |
 | `resource_id` | String | Yes      | The resource's unique identifier. |
+
+
+
+
