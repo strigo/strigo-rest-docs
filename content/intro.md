@@ -9,7 +9,6 @@ platform.
 
 Some actions, like changing billing settings, are only available via the web interface.
 
-
 <aside class="notice">
 This section describes various API features that apply to all resources
 </aside>
@@ -36,13 +35,13 @@ $ curl -X METHOD \
 
 Authentication is done using a Bearer token split into two parts:
 
-* Your organization's unique id.
-* Your organization's API key.
+- Your organization's unique ID.
+- Your organization's API key.
 
-Assuming you're an organization's owner, you can generate an API key for your org.
-If not, you can retrieve the generated key and org ID.
+Assuming you're an organization's owner, you can generate an API key for your organization.
+If not, you can retrieve the generated key and organization ID.
 
-The creds can be found [here](https://app.strigo.io/settings#account).
+The credentials can be found [here](https://app.strigo.io/settings#account).
 
 We'll be adding additional authentication methods in the future.
 
@@ -80,7 +79,7 @@ We'll be adding additional authentication methods in the future.
 }
 ```
 
-Each response, (except for `/health`) contains at the very least one high-level key (`result`) and two optional
+Each response (except for `/health`) contains at the very least one high-level key (`result`) and two optional
 ones (`data` and `error`).
 
 <aside class="notice">
@@ -101,10 +100,10 @@ don't return data.
 
 The `error` key is only included when an error occurs, and has two fields (`type` and `message`).
 
-* `type` -> The Strigo-specific type of error (e.g. `ClassNotFound`). While you can operate on HTTP status codes, this
+- `type` - The Strigo-specific type of error (e.g. `ClassNotFound`). While you can operate on HTTP status codes, this
   provides a more elaborate mechanism for acting on errors. For example, a request can return `400` for two completely
   different types of errors.
-* `message` -> A more elaborate, human-readable message describing the error.
+- `message` - A more elaborate, human-readable message describing the error.
 
 Request validation errors also return an `errors` array as part of the error:
 
@@ -146,7 +145,7 @@ All responses shown in the examples in the API reference only include the conten
 
 ## Errors and Validations
 
-### Validation errors
+### Validation Errors
 
 Request validations are performed on all request query and body parameters. This should allow users to understand
 exactly which parameter is invalid.
@@ -160,18 +159,18 @@ We provide rather granular error types that should allow you to programmatically
 For example, given a DELETE request to delete an event that is currently live, an `EventNotInReadyState` error type will
 be returned.
 
-### Error Codes
+### HTTP Status Codes
 
-We use standard response codes for all requests.
+We use standard HTTP response codes for all requests.
 
 ## Actions and Methods
 
 We use the common pattern of performing actions based on the HTTP method used:
 
-* `GET` for retrieving a list of entities or a single entity.
-* `POST` for creating a new entity.
-* `PATCH` for updating an existing entity.
-* `DELETE` for deleting an entity.
+- `GET` for retrieving a list of entities or a single entity.
+- `POST` for creating a new entity.
+- `PATCH` for updating an existing entity.
+- `DELETE` for deleting an entity.
 
 ## Health Check
 
@@ -207,7 +206,6 @@ This can be used to verify server integrity and to validate your credentials.
 We currently allow ~1xx-~2xx RPM. This will change in the future.
 
 All responses contain headers indicating the current limit status.
-
 
 > Response Example
 
@@ -245,4 +243,3 @@ x-ratelimit-reset: 1540715901
 
 Too many requests, please try again later.
 ```
-

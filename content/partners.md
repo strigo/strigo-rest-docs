@@ -9,7 +9,7 @@ weight: 170
 ### Attributes:
 
 | Attribute | Type   | Description                                                |
-|-----------|--------|------------------------------------------------------------|
+| --------- | ------ | ---------------------------------------------------------- |
 | `id`      | String | The partner's unique identifier.                           |
 | `name`    | String | The name of the partner as set by the parent organization. |
 
@@ -29,43 +29,42 @@ $ curl -X GET \
 
 ```json
 {
+  "result": "success",
   "data": [
     {
       "id": "yCoaiix2pRjxMjCn7",
-      "name": "w00t"
+      "name": "Acme Corporation"
     },
     {
       "id": "x6GHbXKBTPeAHpjmS",
-      "name": "w00t1"
+      "name": "TechCorp Solutions"
     },
     {
       "id": "hMJrmcqPDDjKwLN7Z",
-      "name": "woot13"
+      "name": "Global Training Inc"
     },
     {
       "id": "cYCk2Yq45qMQXGZkh",
-      "name": "w00t3"
+      "name": "Enterprise Learning"
     },
     {
       "id": "ozSjhvAr8hMaQCLND",
-      "name": "newa"
+      "name": "Innovation Partners"
     },
     {
       "id": "mYsEBS6PeBeMpFCfQ",
-      "name": "BLUASD"
+      "name": "Digital Academy"
     },
     {
       "id": "ggKqkNgY4KzQQoFsM",
-      "name": "w00tasd"
+      "name": "Cloud Partners"
     },
     {
       "id": "ntvXb3L2qdPbayRKZ",
-      "name": "nur"
+      "name": "DevOps Institute"
     }
-  ],
-  "result": "success"
+  ]
 }
-
 ```
 
 ### Usage
@@ -83,18 +82,18 @@ $ curl -X GET \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "https://app.strigo.io/api/v1/ntvXb3L2qdPbayRKZ/ntvXb3L2qdPbayRKZ"
+    "https://app.strigo.io/api/v1/partners/ntvXb3L2qdPbayRKZ"
 ```
 
 > Response Example
 
 ```json
 {
+  "result": "success",
   "data": {
     "id": "ntvXb3L2qdPbayRKZ",
-    "name": "nur"
-  },
-  "result": "success"
+    "name": "DevOps Institute"
+  }
 }
 ```
 
@@ -107,7 +106,7 @@ Get a single partner.
 ### URL Parameters
 
 | Attribute    | Type   | Required | Description                      |
-|--------------|--------|----------|----------------------------------|
+| ------------ | ------ | -------- | -------------------------------- |
 | `partner_id` | String | Yes      | The partner's unique identifier. |
 
 ## Create a partner
@@ -131,11 +130,11 @@ EOF
 
 ```json
 {
+  "result": "success",
   "data": {
     "id": "Z3XKk7Swzr3MuaTGJ",
-    "name": "My New Parnter"
-  },
-  "result": "success"
+    "name": "My New Partner"
+  }
 }
 ```
 
@@ -148,7 +147,7 @@ Create a new partner.
 ### BODY Parameters
 
 | Attribute | Type   | Required | Description              |
-|-----------|--------|----------|--------------------------|
+| --------- | ------ | -------- | ------------------------ |
 | `name`    | String | Yes      | The name of the partner. |
 
 ## Modify a partner
@@ -160,7 +159,7 @@ $ curl -X PATCH \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "https://app.strigo.io/api/v1/partner/Z3XKk7Swzr3MuaTGJ" \
+    "https://app.strigo.io/api/v1/partners/Z3XKk7Swzr3MuaTGJ" \
     -d @- <<EOF
     {
       "name":"New name for partner"
@@ -172,11 +171,11 @@ EOF
 
 ```json
 {
+  "result": "success",
   "data": {
     "id": "Z3XKk7Swzr3MuaTGJ",
     "name": "New name for partner"
-  },
-  "result": "success"
+  }
 }
 ```
 
@@ -189,13 +188,13 @@ Modify a partner.
 ### URL Parameters
 
 | Attribute    | Type   | Required | Description                      |
-|--------------|--------|----------|----------------------------------|
+| ------------ | ------ | -------- | -------------------------------- |
 | `partner_id` | String | Yes      | The partner's unique identifier. |
 
 ### BODY Parameters
 
 | Attribute | Type   | Required | Description             |
-|-----------|--------|----------|-------------------------|
+| --------- | ------ | -------- | ----------------------- |
 | `name`    | String | Yes      | The partner's new name. |
 
 ## Retrieve partner members
@@ -214,34 +213,34 @@ $ curl -X GET \
 
 ```json
 {
+  "result": "success",
   "data": [
     {
-      "email": "niro@strigo.io",
+      "email": "john.smith@acme.com",
       "id": "MzkRF9fPnq34SatJB",
       "partner_id": "yCoaiix2pRjxMjCn7",
       "role": "partner"
     },
     {
-      "email": "nira@strigo.io",
+      "email": "sarah.johnson@acme.com",
       "id": "BSwKLejmQtSsEyzE9",
       "partner_id": "yCoaiix2pRjxMjCn7",
       "role": "partner"
     }
-  ],
-  "result": "success"
+  ]
 }
 ```
 
 ### Usage
 
-Retrieve parter members.
+Retrieve partner members.
 
 `GET "/partners/:partner_id/members"`
 
 ### URL Parameters
 
 | Attribute    | Type   | Required | Description                      |
-|--------------|--------|----------|----------------------------------|
+| ------------ | ------ | -------- | -------------------------------- |
 | `partner_id` | String | Yes      | The partner's unique identifier. |
 
 ## Invite a partner member
@@ -265,6 +264,7 @@ EOF
 
 ```json
 {
+  "result": "success",
   "data": {
     "created_at": "2019-01-07T15:42:21.932Z",
     "email": "trainer@partner-company.com",
@@ -272,8 +272,7 @@ EOF
     "link": "https://app.strigo.io/team/invite/LKOONmxKR2XcsbgKaz79xVVkAaPQyQ8PrX_1fVv3qFp",
     "partner_id": "Z3XKk7Swzr3MuaTGJ",
     "status": "pending"
-  },
-  "result": "success"
+  }
 }
 ```
 
@@ -286,12 +285,11 @@ Invite someone to join as a member in your defined partner entity.
 ### URL Parameters
 
 | Attribute    | Type   | Required | Description                      |
-|--------------|--------|----------|----------------------------------|
+| ------------ | ------ | -------- | -------------------------------- |
 | `partner_id` | String | Yes      | The partner's unique identifier. |
 
 ### BODY Parameters
 
 | Attribute | Type   | Required | Description                         |
-|-----------|--------|----------|-------------------------------------|
+| --------- | ------ | -------- | ----------------------------------- |
 | `email`   | String | Yes      | Email of partner trainer to invite. |
-

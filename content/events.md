@@ -9,13 +9,13 @@ weight: 110
 ### Attributes:
 
 | Attribute               | Type     | Description                                                                                              |
-|-------------------------|----------|----------------------------------------------------------------------------------------------------------|
+| ----------------------- | -------- | -------------------------------------------------------------------------------------------------------- |
 | `id`                    | String   | The event's unique identifier.                                                                           |
 | `owner`                 | Object   | The `email` and `id` of the org member hosting the event.                                                |
 | `name`                  | String   | The event's name.                                                                                        |
-| `event_link`            | String   | The event's link.                                                                                        |
+| `event_link`            | String   | The event's attendance link.                                                                             |
 | `token`                 | String   | The event's public access token.                                                                         |
-| `class_id`              | String   | The unique id of the class the event is based on.                                                        |
+| `class_id`              | String   | The unique ID of the class the event is based on.                                                        |
 | `availability`          | String   | public/private                                                                                           |
 | `description`           | String   | The event's description.                                                                                 |
 | `date_start`            | Datetime | The date when the event starts (ISO8601).                                                                |
@@ -46,26 +46,26 @@ $ curl -X GET \
 
 ```json
 [
-    {
-        "availability": "public",
-        "class_id": "hd3ALTaLAbhfzmBbf",
-        "date_end": "2018-09-20T12:00:00.000Z",
-        "date_start": "2018-09-20T11:00:00.000Z",
-        "event_link": "https://app.strigo.io/event/p3bQnrweEystFToCq",
-        "id": "p3bdnrweEystFToCq",
-        "include_chat": false,
-        "include_video": false,
-        "name": "My Event",
-        "owner": {
-            "email": "me@strigo.io",
-            "id": "rMWNrMT2pCySh2PGo"
-        },
-        "status": "live",
-        "tas": [],
-        "token": "9NX4",
-        "is_recorded": false,
-        "trainees": []
-    }
+  {
+    "availability": "public",
+    "class_id": "hd3ALTaLAbhfzmBbf",
+    "date_end": "2018-09-20T12:00:00.000Z",
+    "date_start": "2018-09-20T11:00:00.000Z",
+    "event_link": "https://app.strigo.io/event/p3bQnrweEystFToCq",
+    "id": "p3bdnrweEystFToCq",
+    "include_chat": false,
+    "include_video": false,
+    "name": "My Event",
+    "owner": {
+      "email": "me@strigo.io",
+      "id": "rMWNrMT2pCySh2PGo"
+    },
+    "status": "live",
+    "tas": [],
+    "token": "9NX4",
+    "is_recorded": false,
+    "trainees": []
+  }
 ]
 ```
 
@@ -91,24 +91,24 @@ $ curl -X GET \
 
 ```json
 {
-    "availability": "public",
-    "class_id": "hd3ALTaLAbhfzmBbf",
-    "date_end": "2018-09-20T12:00:00.000Z",
-    "date_start": "2018-09-20T11:00:00.000Z",
-    "event_link": "https://app.strigo.io/event/p3bQnrweEystFToCq",
-    "id": "p3bdnrweEystFToCq",
-    "include_chat": false,
-    "include_video": false,
-    "name": "My Event",
-    "owner": {
-        "email": "me@strigo.io",
-        "id": "rMWNrMT2pCySh2PGo"
-    },
-    "status": "live",
-    "tas": [],
-    "token": "9NX4",
-    "is_recorded":false,
-    "trainees": []
+  "availability": "public",
+  "class_id": "hd3ALTaLAbhfzmBbf",
+  "date_end": "2018-09-20T12:00:00.000Z",
+  "date_start": "2018-09-20T11:00:00.000Z",
+  "event_link": "https://app.strigo.io/event/p3bQnrweEystFToCq",
+  "id": "p3bdnrweEystFToCq",
+  "include_chat": false,
+  "include_video": false,
+  "name": "My Event",
+  "owner": {
+    "email": "me@strigo.io",
+    "id": "rMWNrMT2pCySh2PGo"
+  },
+  "status": "live",
+  "tas": [],
+  "token": "9NX4",
+  "is_recorded": false,
+  "trainees": []
 }
 ```
 
@@ -121,7 +121,7 @@ Get a single event.
 ### URL Parameters
 
 | Attribute  | Type   | Required | Description                    |
-|------------|--------|----------|--------------------------------|
+| ---------- | ------ | -------- | ------------------------------ |
 | `event_id` | String | Yes      | The event's unique identifier. |
 
 ## Create an event
@@ -149,24 +149,24 @@ EOF
 
 ```json
 {
-    "availability": "public",
-    "class_id": "hd3ALTaLAbhfzmBbf",
-    "date_end": "2018-10-30T13:00:00.000Z",
-    "date_start": "2018-09-20T11:00:00.000Z",
-    "event_link": "https://app.strigo.io/event/p3bQnrweEystFToCq",
-    "id": "p3bdnrweEystFToCq",
-    "include_chat": false,
-    "include_video": false,
-    "name": "My Event",
-    "owner": {
-        "email": "me@strigo.io",
-        "id": "rMWNrMT2pCySh2PGo"
-    },
-    "status": "live",
-    "tas": [],
-    "token": "9NX4",
-    "is_recorded": false,
-    "trainees": []
+  "availability": "public",
+  "class_id": "hd3ALTaLAbhfzmBbf",
+  "date_end": "2018-10-30T13:00:00.000Z",
+  "date_start": "2018-09-20T11:00:00.000Z",
+  "event_link": "https://app.strigo.io/event/p3bQnrweEystFToCq",
+  "id": "p3bdnrweEystFToCq",
+  "include_chat": false,
+  "include_video": false,
+  "name": "My Event",
+  "owner": {
+    "email": "me@strigo.io",
+    "id": "rMWNrMT2pCySh2PGo"
+  },
+  "status": "live",
+  "tas": [],
+  "token": "9NX4",
+  "is_recorded": false,
+  "trainees": []
 }
 ```
 
@@ -179,10 +179,10 @@ Create a new event.
 ### BODY Parameters
 
 | Attribute               | Type     | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-|-------------------------|----------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ----------------------- | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `name`                  | String   | Yes      | The event's name (limited to 256 chars).                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | `owner`                 | String   | Yes      | The email of the org member hosting the event.                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `class_id`              | String   | Yes      | The unique id of the class the event is based on.                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `class_id`              | String   | Yes      | The unique ID of the class the event is based on.                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `description`           | String   | No       | The event's description (limited to 65536 chars).                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `date_start`            | Datetime | Yes      | The date when the event starts (ISO8601).                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `date_end`              | Datetime | Yes      | The date when the event ends (ISO8601).                                                                                                                                                                                                                                                                                                                                                                                                                         |
@@ -195,8 +195,7 @@ Create a new event.
 | `labels`                | List     | No       | The list of labels to apply to the event.                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `timezone`              | String   | No       | The timezone in which the start and end dates are set. See [timezone list](https://nodatime.org/TimeZones), Default is `Etc/UTC`                                                                                                                                                                                                                                                                                                                                |
 | `captions_language`     | String   | No       | The BCP-47 code for a spoken language used on this event's live captions. The default value is "en-US". The following language codes are supported: "en-AU" (English, Australia), "en-GB" (Englsh, UK), "es-US" (English, US), "zh-CN” (Chinese, Simplified), "fr-FR" (French), "fr-CA" (French, Canadian), "de-DE" (German), "hi-IN" (Hindi, Indian), "it-IT" (Italian), "ja-JP" (Japanese), "ko-KR" (Korean), "pt-BR" (Portuguese, Brazilian), "th-TH" (Thai) |
-| `is_recorded`          | Boolean  | No       | Whether the event should be recorded.                                                                                                                                                                                                                                                                                                                                                                                                                          |
-
+| `is_recorded`           | Boolean  | No       | Whether the event should be recorded.                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
 ## Modify an event
 
@@ -220,24 +219,24 @@ EOF
 
 ```json
 {
-    "availability": "public",
-    "class_id": "hd3ALTaLAbhfzmBbf",
-    "date_end": "2018-10-30T13:00:00.000Z",
-    "date_start": "2018-09-20T11:00:00.000Z",
-    "event_link": "https://app.strigo.io/event/p3bQnrweEystFToCq",
-    "id": "p3bdnrweEystFToCq",
-    "include_chat": false,
-    "include_video": false,
-    "name": "Another Event",
-    "owner": {
-        "email": "someone.else@strigo.io",
-        "id": "LLWdr8TFpRTS022Go"
-    },
-    "status": "live",
-    "tas": [],
-    "token": "9NX4",
-    "is_recorded": false,
-    "trainees": []
+  "availability": "public",
+  "class_id": "hd3ALTaLAbhfzmBbf",
+  "date_end": "2018-10-30T13:00:00.000Z",
+  "date_start": "2018-09-20T11:00:00.000Z",
+  "event_link": "https://app.strigo.io/event/p3bQnrweEystFToCq",
+  "id": "p3bdnrweEystFToCq",
+  "include_chat": false,
+  "include_video": false,
+  "name": "Another Event",
+  "owner": {
+    "email": "someone.else@strigo.io",
+    "id": "LLWdr8TFpRTS022Go"
+  },
+  "status": "live",
+  "tas": [],
+  "token": "9NX4",
+  "is_recorded": false,
+  "trainees": []
 }
 ```
 
@@ -250,29 +249,29 @@ Modify an existing event.
 ### URL Parameters
 
 | Attribute  | Type   | Required | Description                    |
-|------------|--------|----------|--------------------------------|
+| ---------- | ------ | -------- | ------------------------------ |
 | `event_id` | String | Yes      | The event's unique identifier. |
 
 ### BODY Parameters
 
 | Attribute               | Type     | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-|-------------------------|----------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ----------------------- | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `name`                  | String   | No       | The event's name (limited to 256 chars).                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | `owner`                 | String   | No       | The email of the org member hosting the event.                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `description`           | String   | No       | The event's description (limited to 65536 chars).                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `date_start`            | Datetime | No       | The date when the event starts (ISO8601).                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `date_end`              | Datetime | No       | The date when the event ends (ISO8601).                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `class_id`              | String   | No       | The unique id of the class the event is based on.                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `class_id`              | String   | No       | The unique ID of the class the event is based on.                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `include_chat`          | Boolean  | No       | Whether the event should include chat.                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | `include_video`         | Boolean  | No       | Whether the event should include video.                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `tas`                   | List     | No       | A list of training assistant emails.                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | `trainees`              | List     | No       | A list of learner emails (adding trainees implicitly means a private event).                                                                                                                                                                                                                                                                                                                                                                                    |
-| `availability`          | String   | No       | The availability of the event ["public"/"private"]. * Setting a private event to "public" will remove the event 'trainees' list.                                                                                                                                                                                                                                                                                                                                |
+| `availability`          | String   | No       | The availability of the event ["public"/"private"]. \* Setting a private event to "public" will remove the event 'trainees' list.                                                                                                                                                                                                                                                                                                                               |
 | `include_lab_exercises` | Boolean  | No       | Whether to include lab exercises in the event (if there are exercises configured in the class template).                                                                                                                                                                                                                                                                                                                                                        |
 | `labels`                | List     | No       | The list of labels to apply to the event.                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `timezone`              | String   | No       | The timezone in which the start and end dates are set. See [timezone list](https://nodatime.org/TimeZones), Default is `Etc/UTC`                                                                                                                                                                                                                                                                                                                                |
 | `captions_language`     | String   | No       | The BCP-47 code for a spoken language used on this event's live captions. The default value is "en-US". The following language codes are supported: "en-AU" (English, Australia), "en-GB" (Englsh, UK), "es-US" (English, US), "zh-CN” (Chinese, Simplified), "fr-FR" (French), "fr-CA" (French, Canadian), "de-DE" (German), "hi-IN" (Hindi, Indian), "it-IT" (Italian), "ja-JP" (Japanese), "ko-KR" (Korean), "pt-BR" (Portuguese, Brazilian), "th-TH" (Thai) |
-| `is_recorded`          | Boolean  | No       | Whether the event should be recorded.                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `is_recorded`           | Boolean  | No       | Whether the event should be recorded.                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
 <aside class="notice">
 You cannot currently modify live events. That will be supported in the future.
@@ -309,5 +308,5 @@ You can only delete events in `ready` state.
 ### URL Parameters
 
 | Attribute  | Type   | Required | Description                    |
-|------------|--------|----------|--------------------------------|
+| ---------- | ------ | -------- | ------------------------------ |
 | `event_id` | String | Yes      | The event's unique identifier. |

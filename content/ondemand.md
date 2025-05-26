@@ -9,14 +9,14 @@ weight: 130
 ### Attributes:
 
 | Attribute                   | Type    | Description                                                  |
-|-----------------------------|---------|--------------------------------------------------------------|
+| --------------------------- | ------- | ------------------------------------------------------------ |
 | `id`                        | String  | The course's unique identifier.                              |
 | `name`                      | String  | The name of the course.                                      |
 | `course_link`               | String  | The course's attendance link.                                |
 | `class_id`                  | String  | The class's unique ID the course is based on.                |
 | `external_id`               | String  | The user provided external ID of the course.                 |
 | `duration`                  | Number  | The time each enrollment will be available once started.     |
-| `duration_unit`              | String  | The duration unit, either 'days' or 'hours'.                 |
+| `duration_unit`             | String  | The duration unit, either 'days' or 'hours'.                 |
 | `activity_hours_limit`      | Number  | The number of work hours each enrollment will be limited to. |
 | `features.video`            | Boolean | The flag for including video in the course.                  |
 | `features.slides`           | Boolean | The flag for including slides in the course.                 |
@@ -107,7 +107,7 @@ Get a single on demand course.
 ### URL Parameters
 
 | Attribute   | Type   | Required | Description                     |
-|-------------|--------|----------|---------------------------------|
+| ----------- | ------ | -------- | ------------------------------- |
 | `course_id` | String | Yes      | The course's unique identifier. |
 
 ## Create a course
@@ -121,7 +121,8 @@ $ curl -X POST \
     -H "Content-Type: application/json" \
     "https://app.strigo.io/api/v1/ondemand" \
     -d @- <<EOF
-      "name":"My Event",
+    {
+      "name": "My Course",
       "class_id": "hd3ALTaLAbhfzmBbf",
       "duration": 5,
       "duration_unit": "days",
@@ -167,12 +168,12 @@ Create a new on demand course.
 ### BODY Parameters
 
 | Attribute                   | Type    | Required | Description                                                  |
-|-----------------------------|---------|----------|--------------------------------------------------------------|
+| --------------------------- | ------- | -------- | ------------------------------------------------------------ |
 | `name`                      | String  | Yes      | The name of the course.                                      |
 | `class_id`                  | String  | Yes      | The class's unique ID the course is based on.                |
 | `external_id`               | String  | No       | The user provided external ID of the course.                 |
 | `duration`                  | Number  | Yes      | The time each enrollment will be available once started.     |
-| `duration_unit`              | Number  | Yes      | The duration unit, either 'days' or 'hours'.                 |
+| `duration_unit`             | String  | Yes      | The duration unit, either 'days' or 'hours'.                 |
 | `activity_hours_limit`      | Number  | Yes      | The number of work hours each enrollment will be limited to. |
 | `features.video`            | Boolean | Yes      | The flag for including video in the course.                  |
 | `features.slides`           | Boolean | Yes      | The flag for including slides in the course.                 |
@@ -191,7 +192,8 @@ $ curl -X PATCH \
     -H "Content-Type: application/json" \
     "https://app.strigo.io/api/v1/ondemand/i7gHDXnDzpRFQqFZP" \
     -d @- <<EOF
-      "name":"My Event",
+    {
+      "name": "My Updated Course",
       "class_id": "hd3ALTaLAbhfzmBbf",
       "duration": 5,
       "duration_unit": "days",
@@ -232,17 +234,23 @@ EOF
 
 Update an on demand course.
 
-`PATCH "/ondemand/:ondemand_id"`
+`PATCH "/ondemand/:course_id"`
+
+### URL Parameters
+
+| Attribute   | Type   | Required | Description                     |
+| ----------- | ------ | -------- | ------------------------------- |
+| `course_id` | String | Yes      | The course's unique identifier. |
 
 ### BODY Parameters
 
 | Attribute                   | Type    | Required | Description                                                  |
-|-----------------------------|---------|----------|--------------------------------------------------------------|
+| --------------------------- | ------- | -------- | ------------------------------------------------------------ |
 | `name`                      | String  | No       | The name of the course.                                      |
 | `class_id`                  | String  | No       | The class's unique ID the course is based on.                |
 | `external_id`               | String  | No       | The user provided external ID of the course.                 |
 | `duration`                  | Number  | No       | The time each enrollment will be available once started.     |
-| `duration_unit`              | Number  | No       | The duration unit, either 'days' or 'hours'.                 |
+| `duration_unit`             | String  | No       | The duration unit, either 'days' or 'hours'.                 |
 | `activity_hours_limit`      | Number  | No       | The number of work hours each enrollment will be limited to. |
 | `features.video`            | Boolean | No       | The flag for including video in the course.                  |
 | `features.slides`           | Boolean | No       | The flag for including slides in the course.                 |
@@ -281,5 +289,5 @@ You can only delete courses for which there are no running enrollments.
 ### URL Parameters
 
 | Attribute   | Type   | Required | Description                     |
-|-------------|--------|----------|---------------------------------|
+| ----------- | ------ | -------- | ------------------------------- |
 | `course_id` | String | Yes      | The course's unique identifier. |
