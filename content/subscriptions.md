@@ -9,7 +9,7 @@ weight: 900
 ### Attributes:
 
 | Attribute   | Type     | Description                                                            |
-|-------------|----------|------------------------------------------------------------------------|
+| ----------- | -------- | ---------------------------------------------------------------------- |
 | `id`        | String   | The event's unique identifier.                                         |
 | `target`    | String   | The URL to send the payload to.                                        |
 | `event`     | String   | The type of event to send notifications to.                            |
@@ -103,7 +103,7 @@ Get a single subscription.
 ### URL Parameters
 
 | Attribute         | Type   | Required | Description                           |
-|-------------------|--------|----------|---------------------------------------|
+| ----------------- | ------ | -------- | ------------------------------------- |
 | `subscription_id` | String | Yes      | The subscription's unique identifier. |
 
 ## Create an subscription
@@ -115,7 +115,7 @@ $ curl -X POST \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "https://app.strigo.io/api/v1/subscription" \
+    "https://app.strigo.io/api/v1/subscriptions" \
     -d @- <<EOF
     {
       "target":"https://example.com",
@@ -149,7 +149,7 @@ Create a new subscription.
 ### BODY Parameters
 
 | Attribute | Type   | Required | Description                                                            |
-|-----------|--------|----------|------------------------------------------------------------------------|
+| --------- | ------ | -------- | ---------------------------------------------------------------------- |
 | `target`  | String | Yes      | The target to send the notification to.                                |
 | `event`   | String | Yes      | The type of the event to subscribe to.                                 |
 | `status`  | String | No       | The status of the subscription (Can be either `active` or `inactive`). |
@@ -163,7 +163,7 @@ $ curl -X PATCH \
     -H "Authorization: Bearer ${ORG_ID}:${API_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    "https://app.strigo.io/api/v1/subscription" \
+    "https://app.strigo.io/api/v1/subscriptions/x6L3vCNXcvkJXYdd3" \
     -d @- <<EOF
     {
       "target":"https://example.com",
@@ -198,13 +198,13 @@ Modify an existing subscription.
 ### URL Parameters
 
 | Attribute         | Type   | Required | Description                           |
-|-------------------|--------|----------|---------------------------------------|
+| ----------------- | ------ | -------- | ------------------------------------- |
 | `subscription_id` | String | Yes      | The subscription's unique identifier. |
 
 ### BODY Parameters
 
 | Attribute | Type   | Required | Description                                                            |
-|-----------|--------|----------|------------------------------------------------------------------------|
+| --------- | ------ | -------- | ---------------------------------------------------------------------- |
 | `target`  | String | Yes      | The target to send the notification to.                                |
 | `event`   | String | Yes      | The type of the event to subscribe to.                                 |
 | `status`  | String | No       | The status of the subscription (Can be either `active` or `inactive`). |
@@ -231,10 +231,10 @@ $ curl -X DELETE \
 
 Delete a single subscription.
 
-`DELETE "/subscription/:subscription_id"`
+`DELETE "/subscriptions/:subscription_id"`
 
 ### URL Parameters
 
 | Attribute         | Type   | Required | Description                           |
-|-------------------|--------|----------|---------------------------------------|
+| ----------------- | ------ | -------- | ------------------------------------- |
 | `subscription_id` | String | Yes      | The subscription's unique identifier. |

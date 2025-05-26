@@ -9,7 +9,7 @@ weight: 103
 ### Attributes:
 
 | Attribute              | Type    | Description                                                                 |
-|------------------------|---------|-----------------------------------------------------------------------------|
+| ---------------------- | ------- | --------------------------------------------------------------------------- |
 | `id`                   | String  | The resources's unique identifier.                                          |
 | `type`                 | String  | Currently `instance_type`.                                                  |
 | `name`                 | String  | The resource's display name.                                                |
@@ -18,7 +18,7 @@ weight: 103
 | `is_custom_image`      | Boolean | Whether the configured image is a custom one or a build-in one.             |
 | `webview_links`        | List    | A list of webview links.                                                    |
 | `post_launch_script`   | String  | A multiline script to run after all instances in the workspace have loaded. |
-| `userdata`             | String  | A multiline script to run after the intance loads.                          |
+| `userdata`             | String  | A multiline script to run after the instance loads.                         |
 | `ec2_region`           | String  | The AWS region in which the instance is running.                            |
 | `instance_type`        | String  | The type of the instance.                                                   |
 | `image_region_mapping` | Object  | A mapping of AWS regions to AMI IDs.                                        |
@@ -136,7 +136,7 @@ Lists all lab resources for a class.
 ### URL Parameters
 
 | Attribute  | Type   | Required | Description                    |
-|------------|--------|----------|--------------------------------|
+| ---------- | ------ | -------- | ------------------------------ |
 | `class_id` | String | Yes      | The class's unique identifier. |
 
 ## Retrieve a single lab resource
@@ -174,7 +174,7 @@ Get a single lab resource.
 ### URL Parameters
 
 | Attribute     | Type   | Required | Description                       |
-|---------------|--------|----------|-----------------------------------|
+| ------------- | ------ | -------- | --------------------------------- |
 | `class_id`    | String | Yes      | The class's unique identifier.    |
 | `resource_id` | String | Yes      | The resource's unique identifier. |
 
@@ -218,7 +218,6 @@ EOF
   ]
 }
 ```
-
 
 > Request Example with AMI region mapping
 
@@ -271,30 +270,30 @@ Create a new lab resource.
 ### URL Parameters
 
 | Attribute  | Type   | Required | Description                    |
-|------------|--------|----------|--------------------------------|
+| ---------- | ------ | -------- | ------------------------------ |
 | `class_id` | String | Yes      | The class's unique identifier. |
 
 ### BODY Parameters
 
 | Attribute              | Type   | Required | Description                                                                 |
-|------------------------|--------|----------|-----------------------------------------------------------------------------|
+| ---------------------- | ------ | -------- | --------------------------------------------------------------------------- |
 | `name`                 | String | Yes      | The resource's display name.                                                |
 | `image_id`             | String | Yes      | The instance's AMI ID.                                                      |
 | `image_user`           | String | Yes      | The user with which to connect to the instance.                             |
 | `webview_links`        | List   | No       | A list of webview links.                                                    |
 | `post_launch_script`   | String | No       | A multiline script to run after all instances in the workspace have loaded. |
-| `userdata`             | String | No       | A multiline script to run after the intance loads.                          |
+| `userdata`             | String | No       | A multiline script to run after the instance loads.                         |
 | `ec2_region`           | String | No       | The AWS region in which the instance is running (default: `eu-central-1`).  |
 | `instance_type`        | String | No       | The type of the instance available for your org (default: `t2.medium`).     |
 | `image_region_mapping` | Object | No       | A mapping of AWS regions to AMI IDs.                                        |
 
 ### WEBVIEW LINK Parameters
 
-| Attribute | Type   | Required | Description                    |
-|-----------|--------|----------|--------------------------------|
-| `name`    | String | Yes      | The display name for the link. |
-| `url`     | String | Yes      | The url to use.                |
-| `hidden`  | Boolean| No       | Whether or not this webview link is visible to students (default: `false`). |
+| Attribute | Type    | Required | Description                                                                 |
+| --------- | ------- | -------- | --------------------------------------------------------------------------- |
+| `name`    | String  | Yes      | The display name for the link.                                              |
+| `url`     | String  | Yes      | The url to use.                                                             |
+| `hidden`  | Boolean | No       | Whether or not this webview link is visible to students (default: `false`). |
 
 ## Modify a lab resource
 
@@ -388,31 +387,31 @@ Modify a lab resource.
 ### URL Parameters
 
 | Attribute     | Type   | Required | Description                       |
-|---------------|--------|----------|-----------------------------------|
+| ------------- | ------ | -------- | --------------------------------- |
 | `class_id`    | String | Yes      | The class's unique identifier.    |
 | `resource_id` | String | Yes      | The resource's unique identifier. |
 
 ### BODY Parameters
 
 | Attribute              | Type   | Required | Description                                                                 |
-|------------------------|--------|----------|-----------------------------------------------------------------------------|
+| ---------------------- | ------ | -------- | --------------------------------------------------------------------------- |
 | `name`                 | String | No       | The resource's display name.                                                |
 | `image_id`             | String | No       | The instance's AMI ID.                                                      |
 | `image_user`           | String | No       | The user with which to connect to the instance.                             |
 | `webview_links`        | List   | No       | A list of webview links.                                                    |
 | `post_launch_script`   | String | No       | A multiline script to run after all instances in the workspace have loaded. |
-| `userdata`             | String | No       | A multiline script to run after the intance loads.                          |
+| `userdata`             | String | No       | A multiline script to run after the instance loads.                         |
 | `ec2_region`           | String | No       | The AWS region in which the instance is running (default: `eu-central-1`).  |
 | `instance_type`        | String | No       | The type of the instance available for your org (default: `t2.medium`).     |
 | `image_region_mapping` | Object | No       | A mapping of AWS regions to AMI IDs.                                        |
 
 ### WEBVIEW LINK Parameters
 
-| Attribute | Type   | Required | Description                    |
-|-----------|--------|----------|--------------------------------|
-| `name`    | String | Yes      | The display name for the link. |
-| `url`     | String | Yes      | The url to use.                |
-| `hidden`  | Boolean| No       | Whether or not this webview link is visible to students (default: `false`). |
+| Attribute | Type    | Required | Description                                                                 |
+| --------- | ------- | -------- | --------------------------------------------------------------------------- |
+| `name`    | String  | Yes      | The display name for the link.                                              |
+| `url`     | String  | Yes      | The url to use.                                                             |
+| `hidden`  | Boolean | No       | Whether or not this webview link is visible to students (default: `false`). |
 
 ## Delete a single lab resource
 
@@ -441,10 +440,6 @@ Delete a single lab resource.
 ### URL Parameters
 
 | Attribute     | Type   | Required | Description                       |
-|---------------|--------|----------|-----------------------------------|
+| ------------- | ------ | -------- | --------------------------------- |
 | `class_id`    | String | Yes      | The class's unique identifier.    |
 | `resource_id` | String | Yes      | The resource's unique identifier. |
-
-
-
-
